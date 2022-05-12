@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 import 'package:creatego/creatego_theme.dart';
 
-class FNXBoxContent extends StatelessWidget {
+class FXBoxContent extends StatelessWidget {
   String? titleText;
   String? subtitle;
   int? totalValue;
 
-  FNXBoxContent({
+  FXBoxContent({
     Key? key,
     this.totalValue,
     this.titleText = '',
     this.subtitle,
   }) : super(key: key);
 
-  Mix get FNXBoxContentMix => Mix(
+  Mix get FXBoxContentMix => Mix(
         mainAxis(MainAxisAlignment.spaceBetween),
         crossAxis(CrossAxisAlignment.center),
       );
 
-  Mix get FNXBoxColumn => Mix(
+  Mix get FXBoxColumn => Mix(
         mainAxis(MainAxisAlignment.center),
         crossAxis(CrossAxisAlignment.center),
       );
 
-  Mix get FNXBoxIcon => Mix(
+  Mix get FXBoxIcon => Mix(
         rounded(360),
         paddingVertical(11.66),
         paddingHorizontal(13.2),
@@ -38,17 +38,17 @@ class FNXBoxContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Box(
-      mix: FNXBoxContentMix,
-      child: FNXBoxContentMix.row(children: [
+      mix: FXBoxContentMix,
+      child: FXBoxContentMix.row(children: [
         Box(
-          mix: FNXBoxIcon,
+          mix: FXBoxIcon,
           child: const HeroIcon(
             HeroIcons.cloudDownload,
             color: ThemeColors.amber500,
           ),
         ),
-        FNXBoxContentMix.row(children: [
-          FNXBoxColumn.column(children: [
+        FXBoxContentMix.row(children: [
+          FXBoxColumn.column(children: [
             TextMix(titleText!),
             TextMix(subtitle!),
           ]),

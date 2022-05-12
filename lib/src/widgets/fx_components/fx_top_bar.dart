@@ -5,7 +5,7 @@ import 'package:mix/mix.dart';
 const testButton = Variant('testButton');
 const scanText = Variant('scanText');
 
-class FNXTopBar extends StatelessWidget {
+class FXTopBar extends StatelessWidget {
   HeroIcons logo;
   String? avatar;
   VoidCallback menuOnPressed;
@@ -13,7 +13,7 @@ class FNXTopBar extends StatelessWidget {
   VoidCallback popUpMenuOnPressed;
   TextEditingController searchController;
 
-  FNXTopBar({
+  FXTopBar({
     Key? key,
     this.avatar,
     required this.logo,
