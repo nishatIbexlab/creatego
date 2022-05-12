@@ -1,4 +1,4 @@
-library yollet_theme;
+library creatego_theme;
 
 //Packages
 export 'package:heroicons/heroicons.dart';
