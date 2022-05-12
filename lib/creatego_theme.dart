@@ -17,7 +17,12 @@ export 'src/components/sized_text/sized_text.dart';
 export 'src/components/spaced_column/spaced_column.dart';
 export 'src/components/spaced_row/spaced_row.dart';
 
+//Yoshop Sys
 export 'src/widgets/yoshop_sys_components/sidebar/ys_sidebar.dart';
 export 'src/widgets/yoshop_sys_components/buttons/ys_button.dart';
 export 'src/widgets/yoshop_sys_components/toogles/ys_toogle.dart';
 export 'src/widgets/yoshop_sys_components/checkboxes/ys_checkbox.dart';
+
+//Finenex
+export 'src/widgets/fx_components/fx_box_content.dart';
+export 'src/widgets/fx_components/fx_top_bar.dart';
