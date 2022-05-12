@@ -6,7 +6,7 @@ class FXBoxContent extends StatelessWidget {
   final String titleText;
   final HeroIcons icon;
   String? subtitle;
-  final int? totalValue;
+  final int totalValue;
 
   FXBoxContent({
     Key? key,
