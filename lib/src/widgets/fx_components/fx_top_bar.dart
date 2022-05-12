@@ -6,16 +6,16 @@ const testButton = Variant('testButton');
 const scanText = Variant('scanText');
 
 class FXTopBar extends StatelessWidget {
-  HeroIcons logo;
-  String? avatar;
-  VoidCallback menuOnPressed;
-  VoidCallback bellIconOnPressed;
-  VoidCallback popUpMenuOnPressed;
-  TextEditingController searchController;
+  final HeroIcons logo;
+  final String avatar;
+  final VoidCallback menuOnPressed;
+  final VoidCallback bellIconOnPressed;
+  final VoidCallback popUpMenuOnPressed;
+  final TextEditingController searchController;
 
   FXTopBar({
     Key? key,
-    this.avatar,
+    required this.avatar,
     required this.logo,
     required this.menuOnPressed,
     required this.searchController,
@@ -121,7 +121,7 @@ class FXTopBar extends StatelessWidget {
             ),
             Box(
               mix: circleAvatarMix,
-              child: Image.network(avatar ?? ''),
+              child: Image.network(avatar),
             ),
             PressableMix(
               mix: topBarRightSide,

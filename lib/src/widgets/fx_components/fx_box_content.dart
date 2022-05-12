@@ -3,14 +3,16 @@ import 'package:mix/mix.dart';
 import 'package:creatego/creatego_theme.dart';
 
 class FXBoxContent extends StatelessWidget {
-  String? titleText;
+  final String? titleText;
+  final HeroIcons icon;
   String? subtitle;
-  int? totalValue;
+  final int? totalValue;
 
   FXBoxContent({
     Key? key,
-    this.totalValue,
-    this.titleText = '',
+    required this.totalValue,
+    required this.icon,
+    required this.titleText,
     this.subtitle,
   }) : super(key: key);
 
@@ -42,15 +44,15 @@ class FXBoxContent extends StatelessWidget {
       child: FXBoxContentMix.row(children: [
         Box(
           mix: FXBoxIcon,
-          child: const HeroIcon(
-            HeroIcons.cloudDownload,
+          child: HeroIcon(
+            icon,
             color: ThemeColors.amber500,
           ),
         ),
         FXBoxContentMix.row(children: [
           FXBoxColumn.column(children: [
             TextMix(titleText!),
-            TextMix(subtitle!),
+            if (subtitle != null) TextMix(subtitle!),
           ]),
           TextMix(
             totalValue.toString(),
