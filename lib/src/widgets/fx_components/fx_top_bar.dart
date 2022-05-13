@@ -2,19 +2,25 @@ import 'package:creatego/creatego_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-const testButton = Variant('testButton');
-const scanText = Variant('scanText');
+const _testButton = Variant('testButton');
+const _scanText = Variant('scanText');
 
 class FXTopBar extends StatelessWidget {
-  final HeroIcons logo;
+  final String logo;
   final String avatar;
+  final bool showTest;
+  final bool showScan;
+  final bool showMenu;
   final VoidCallback menuOnPressed;
   final VoidCallback bellIconOnPressed;
   final VoidCallback popUpMenuOnPressed;
   final TextEditingController searchController;
 
-  FXTopBar({
+  const FXTopBar({
     Key? key,
+    this.showScan = false,
+    this.showTest = false,
+    this.showMenu = false,
     required this.avatar,
     required this.logo,
     required this.menuOnPressed,
@@ -24,86 +30,90 @@ class FXTopBar extends StatelessWidget {
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
-    paddingHorizontal(14),
-    bgColor(ThemeColors.finex700),
-    crossAxis(CrossAxisAlignment.center),
-    scanText(
-      margin(7),
-      fontSize(24),
-      fontWeight(FontWeight.bold),
-      textColor(ThemeColors.white),
-    ),
-    testButton(
-      align(Alignment.center),
-      margin(7),
-      width(69),
-      height(36),
-      rounded(6),
-      fontSize(15),
-      textColor(ThemeColors.white),
-      bgColor(ThemeColors.orange500),
-    ),
-  );
+        height(66),
+        paddingHorizontal(14),
+        bgColor(ThemeColors.finex700),
+        crossAxis(CrossAxisAlignment.center),
+        _scanText(
+          margin(7),
+          fontSize(24),
+          fontWeight(FontWeight.bold),
+          textColor(ThemeColors.white),
+        ),
+        _testButton(
+          align(Alignment.center),
+          margin(7),
+          width(69),
+          height(36),
+          rounded(6),
+          fontSize(15),
+          textColor(ThemeColors.white),
+          bgColor(ThemeColors.orange500),
+        ),
+      );
 
   Mix get searchFieldMix => Mix(
-    margin(7),
-    height(40),
-    width(418),
-    rounded(12),
-    fontSize(15),
-    bgColor(ThemeColors.white),
-    mainAxis(MainAxisAlignment.start),
-    crossAxis(CrossAxisAlignment.center),
-  );
+        margin(7),
+        height(40),
+        width(418),
+        rounded(50),
+        fontSize(15),
+        bgColor(ThemeColors.white),
+        mainAxis(MainAxisAlignment.start),
+        crossAxis(CrossAxisAlignment.center),
+      );
 
   Mix get topBarRightSide => Mix(
-    icon(
-      color: ThemeColors.white,
-      size: 15,
-    ),
-  );
+        icon(
+          color: ThemeColors.white,
+          size: 15,
+        ),
+      );
 
   Mix get circleAvatarMix => Mix(
-    marginLeft(20),
-    marginRight(22),
-    height(32),
-    width(32),
-    rounded(360),
-  );
+        marginLeft(20),
+        marginRight(22),
+        height(32),
+        width(32),
+        rounded(360),
+      );
 
   @override
   Widget build(BuildContext context) {
     return Box(
       mix: topBarMix,
       child: topBarMix.row(children: [
-        PressableMix(
-          onPressed: menuOnPressed,
-          child: const HeroIcon(
-            HeroIcons.menu,
-            color: ThemeColors.white,
+        if (showMenu)
+          PressableMix(
+            onPressed: menuOnPressed,
+            child: const HeroIcon(
+              HeroIcons.menu,
+              color: ThemeColors.white,
+            ),
           ),
-        ),
-        const SizedBox(width: 20.33),
-        HeroIcon(logo),
-        const Box(
-          variant: scanText,
-          child: TextMix(
-            'SCAN',
-            variant: scanText,
+        if (showMenu) const SizedBox(width: 20.33),
+        Image.network(logo),
+        if (showScan)
+          const Box(
+            variant: _scanText,
+            child: TextMix(
+              'SCAN',
+              variant: _scanText,
+            ),
           ),
-        ),
-        const Box(
-          variant: testButton,
-          child: TextMix(
-            'TEST',
-            variant: testButton,
+        if (showTest)
+          const Box(
+            variant: _testButton,
+            child: TextMix(
+              'TEST',
+              variant: _testButton,
+            ),
           ),
-        ),
         Box(
           mix: searchFieldMix,
           child: searchFieldMix.row(
             children: [
-              const HeroIcon(HeroIcons.search),
+              const HeroIcon(HeroIcons.search, size: 20),
               const SizedBox(width: 10.01),
               // TextMix('Search by Block ID / TX Hash')
               Flexible(
