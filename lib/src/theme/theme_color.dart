@@ -292,6 +292,9 @@ class ThemeColors {
   static const finex500 = Color(0xFFDE8D09);
   static const finex600 = Color(0xFF414F66);
   static const finex700 = Color(0xFF202D3E);
+  static const finex800 = Color(0xFFEB5757);
+  static const finex900 = Color(0xFFD70000);
+  static const finex1000 = Color(0xFF52D700);
 
   static const Map<String, Color> colors = {
     'bluegray50': bluegray50,

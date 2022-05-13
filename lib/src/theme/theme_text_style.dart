@@ -99,6 +99,12 @@ class ThemeTextMedium {
     fontStyle: FontStyle.normal,
     fontSize: 15.0,
   );
+  static const rubik = TextStyle(
+    fontWeight: fontWeight,
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontSize: 16.0,
+  );
   static const lg = TextStyle(
     fontWeight: fontWeight,
     fontFamily: fontFamily,
