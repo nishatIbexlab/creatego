@@ -26,3 +26,4 @@ export 'src/widgets/yoshop_sys_components/checkboxes/ys_checkbox.dart';
 //Finenex
 export 'src/widgets/fx_components/fx_box_content.dart';
 export 'src/widgets/fx_components/fx_top_bar.dart';
+export 'src/widgets/fx_components/fx_toast.dart';
