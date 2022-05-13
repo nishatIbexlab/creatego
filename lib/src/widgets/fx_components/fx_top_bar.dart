@@ -2,8 +2,8 @@ import 'package:creatego/creatego_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-const testButton = Variant('testButton');
-const scanText = Variant('scanText');
+const _testButton = Variant('testButton');
+const _scanText = Variant('scanText');
 
 class FXTopBar extends StatelessWidget {
   final HeroIcons logo;
@@ -24,52 +24,52 @@ class FXTopBar extends StatelessWidget {
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
-    paddingHorizontal(14),
-    bgColor(ThemeColors.finex700),
-    crossAxis(CrossAxisAlignment.center),
-    scanText(
-      margin(7),
-      fontSize(24),
-      fontWeight(FontWeight.bold),
-      textColor(ThemeColors.white),
-    ),
-    testButton(
-      align(Alignment.center),
-      margin(7),
-      width(69),
-      height(36),
-      rounded(6),
-      fontSize(15),
-      textColor(ThemeColors.white),
-      bgColor(ThemeColors.orange500),
-    ),
-  );
+        paddingHorizontal(14),
+        bgColor(ThemeColors.finex700),
+        crossAxis(CrossAxisAlignment.center),
+        _scanText(
+          margin(7),
+          fontSize(24),
+          fontWeight(FontWeight.bold),
+          textColor(ThemeColors.white),
+        ),
+        _testButton(
+          align(Alignment.center),
+          margin(7),
+          width(69),
+          height(36),
+          rounded(6),
+          fontSize(15),
+          textColor(ThemeColors.white),
+          bgColor(ThemeColors.orange500),
+        ),
+      );
 
   Mix get searchFieldMix => Mix(
-    margin(7),
-    height(40),
-    width(418),
-    rounded(12),
-    fontSize(15),
-    bgColor(ThemeColors.white),
-    mainAxis(MainAxisAlignment.start),
-    crossAxis(CrossAxisAlignment.center),
-  );
+        margin(7),
+        height(40),
+        width(418),
+        rounded(12),
+        fontSize(15),
+        bgColor(ThemeColors.white),
+        mainAxis(MainAxisAlignment.start),
+        crossAxis(CrossAxisAlignment.center),
+      );
 
   Mix get topBarRightSide => Mix(
-    icon(
-      color: ThemeColors.white,
-      size: 15,
-    ),
-  );
+        icon(
+          color: ThemeColors.white,
+          size: 15,
+        ),
+      );
 
   Mix get circleAvatarMix => Mix(
-    marginLeft(20),
-    marginRight(22),
-    height(32),
-    width(32),
-    rounded(360),
-  );
+        marginLeft(20),
+        marginRight(22),
+        height(32),
+        width(32),
+        rounded(360),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -86,17 +86,17 @@ class FXTopBar extends StatelessWidget {
         const SizedBox(width: 20.33),
         HeroIcon(logo),
         const Box(
-          variant: scanText,
+          variant: _scanText,
           child: TextMix(
             'SCAN',
-            variant: scanText,
+            variant: _scanText,
           ),
         ),
         const Box(
-          variant: testButton,
+          variant: _testButton,
           child: TextMix(
             'TEST',
-            variant: testButton,
+            variant: _testButton,
           ),
         ),
         Box(

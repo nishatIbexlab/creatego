@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 import 'package:creatego/creatego_theme.dart';
 
-const boxShadow = Variant('shadow');
-const grayText = Variant('grayText');
+const _boxShadow = Variant('shadow');
+const _grayText = Variant('grayText');
 
 class FXBoxContent extends StatelessWidget {
   final double height;
@@ -36,7 +36,7 @@ class FXBoxContent extends StatelessWidget {
   Mix get FXBoxContentMix => Mix(
         h(height),
         w(width),
-        boxShadow(
+        _boxShadow(
           shadow(
               color: Colors.black.withOpacity(0.07),
               offset: Offset(0, 1),
@@ -75,7 +75,7 @@ class FXBoxContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Box(
       mix: FXBoxContentMix,
-      variant: boxShadow,
+      variant: _boxShadow,
       child: FXBoxContentMix.row(children: [
         Box(
           mix: FXBoxIcon,
