@@ -24,45 +24,52 @@ class FXTopBar extends StatelessWidget {
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
-        paddingHorizontal(14),
-        crossAxis(CrossAxisAlignment.center),
-        scanText(
-          margin(7),
-          fontSize(24),
-          fontWeight(FontWeight.bold),
-        ),
-        testButton(
-          margin(7),
-          width(69),
-          height(36),
-          rounded(6),
-          fontSize(15),
-          textColor(ThemeColors.white),
-          bgColor(ThemeColors.orange500),
-        ),
-      );
+    paddingHorizontal(14),
+    bgColor(ThemeColors.finex700),
+    crossAxis(CrossAxisAlignment.center),
+    scanText(
+      margin(7),
+      fontSize(24),
+      fontWeight(FontWeight.bold),
+      textColor(ThemeColors.white),
+    ),
+    testButton(
+      align(Alignment.center),
+      margin(7),
+      width(69),
+      height(36),
+      rounded(6),
+      fontSize(15),
+      textColor(ThemeColors.white),
+      bgColor(ThemeColors.orange500),
+    ),
+  );
 
   Mix get searchFieldMix => Mix(
-        margin(7),
-        height(40),
-        width(418),
-        rounded(12),
-        fontSize(15),
-        bgColor(ThemeColors.white),
-        mainAxis(MainAxisAlignment.start),
-        crossAxis(CrossAxisAlignment.center),
-      );
+    margin(7),
+    height(40),
+    width(418),
+    rounded(12),
+    fontSize(15),
+    bgColor(ThemeColors.white),
+    mainAxis(MainAxisAlignment.start),
+    crossAxis(CrossAxisAlignment.center),
+  );
 
   Mix get topBarRightSide => Mix(
-        icon(
-          color: ThemeColors.white,
-          size: 15,
-        ),
-      );
+    icon(
+      color: ThemeColors.white,
+      size: 15,
+    ),
+  );
 
   Mix get circleAvatarMix => Mix(
-        rounded(360),
-      );
+    marginLeft(20),
+    marginRight(22),
+    height(32),
+    width(32),
+    rounded(360),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +83,14 @@ class FXTopBar extends StatelessWidget {
             color: ThemeColors.white,
           ),
         ),
+        const SizedBox(width: 20.33),
         HeroIcon(logo),
-        const TextMix(
-          'SCAN',
+        const Box(
           variant: scanText,
+          child: TextMix(
+            'SCAN',
+            variant: scanText,
+          ),
         ),
         const Box(
           variant: testButton,
@@ -98,7 +109,9 @@ class FXTopBar extends StatelessWidget {
               Flexible(
                 child: TextField(
                   controller: searchController,
+                  maxLines: 1,
                   decoration: const InputDecoration(
+                    isDense: true,
                     hintText: 'Search by Block ID / TX Hash',
                     border: InputBorder.none,
                   ),
@@ -121,7 +134,13 @@ class FXTopBar extends StatelessWidget {
             ),
             Box(
               mix: circleAvatarMix,
-              child: Image.network(avatar),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(360),
+                child: Image.network(
+                  avatar,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             PressableMix(
               mix: topBarRightSide,
