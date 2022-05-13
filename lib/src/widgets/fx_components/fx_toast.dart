@@ -1,10 +1,10 @@
 import 'package:creatego/creatego_theme.dart';
 import 'package:mix/mix.dart';
 
-const toastTitleVariant = Variant('toastTitleVariant');
-const toastMessageVariant = Variant('toastMessageVariant');
-const toastIconVariant = Variant('toastIconVariant');
-const toastCloseIconVariant = Variant('toastCloseIconVariant');
+const _toastTitleVariant = Variant('toastTitleVariant');
+const _toastMessageVariant = Variant('toastMessageVariant');
+const _toastIconVariant = Variant('toastIconVariant');
+const _toastCloseIconVariant = Variant('toastCloseIconVariant');
 
 class FxToast extends StatelessWidget {
   final ToastType toastType;
@@ -12,7 +12,7 @@ class FxToast extends StatelessWidget {
   final String toastMessage;
   const FxToast({
     Key? key,
-    required this.toastType,
+    this.toastType = ToastType.success,
     required this.toastMessage,
     required this.toastTitle,
   }) : super(key: key);
@@ -30,15 +30,19 @@ class FxToast extends StatelessWidget {
         paddingVertical(12),
         rounded(6),
         bgColor(_getBgColor(toastType)),
-        toastTitleVariant(textStyle(ThemeTextMedium.rubik), marginBottom(2)
-            //added new style
-            // textColor(ThemeColors.white)
-            ),
-        toastMessageVariant(
+        _toastTitleVariant(
+            textStyle(const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontFamily: "NotoSansMedium",
+              fontStyle: FontStyle.normal,
+              fontSize: 16.0,
+            )),
+            marginBottom(2)),
+        _toastMessageVariant(
           textStyle(ThemeTextRegular.sm),
         ),
-        toastIconVariant(height(32), width(32), marginLeft(12)),
-        toastCloseIconVariant(
+        _toastIconVariant(height(32), width(32), marginLeft(12)),
+        _toastCloseIconVariant(
           height(16),
           width(16),
         ),
@@ -50,23 +54,24 @@ class FxToast extends StatelessWidget {
       mix: toastMix,
       child: toastMix.row(children: [
         Box(
-          variant: toastIconVariant,
+          variant: _toastIconVariant,
           child: HeroIcon(_getIcons(toastType)),
         ),
         Box(
           child: toastMix.column(children: [
-            const Box(
-              variant: toastTitleVariant,
-              child: TextMix('Toast title'),
+            Box(
+              variant: _toastTitleVariant,
+              child: TextMix(toastTitle),
             ),
-            const Box(
-              variant: toastMessageVariant,
-              child: TextMix('Toast message here'),
+            Box(
+              variant: _toastMessageVariant,
+              child: TextMix(toastMessage),
             ),
           ]),
         ),
         const Spacer(),
-        const Box(variant: toastCloseIconVariant, child: HeroIcon(HeroIcons.x)),
+        const Box(
+            variant: _toastCloseIconVariant, child: HeroIcon(HeroIcons.x)),
       ]),
     );
   }
@@ -74,7 +79,7 @@ class FxToast extends StatelessWidget {
   _getBgColor(ToastType toastType) {
     switch (toastType) {
       case ToastType.error:
-        return ThemeColors.finex800; //added by Galymzhan red color
+        return const Color(0xFFEB5757); //added by Galymzhan red color
       case ToastType.warning:
         return ThemeColors.finex500;
       default:
@@ -85,12 +90,12 @@ class FxToast extends StatelessWidget {
   _getShadowColor(ToastType toastType) {
     switch (toastType) {
       case ToastType.error:
-        return ThemeColors.finex900
+        return const Color(0xFFD70000)
             .withOpacity(10); //added by Galymzhan red color
       case ToastType.warning:
-        return ThemeColors.finex900.withOpacity(10);
+        return const Color(0xFFD70000).withOpacity(10);
       default:
-        return ThemeColors.finex1000.withOpacity(10);
+        return const Color(0xFF52D700).withOpacity(10);
     }
   }
 
