@@ -28,4 +28,4 @@ export 'src/widgets/yoshop_sys_components/datatables/default_datatable.dart';
 export 'src/widgets/fx_components/fx_box_content.dart';
 export 'src/widgets/fx_components/topbar/fx_top_bar.dart';
 export 'src/widgets/fx_components/fx_toast.dart';
-export 'srs/widget/fx_components/navbar/fx_nav_bar.dart';
+export 'src/widgets/fx_components/navbar/fx_nav_bar.dart';
