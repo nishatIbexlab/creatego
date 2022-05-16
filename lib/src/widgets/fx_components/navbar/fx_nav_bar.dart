@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 const _navBarPadding = Variant('navBarPadding');
 
 class FXNavBar extends StatefulWidget {
-  final Color? backGroundColor;
+  final Color backGroundColor;
   final int? currentIndex;
   final Function(int)? onTabChange;
   final List<YSButton> children;
@@ -29,7 +29,7 @@ class _FXNavBarState extends State<FXNavBar> {
           paddingHorizontal(24),
           paddingVertical(11),
         ),
-        bgColor(widget.backGroundColor!),
+        bgColor(widget.backGroundColor),
         textColor(ThemeColors.white),
         fontSize(14),
         fontWeight(FontWeight.w500),
