@@ -11,11 +11,11 @@ class FXBoxContent extends StatelessWidget {
   final HeroIcons icon;
   String? subtitle;
   final int totalValue;
-  final Color? backGroundColor;
-  final Color? txtColor;
-  final Color? totalValueColor;
-  final Color? iconBorderColor;
-  final Color? iconColor;
+  final Color backGroundColor;
+  final Color txtColor;
+  final Color totalValueColor;
+  final Color iconBorderColor;
+  final Color iconColor;
 
   FXBoxContent({
     Key? key,
@@ -32,41 +32,41 @@ class FXBoxContent extends StatelessWidget {
   }) : super(key: key);
 
   Mix get FXBoxContentMix => Mix(
-    rounded(6),
-    fontSize(32),
-    scale(1),
-    _boxVariant(
-      border(color: ThemeColors.coolgray200, width: 1),
-      paddingVertical(16),
-      paddingHorizontal(25),
-      shadow(
-          color: ThemeColors.black.withOpacity(0.07),
-          offset: const Offset(0, 1),
-          blurRadius: 2.0),
-    ),
-    bgColor(backGroundColor!),
-    textColor(totalValueColor),
-    fontWeight(FontWeight.bold),
-    // mainAxis(MainAxisAlignment.spaceBetween),
-    crossAxis(CrossAxisAlignment.baseline),
-  );
+        rounded(6),
+        fontSize(32),
+        scale(1),
+        _boxVariant(
+          border(color: ThemeColors.coolgray200, width: 1),
+          paddingVertical(16),
+          paddingHorizontal(25),
+          shadow(
+              color: ThemeColors.black.withOpacity(0.07),
+              offset: const Offset(0, 1),
+              blurRadius: 2.0),
+        ),
+        bgColor(backGroundColor),
+        textColor(totalValueColor),
+        fontWeight(FontWeight.bold),
+        // mainAxis(MainAxisAlignment.spaceBetween),
+        crossAxis(CrossAxisAlignment.baseline),
+      );
 
   Mix get FXBoxColumn => Mix(
-    fontSize(15),
-    textColor(txtColor),
-    mainAxis(MainAxisAlignment.center),
-    crossAxis(CrossAxisAlignment.start),
-  );
+        fontSize(15),
+        textColor(txtColor),
+        mainAxis(MainAxisAlignment.center),
+        crossAxis(CrossAxisAlignment.start),
+      );
 
   Mix get FXBoxIcon => Mix(
-    rounded(360),
-    paddingVertical(11.66),
-    paddingHorizontal(13.2),
-    border(
-      color: iconBorderColor,
-      width: 3,
-    ),
-  );
+        rounded(360),
+        paddingVertical(11.66),
+        paddingHorizontal(13.2),
+        border(
+          color: iconBorderColor,
+          width: 3,
+        ),
+      );
 
   Mix get customRow => Mix();
 
