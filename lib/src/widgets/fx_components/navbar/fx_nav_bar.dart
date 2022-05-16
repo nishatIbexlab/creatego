@@ -6,19 +6,15 @@ const _navBarPadding = Variant('navBarPadding');
 
 class FXNavBar extends StatefulWidget {
   final Color? backGroundColor;
-  final Color? dashBoardButtonColor;
   final int? currentIndex;
   final Function(int)? onTabChange;
   final List<YSButton> children;
-  final Color? dashBoardIconColor;
 
   FXNavBar({
     Key? key,
     required this.children,
     this.onTabChange,
     this.currentIndex = 0,
-    this.dashBoardIconColor = ThemeColors.white,
-    this.dashBoardButtonColor = ThemeColors.amber500,
     this.backGroundColor = ThemeColors.finex600,
   }) : super(key: key);
 
