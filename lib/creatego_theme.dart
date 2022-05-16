@@ -22,6 +22,7 @@ export 'src/widgets/yoshop_sys_components/sidebar/ys_sidebar.dart';
 export 'src/widgets/yoshop_sys_components/buttons/ys_button.dart';
 export 'src/widgets/yoshop_sys_components/toogles/ys_toogle.dart';
 export 'src/widgets/yoshop_sys_components/checkboxes/ys_checkbox.dart';
+export 'src/widgets/yoshop_sys_components/datatables/default_datatable.dart';
 
 //Finenex
 export 'src/widgets/fx_components/fx_box_content.dart';
