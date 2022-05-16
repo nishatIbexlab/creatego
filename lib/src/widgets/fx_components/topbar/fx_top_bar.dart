@@ -3,24 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
 const _testButton = Variant('testButton');
-const _scanText = Variant('scanText');
 
 class FXTopBar extends StatelessWidget {
-  final String? logo;
-  final String? avatar;
+  final Image? logo;
+  final Image? avatar;
   final VoidCallback? menuOnPressed;
   final VoidCallback? bellIconOnPressed;
   final VoidCallback? popUpMenuOnPressed;
   final TextEditingController? searchController;
-  final bool showScan;
-  final bool showTest;
 
   FXTopBar({
     Key? key,
     this.avatar,
     this.logo,
-    this.showScan = true,
-    this.showTest = true,
     this.menuOnPressed,
     this.searchController,
     this.bellIconOnPressed,
@@ -28,52 +23,46 @@ class FXTopBar extends StatelessWidget {
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
-    paddingHorizontal(14),
-    bgColor(ThemeColors.finex700),
-    crossAxis(CrossAxisAlignment.center),
-    _scanText(
-      margin(7),
-      fontSize(24),
-      fontWeight(FontWeight.bold),
-      textColor(ThemeColors.white),
-    ),
-    _testButton(
-      align(Alignment.center),
-      margin(7),
-      width(69),
-      height(36),
-      rounded(6),
-      fontSize(15),
-      textColor(ThemeColors.white),
-      bgColor(ThemeColors.orange500),
-    ),
-  );
+        paddingHorizontal(14),
+        bgColor(ThemeColors.finex700),
+        crossAxis(CrossAxisAlignment.center),
+        _testButton(
+          align(Alignment.center),
+          margin(7),
+          width(69),
+          height(36),
+          rounded(6),
+          fontSize(15),
+          textColor(ThemeColors.white),
+          bgColor(ThemeColors.orange500),
+        ),
+      );
 
   Mix get searchFieldMix => Mix(
-    margin(7),
-    height(40),
-    width(418),
-    rounded(12),
-    fontSize(15),
-    bgColor(ThemeColors.white),
-    mainAxis(MainAxisAlignment.start),
-    crossAxis(CrossAxisAlignment.center),
-  );
+        margin(7),
+        height(40),
+        width(418),
+        rounded(12),
+        fontSize(15),
+        bgColor(ThemeColors.white),
+        mainAxis(MainAxisAlignment.start),
+        crossAxis(CrossAxisAlignment.center),
+      );
 
   Mix get topBarRightSide => Mix(
-    icon(
-      color: ThemeColors.white,
-      size: 15,
-    ),
-  );
+        icon(
+          color: ThemeColors.white,
+          size: 15,
+        ),
+      );
 
   Mix get circleAvatarMix => Mix(
-    marginLeft(20),
-    marginRight(22),
-    height(32),
-    width(32),
-    rounded(360),
-  );
+        marginLeft(20),
+        marginRight(22),
+        height(32),
+        width(32),
+        rounded(360),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -89,14 +78,7 @@ class FXTopBar extends StatelessWidget {
             ),
           ),
         if (menuOnPressed != null) const SizedBox(width: 20.33),
-        if (logo != null) Image.network(logo!),
-        const Box(
-          variant: _scanText,
-          child: TextMix(
-            'SCAN',
-            variant: _scanText,
-          ),
-        ),
+        if (logo != null) logo!,
         const Box(
           variant: _testButton,
           child: TextMix(
@@ -143,10 +125,7 @@ class FXTopBar extends StatelessWidget {
                 mix: circleAvatarMix,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(360),
-                  child: Image.network(
-                    avatar!,
-                    fit: BoxFit.cover,
-                  ),
+                  child: avatar!,
                 ),
               ),
             if (popUpMenuOnPressed != null)
