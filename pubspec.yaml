@@ -31,7 +31,6 @@ dependencies:
   syncfusion_flutter_datagrid: ^19.4.43
   flutter_screenutil: ^5.0.0+2
   image_picker: ^0.8.4+11
-  responsive_framework: ^0.1.7
   mix: ^0.0.6
 
   # Database Related Dependencies
