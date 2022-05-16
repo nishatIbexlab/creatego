@@ -1,46 +1,94 @@
 import 'package:creatego/creatego_theme.dart';
-import 'package:creatego/src/widgets/fx_components/navbar/nav_bar_button.dart';
 import 'package:mix/mix.dart';
 import 'package:flutter/material.dart';
 
 const _navBarPadding = Variant('navBarPadding');
 
-class FXNavBar extends StatelessWidget {
+class FXNavBar extends StatefulWidget {
   final Color? backGroundColor;
   final Color? dashBoardButtonColor;
-  final List<FXNavBarButton> children;
+  final int? currentIndex;
+  final Function(int)? onTabChange;
+  final List<YSButton> children;
   final Color? dashBoardIconColor;
 
-  const FXNavBar({
+  FXNavBar({
     Key? key,
     required this.children,
+    this.onTabChange,
+    this.currentIndex = 0,
     this.dashBoardIconColor = ThemeColors.white,
     this.dashBoardButtonColor = ThemeColors.amber500,
     this.backGroundColor = ThemeColors.finex600,
   }) : super(key: key);
 
+  @override
+  State<FXNavBar> createState() => _FXNavBarState();
+}
+
+class _FXNavBarState extends State<FXNavBar> {
   Mix get fxNavBarMix => Mix(
-    height(64),
-    _navBarPadding(paddingHorizontal(24)),
-    bgColor(backGroundColor!),
-    textColor(ThemeColors.white),
-    fontSize(14),
-    fontWeight(FontWeight.w500),
-  );
+        height(64),
+        _navBarPadding(
+          paddingHorizontal(24),
+          paddingVertical(11),
+        ),
+        bgColor(widget.backGroundColor!),
+        textColor(ThemeColors.white),
+        fontSize(14),
+        fontWeight(FontWeight.w500),
+      );
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgets = [];
-    for (var element in children) {
-      widgets.add(element);
-      if (children.last != element) {
-        widgets.add(const SizedBox(width: 34.5));
-      }
-    }
     return Box(
       mix: fxNavBarMix,
       variant: _navBarPadding,
-      child: fxNavBarMix.row(children: widgets),
+      child: SpacedRow(
+        children: _buildNavbarChildren(),
+        horizontalSpace: 20,
+      ),
     );
+  }
+
+  List<Widget> _buildNavbarChildren() {
+    final List<Widget> children = [];
+    for (int i = 0; i < widget.children.length; i++) {
+      final _item = widget.children[i];
+      children.add(
+        _checkActive(
+          widget.currentIndex!,
+          i,
+          _item,
+          widget.onTabChange,
+        ),
+      );
+    }
+    return children;
+  }
+
+  _checkActive(int currentIndex, int childrenIndex, YSButton item,
+      Function(int)? onPressed) {
+    if (currentIndex == childrenIndex) {
+      return YSButton(
+        text: item.text,
+        icon: item.icon,
+        bgColor: item.bgColor,
+        onPressed: () {
+          setState(() {
+            onPressed?.call(childrenIndex);
+          });
+        },
+      );
+    } else {
+      return YSButton.link(
+        text: item.text,
+        icon: item.icon,
+        textColor: ThemeColors.white,
+        onPressed: () => setState(() {
+          onPressed?.call(childrenIndex);
+        }),
+      );
+    }
   }
 }
