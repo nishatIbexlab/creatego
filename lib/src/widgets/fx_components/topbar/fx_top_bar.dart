@@ -5,8 +5,9 @@ import 'package:mix/mix.dart';
 const _testButton = Variant('testButton');
 
 class FXTopBar extends StatelessWidget {
-  final Image? logo;
-  final Image? avatar;
+  final Widget? logo;
+  final Widget? avatar;
+  final bool isTest;
   final VoidCallback? menuOnPressed;
   final VoidCallback? bellIconOnPressed;
   final VoidCallback? popUpMenuOnPressed;
@@ -20,49 +21,50 @@ class FXTopBar extends StatelessWidget {
     this.searchController,
     this.bellIconOnPressed,
     this.popUpMenuOnPressed,
+    this.isTest = false,
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
-        paddingHorizontal(14),
-        bgColor(ThemeColors.finex700),
-        crossAxis(CrossAxisAlignment.center),
-        _testButton(
-          align(Alignment.center),
-          margin(7),
-          width(69),
-          height(36),
-          rounded(6),
-          fontSize(15),
-          textColor(ThemeColors.white),
-          bgColor(ThemeColors.orange500),
-        ),
-      );
+    paddingHorizontal(14),
+    bgColor(ThemeColors.finex700),
+    crossAxis(CrossAxisAlignment.center),
+    _testButton(
+      align(Alignment.center),
+      margin(7),
+      width(69),
+      height(36),
+      rounded(6),
+      fontSize(15),
+      textColor(ThemeColors.white),
+      bgColor(ThemeColors.orange500),
+    ),
+  );
 
   Mix get searchFieldMix => Mix(
-        margin(7),
-        height(40),
-        width(418),
-        rounded(12),
-        fontSize(15),
-        bgColor(ThemeColors.white),
-        mainAxis(MainAxisAlignment.start),
-        crossAxis(CrossAxisAlignment.center),
-      );
+    margin(7),
+    height(40),
+    width(418),
+    rounded(12),
+    fontSize(15),
+    bgColor(ThemeColors.white),
+    mainAxis(MainAxisAlignment.start),
+    crossAxis(CrossAxisAlignment.center),
+  );
 
   Mix get topBarRightSide => Mix(
-        icon(
-          color: ThemeColors.white,
-          size: 15,
-        ),
-      );
+    icon(
+      color: ThemeColors.white,
+      size: 15,
+    ),
+  );
 
   Mix get circleAvatarMix => Mix(
-        marginLeft(20),
-        marginRight(22),
-        height(32),
-        width(32),
-        rounded(360),
-      );
+    marginLeft(20),
+    marginRight(22),
+    height(32),
+    width(32),
+    rounded(360),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -79,13 +81,14 @@ class FXTopBar extends StatelessWidget {
           ),
         if (menuOnPressed != null) const SizedBox(width: 20.33),
         if (logo != null) logo!,
-        const Box(
-          variant: _testButton,
-          child: TextMix(
-            'TEST',
+        if (isTest)
+          const Box(
             variant: _testButton,
+            child: TextMix(
+              'TEST',
+              variant: _testButton,
+            ),
           ),
-        ),
         if (searchController != null)
           Box(
             mix: searchFieldMix,
