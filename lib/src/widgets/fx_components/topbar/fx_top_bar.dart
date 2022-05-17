@@ -3,40 +3,31 @@ import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
 const _testButton = Variant('testButton');
-const _scanText = Variant('scanText');
 
 class FXTopBar extends StatelessWidget {
-  final String? logo;
-  final String? avatar;
+  final Widget? logo;
+  final Widget? avatar;
+  final bool isTest;
   final VoidCallback? menuOnPressed;
   final VoidCallback? bellIconOnPressed;
   final VoidCallback? popUpMenuOnPressed;
   final TextEditingController? searchController;
-  final bool showScan;
-  final bool showTest;
 
   FXTopBar({
     Key? key,
     this.avatar,
     this.logo,
-    this.showScan = true,
-    this.showTest = true,
     this.menuOnPressed,
     this.searchController,
     this.bellIconOnPressed,
     this.popUpMenuOnPressed,
+    this.isTest = false,
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
     paddingHorizontal(14),
     bgColor(ThemeColors.finex700),
     crossAxis(CrossAxisAlignment.center),
-    _scanText(
-      margin(7),
-      fontSize(24),
-      fontWeight(FontWeight.bold),
-      textColor(ThemeColors.white),
-    ),
     _testButton(
       align(Alignment.center),
       margin(7),
@@ -89,21 +80,15 @@ class FXTopBar extends StatelessWidget {
             ),
           ),
         if (menuOnPressed != null) const SizedBox(width: 20.33),
-        if (logo != null) Image.network(logo!),
-        const Box(
-          variant: _scanText,
-          child: TextMix(
-            'SCAN',
-            variant: _scanText,
-          ),
-        ),
-        const Box(
-          variant: _testButton,
-          child: TextMix(
-            'TEST',
+        if (logo != null) logo!,
+        if (isTest)
+          const Box(
             variant: _testButton,
+            child: TextMix(
+              'TEST',
+              variant: _testButton,
+            ),
           ),
-        ),
         if (searchController != null)
           Box(
             mix: searchFieldMix,
@@ -143,10 +128,7 @@ class FXTopBar extends StatelessWidget {
                 mix: circleAvatarMix,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(360),
-                  child: Image.network(
-                    avatar!,
-                    fit: BoxFit.cover,
-                  ),
+                  child: avatar!,
                 ),
               ),
             if (popUpMenuOnPressed != null)

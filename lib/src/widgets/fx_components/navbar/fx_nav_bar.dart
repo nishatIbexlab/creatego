@@ -8,7 +8,7 @@ class FXNavBar extends StatefulWidget {
   final Color backGroundColor;
   final int? currentIndex;
   final Function(int)? onTabChange;
-  final List<YSButton> children;
+  final List<Widget> children;
 
   FXNavBar({
     Key? key,
@@ -24,16 +24,16 @@ class FXNavBar extends StatefulWidget {
 
 class _FXNavBarState extends State<FXNavBar> {
   Mix get fxNavBarMix => Mix(
-        height(64),
-        _navBarPadding(
-          paddingHorizontal(24),
-          paddingVertical(11),
-        ),
-        bgColor(widget.backGroundColor),
-        textColor(ThemeColors.white),
-        fontSize(14),
-        fontWeight(FontWeight.w500),
-      );
+    height(64),
+    _navBarPadding(
+      paddingHorizontal(24),
+      paddingVertical(11),
+    ),
+    bgColor(widget.backGroundColor),
+    textColor(ThemeColors.white),
+    fontSize(14),
+    fontWeight(FontWeight.w500),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -63,28 +63,32 @@ class _FXNavBarState extends State<FXNavBar> {
     return children;
   }
 
-  _checkActive(int currentIndex, int childrenIndex, YSButton item,
+  _checkActive(int currentIndex, int childrenIndex, Widget item,
       Function(int)? onPressed) {
-    if (currentIndex == childrenIndex) {
-      return YSButton(
-        text: item.text,
-        icon: item.icon,
-        bgColor: item.bgColor,
-        onPressed: () {
-          setState(() {
+    if (item is YSButton) {
+      if (currentIndex == childrenIndex) {
+        return YSButton(
+          text: item.text,
+          icon: item.icon,
+          bgColor: item.bgColor,
+          onPressed: () {
+            setState(() {
+              onPressed?.call(childrenIndex);
+            });
+          },
+        );
+      } else {
+        return YSButton.link(
+          text: item.text,
+          icon: item.icon,
+          textColor: ThemeColors.white,
+          onPressed: () => setState(() {
             onPressed?.call(childrenIndex);
-          });
-        },
-      );
+          }),
+        );
+      }
     } else {
-      return YSButton.link(
-        text: item.text,
-        icon: item.icon,
-        textColor: ThemeColors.white,
-        onPressed: () => setState(() {
-          onPressed?.call(childrenIndex);
-        }),
-      );
+      return item;
     }
   }
 }
