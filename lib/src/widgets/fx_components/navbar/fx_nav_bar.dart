@@ -4,36 +4,31 @@ import 'package:flutter/material.dart';
 
 const _navBarPadding = Variant('navBarPadding');
 
-class FXNavBar extends StatefulWidget {
+class FXNavBar extends StatelessWidget {
   final Color backGroundColor;
-  final int? currentIndex;
+  final int currentIndex;
   final Function(int)? onTabChange;
   final List<Widget> children;
 
-  FXNavBar({
+  const FXNavBar({
     Key? key,
     required this.children,
     this.onTabChange,
-    this.currentIndex = 0,
+    required this.currentIndex,
     this.backGroundColor = ThemeColors.finex600,
   }) : super(key: key);
 
-  @override
-  State<FXNavBar> createState() => _FXNavBarState();
-}
-
-class _FXNavBarState extends State<FXNavBar> {
   Mix get fxNavBarMix => Mix(
-    height(64),
-    _navBarPadding(
-      paddingHorizontal(24),
-      paddingVertical(11),
-    ),
-    bgColor(widget.backGroundColor),
-    textColor(ThemeColors.white),
-    fontSize(14),
-    fontWeight(FontWeight.w500),
-  );
+        height(64),
+        _navBarPadding(
+          paddingHorizontal(24),
+          paddingVertical(11),
+        ),
+        bgColor(backGroundColor),
+        textColor(ThemeColors.white),
+        fontSize(14),
+        fontWeight(FontWeight.w500),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -41,30 +36,31 @@ class _FXNavBarState extends State<FXNavBar> {
       mix: fxNavBarMix,
       variant: _navBarPadding,
       child: SpacedRow(
-        children: _buildNavbarChildren(),
+        children: _buildNavbarChildren(context),
         horizontalSpace: 20,
       ),
     );
   }
 
-  List<Widget> _buildNavbarChildren() {
-    final List<Widget> children = [];
-    for (int i = 0; i < widget.children.length; i++) {
-      final _item = widget.children[i];
-      children.add(
+  List<Widget> _buildNavbarChildren(BuildContext context) {
+    final List<Widget> buttons = [];
+    for (int i = 0; i < children.length; i++) {
+      final _item = children[i];
+      buttons.add(
         _checkActive(
-          widget.currentIndex!,
+          context,
+          currentIndex,
           i,
           _item,
-          widget.onTabChange,
+          onTabChange,
         ),
       );
     }
-    return children;
+    return buttons;
   }
 
-  _checkActive(int currentIndex, int childrenIndex, Widget item,
-      Function(int)? onPressed) {
+  _checkActive(BuildContext context, int currentIndex, int childrenIndex,
+      Widget item, Function(int)? onPressed) {
     if (item is YSButton) {
       if (currentIndex == childrenIndex) {
         return YSButton(
@@ -72,9 +68,7 @@ class _FXNavBarState extends State<FXNavBar> {
           icon: item.icon,
           bgColor: item.bgColor,
           onPressed: () {
-            setState(() {
-              onPressed?.call(childrenIndex);
-            });
+            onPressed?.call(childrenIndex);
           },
         );
       } else {
@@ -82,9 +76,9 @@ class _FXNavBarState extends State<FXNavBar> {
           text: item.text,
           icon: item.icon,
           textColor: ThemeColors.white,
-          onPressed: () => setState(() {
+          onPressed: () {
             onPressed?.call(childrenIndex);
-          }),
+          },
         );
       }
     } else {
