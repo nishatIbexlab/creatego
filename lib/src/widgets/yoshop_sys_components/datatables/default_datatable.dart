@@ -11,6 +11,15 @@ class DefaultDatatable extends StatefulWidget {
   List<List<Widget>> bodyWidgets;
   List<GridColumn> headWidgets;
 
+  final bool allowSorting;
+  final bool allowEditing;
+  final bool allowColumnsResizing;
+  final bool showCheckboxColumn;
+  final void Function(DataGridCellDoubleTapDetails)? onCellDoubleTap;
+  final void Function(DataGridCellTapDetails)? onCellTap;
+  final SelectionMode selectionMode;
+  final void Function(List, List)? onSelectionChanged;
+
   ///headWidgets accepts a list of GridColumns, and GridColumns' columnName and label text must be same values!
   ///Example: GridColumn(columnName: 'Column 2', label: SizedText(text: 'Column 2'));
   ///
@@ -18,9 +27,17 @@ class DefaultDatatable extends StatefulWidget {
     required this.bodyWidgets,
     required this.headWidgets,
     this.rowHeight,
+    this.allowColumnsResizing = false,
+    this.allowEditing = false,
+    this.allowSorting = false,
+    this.selectionMode = SelectionMode.none,
     this.freezedColNumber = 0,
     this.freezedRowNumber = 0,
     this.headNamesHorizontalPadding = 0,
+    this.onCellDoubleTap,
+    this.onCellTap,
+    this.onSelectionChanged,
+    this.showCheckboxColumn = false,
   });
 
   @override
@@ -47,9 +64,16 @@ class _DefaultDatatableState extends State<DefaultDatatable> {
       elevation: 4,
       borderRadius: BorderRadius.circular(6),
       child: SfDataGrid(
+          allowSorting: widget.allowSorting,
+          allowEditing: widget.allowEditing,
+          allowColumnsResizing: widget.allowColumnsResizing,
+          onCellDoubleTap: widget.onCellDoubleTap,
+          onCellTap: widget.onCellTap,
+          showCheckboxColumn: widget.showCheckboxColumn,
           headerGridLinesVisibility: GridLinesVisibility.none,
           gridLinesVisibility: GridLinesVisibility.none,
-          selectionMode: SelectionMode.none,
+          selectionMode: widget.selectionMode,
+          onSelectionChanged: widget.onSelectionChanged,
           columnWidthMode: ColumnWidthMode.fill,
           source: _dataSource,
           frozenColumnsCount: widget.freezedColNumber,
