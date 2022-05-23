@@ -1,4 +1,3 @@
-
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import '../../../../creatego_theme.dart';
@@ -65,7 +64,6 @@ class _DefaultDatatableState extends State<DefaultDatatable> {
   @override
   Widget build(BuildContext context) {
     return PhysicalModel(
-      color: ThemeColors.white,
       color: widget.bodyBackgroundColor,
       elevation: 4,
       borderRadius: BorderRadius.circular(6),
@@ -80,7 +78,6 @@ class _DefaultDatatableState extends State<DefaultDatatable> {
           gridLinesVisibility: GridLinesVisibility.none,
           selectionMode: widget.selectionMode,
           onSelectionChanged: widget.onSelectionChanged,
-          selectionMode: SelectionMode.none,
           columnWidthMode: ColumnWidthMode.fill,
           source: _dataSource,
           frozenColumnsCount: widget.freezedColNumber,
@@ -108,7 +105,6 @@ class _DefaultDatatableState extends State<DefaultDatatable> {
             label: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: ThemeColors.coolgray50,
                   color: widget.headBackgorundColor,
                   border: Border(
                     top: const BorderSide(
