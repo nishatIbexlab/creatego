@@ -31,6 +31,7 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   image_picker: ^0.8.4+11
   mix: ^0.0.6
+  pluto_grid: ^2.10.3
 
   # Database Related Dependencies
   hive: ^2.1.0
