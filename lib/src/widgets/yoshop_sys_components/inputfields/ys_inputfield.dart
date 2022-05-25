@@ -65,7 +65,7 @@ class YSInputfield extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       shadowColor: ThemeColors.black.withOpacity(0.07),
       child: Container(
-        // height: size.height.h,
+        height: inputSize == InputSize.S2 ? size.height : null,
         decoration: enableShadow
             ? BoxDecoration(
                 border: Border.all(width: 1, color: ThemeColors.coolgray100),
@@ -96,6 +96,7 @@ class YSInputfield extends StatelessWidget {
           validator: validator,
           controller: controller,
           onTap: onTap,
+          textAlignVertical: TextAlignVertical.center,
           onEditingComplete: onEditingComplete,
           maxLines: maxlines,
           keyboardType: keyboardType,
@@ -103,6 +104,7 @@ class YSInputfield extends StatelessWidget {
           textInputAction: textInputAction,
           decoration: InputDecoration(
             isDense: true,
+            isCollapsed: inputSize == InputSize.S2 ? true : false,
             suffixIcon: Padding(
               padding: EdgeInsets.only(right: 20),
               child: suffix,
@@ -153,7 +155,12 @@ class YSInputfield extends StatelessWidget {
                   : const BorderSide(color: ThemeColors.transparent, width: 0),
             ),
             contentPadding: EdgeInsets.symmetric(
-                horizontal: 16, vertical: inputSize == InputSize.L ? 30 : 20),
+                horizontal: 16,
+                vertical: inputSize == InputSize.L
+                    ? 30
+                    : inputSize == InputSize.S2
+                        ? 5
+                        : 20),
             suffix: SizedText(
               text: suffixText,
               textStyle:
@@ -180,10 +187,16 @@ class YSInputfield extends StatelessWidget {
       case InputSize.S:
         size = const Size(262, 80);
         break;
+
+      /// If inputSize is S2, make the text smaller
+      /// This will align the text in center perfectly
+      case InputSize.S2:
+        size = const Size(273, 40);
+        break;
     }
     return size;
   }
 }
 
 enum InputType { Main, Disabled, Number }
-enum InputSize { L, M, S, L2 }
+enum InputSize { L, M, S, L2, S2 }
