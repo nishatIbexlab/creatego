@@ -124,16 +124,16 @@ class YSInfoBanner extends StatelessWidget {
 class YSSidebar extends StatefulWidget {
   final List<YSSidebarParentItem> children;
   final String title;
-  final String infoBarUpperText;
-  final String infoBarLowerText;
+  final String? infoBarUpperText;
+  final String? infoBarLowerText;
   final VoidCallback? onMenuPressed;
   final VoidCallback? onTitlePressed;
   final int currentIndex;
   void Function(int)? onTabChange;
   YSSidebar(
       {Key? key,
-      this.infoBarUpperText = 'Good morning',
-      this.infoBarLowerText = 'user@yohop.com',
+      this.infoBarUpperText,
+      this.infoBarLowerText,
       this.title = 'YoShop',
       required this.children,
       this.onTitlePressed,
@@ -166,9 +166,10 @@ class _YSSidebarState extends State<YSSidebar> {
             title: widget.title,
             onMenuPressed: widget.onMenuPressed,
             onTitlePressed: widget.onTitlePressed),
-        YSInfoBanner(
-            infoBarLowerText: widget.infoBarLowerText,
-            infoBarUpperText: widget.infoBarUpperText),
+        if (widget.infoBarLowerText != null && widget.infoBarUpperText != null)
+          YSInfoBanner(
+              infoBarLowerText: widget.infoBarLowerText!,
+              infoBarUpperText: widget.infoBarUpperText!),
         Flexible(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
