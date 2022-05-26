@@ -6,6 +6,7 @@ class YSDropwdown extends StatefulWidget {
   final dynamic value;
   final List items;
   final IconData? leftIcon;
+  final IconData? rightIcon;
   String? hintText;
   bool isValueNull = false;
   final bool enableBorder;
@@ -17,16 +18,17 @@ class YSDropwdown extends StatefulWidget {
 
   YSDropwdown(
       {required this.items,
-        this.onChanged,
-        this.enableBorder = false,
-        this.buttonBackgroundColor = ThemeColors.white,
-        this.itemBackgroundColor = ThemeColors.white,
-        this.selectedItemBackgroundColor = ThemeColors.blue400,
-        this.dpValWidth,
-        this.hasUnderline = true,
-        this.value,
-        this.leftIcon,
-        this.hintText}) {
+      this.onChanged,
+      this.enableBorder = false,
+      this.buttonBackgroundColor = ThemeColors.white,
+      this.itemBackgroundColor = ThemeColors.white,
+      this.selectedItemBackgroundColor = ThemeColors.blue400,
+      this.dpValWidth,
+      this.hasUnderline = true,
+      this.value,
+      this.leftIcon,
+      this.hintText,
+      this.rightIcon}) {
     if (value == null) isValueNull = true;
     hintText ??= "Select element";
   }
@@ -69,7 +71,7 @@ class _YSDropwdownState extends State<YSDropwdown> {
       value: widget.value,
       customButton: Container(
         height: 45,
-        padding: const EdgeInsets.only(left: 15),
+        padding: const EdgeInsets.only(left: 5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: widget.buttonBackgroundColor,
@@ -78,16 +80,28 @@ class _YSDropwdownState extends State<YSDropwdown> {
               color: widget.enableBorder
                   ? ThemeColors.coolgray300
                   : Colors.transparent),
-
         ),
         child: SpacedRow(
           crossAxisAlignment: CrossAxisAlignment.center,
-          horizontalSpace: 15,
+          mainAxisAlignment: widget.rightIcon != null
+              ? MainAxisAlignment.spaceBetween
+              : MainAxisAlignment.start,
+          horizontalSpace: 5,
           children: [
             if (widget.isValueNull)
               ..._buildHint()
             else
-              ..._buildSelectedItem(context)
+              ..._buildSelectedItem(context),
+            if (widget.rightIcon != null)
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: Icon(widget.rightIcon!,
+                    color: showUnderline
+                        ? ThemeColors.blue500
+                        : (widget.isValueNull
+                            ? ThemeColors.gray400
+                            : ThemeColors.gray700)),
+              ),
           ],
         ),
       ),
@@ -103,8 +117,8 @@ class _YSDropwdownState extends State<YSDropwdown> {
             color: showUnderline
                 ? ThemeColors.blue500
                 : (widget.isValueNull
-                ? ThemeColors.gray400
-                : ThemeColors.gray700)),
+                    ? ThemeColors.gray400
+                    : ThemeColors.gray700)),
       if (widget.isValueNull)
         SizedText(
             width: widget.dpValWidth,
