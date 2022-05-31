@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:heroicons/heroicons.dart';
-
 import '../../../../creatego_theme.dart';
 
 class YSBreadcrumbs extends StatelessWidget {
@@ -15,7 +12,7 @@ class YSBreadcrumbs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: _buildRoutes(context),
     );
   }
