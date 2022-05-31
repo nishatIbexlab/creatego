@@ -87,11 +87,11 @@ class FXTopBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (menuOnPressed != null)
-              SpacedRow(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                horizontalSpace: 16,
-                children: [
+            SpacedRow(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              horizontalSpace: 16,
+              children: [
+                if (menuOnPressed != null)
                   PressableMix(
                     onPressed: menuOnPressed,
                     child: HeroIcon(
@@ -100,57 +100,57 @@ class FXTopBar extends StatelessWidget {
                       size: iconSize,
                     ),
                   ),
-                  if (navigationList.isNotEmpty)
-                    YSBreadcrumbs(
-                        routes: navigationList, foregroundColor: barTextColor),
-                  if (logo != null) logo!,
-                  if (searchController != null)
-                    YSInputfield(
-                      bgColor: barTextColor,
-                      controller: searchController,
-                      prefix: InkWell(
-                        child: const HeroIcon(
-                          HeroIcons.search,
-                          color: Colors.black,
-                        ),
-                        onTap: onSearchPressed,
+                if (navigationList.isNotEmpty)
+                  YSBreadcrumbs(
+                      routes: navigationList, foregroundColor: barTextColor),
+                if (logo != null) logo!,
+                if (searchController != null)
+                  YSInputfield(
+                    bgColor: barTextColor,
+                    controller: searchController,
+                    prefix: InkWell(
+                      child: const HeroIcon(
+                        HeroIcons.search,
+                        color: Colors.black,
                       ),
-                      placeholder: searchHintText ?? "",
-                      width: 300,
-                      height: 40,
+                      onTap: onSearchPressed,
                     ),
-                  // Box(
-                  //   mix: searchFieldMix,
-                  //   child: TextField(
-                  //     controller: searchController,
-                  //     style: ThemeTextRegular.base.apply(color: Colors.black),
-                  //     decoration: InputDecoration(
-                  //       isDense: true,
-                  //       fillColor: barTextColor,
-                  //       hintStyle:
-                  //           ThemeTextRegular.base.apply(color: Colors.black),
-                  //       hintText: searchHintText,
-                  //       border: InputBorder.none,
-                  //       icon: InkWell(
-                  //         child: const HeroIcon(
-                  //           HeroIcons.search,
-                  //           color: Colors.black,
-                  //         ),
-                  //         onTap: onSearchPressed,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  if (isTest)
-                    const Box(
+                    placeholder: searchHintText ?? "",
+                    width: 300,
+                    height: 40,
+                  ),
+                // Box(
+                //   mix: searchFieldMix,
+                //   child: TextField(
+                //     controller: searchController,
+                //     style: ThemeTextRegular.base.apply(color: Colors.black),
+                //     decoration: InputDecoration(
+                //       isDense: true,
+                //       fillColor: barTextColor,
+                //       hintStyle:
+                //           ThemeTextRegular.base.apply(color: Colors.black),
+                //       hintText: searchHintText,
+                //       border: InputBorder.none,
+                //       icon: InkWell(
+                //         child: const HeroIcon(
+                //           HeroIcons.search,
+                //           color: Colors.black,
+                //         ),
+                //         onTap: onSearchPressed,
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                if (isTest)
+                  const Box(
+                    variant: _testButton,
+                    child: TextMix(
+                      'TEST',
                       variant: _testButton,
-                      child: TextMix(
-                        'TEST',
-                        variant: _testButton,
-                      ),
                     ),
-                ],
-              ),
+                  ),
+              ],
+            ),
             Box(
               mix: topBarRightSide,
               child: SpacedRow(horizontalSpace: 16, children: [
