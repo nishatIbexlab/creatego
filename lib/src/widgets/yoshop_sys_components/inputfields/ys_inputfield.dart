@@ -91,8 +91,8 @@ class YSInputfield extends StatelessWidget {
           style: controllerStyle != null
               ? controllerStyle
               : inputType == InputType.Number
-                  ? ThemeTextMedium.xl
-                  : ThemeTextRegular.xl.copyWith(
+                  ? ThemeTextMedium.base
+                  : ThemeTextRegular.base.copyWith(
                       color: inputType == InputType.Disabled
                           ? ThemeColors.coolgray500
                           : ThemeColors.coolgray900),
@@ -118,20 +118,21 @@ class YSInputfield extends StatelessWidget {
             ),
             prefix: SizedText(
               text: prefixText,
-              textStyle: ThemeTextBold.xl.apply(color: ThemeColors.coolgray900),
+              textStyle:
+                  ThemeTextBold.base.apply(color: ThemeColors.coolgray900),
             ),
             filled: true,
             fillColor: bgColor,
             hintText: placeholder,
             hintStyle:
-                ThemeTextRegular.xl.copyWith(color: ThemeColors.coolgray500),
+                ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
               borderSide: enableBorder
                   ? const BorderSide(color: ThemeColors.coolgray200, width: 1)
                   : const BorderSide(color: ThemeColors.transparent, width: 0),
             ),
-            errorStyle: ThemeTextRegular.lg,
+            errorStyle: ThemeTextRegular.base,
             errorMaxLines: 2,
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
@@ -165,7 +166,7 @@ class YSInputfield extends StatelessWidget {
             suffix: SizedText(
               text: suffixText,
               textStyle:
-                  ThemeTextMedium.xl3.apply(color: ThemeColors.coolgray900),
+                  ThemeTextMedium.base.apply(color: ThemeColors.coolgray900),
             ),
           ),
         ),
