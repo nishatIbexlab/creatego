@@ -141,8 +141,7 @@ class DataSource extends DataGridSource {
     _buildHeads(List dataGridRow) {
       List<DataGridCell<dynamic>> list = [];
       for (var element in dataGridRow) {
-        list.add(DataGridCell(
-            columnName: element.toString(), value: element.toString()));
+        list.add(DataGridCell(columnName: element.toString(), value: element));
       }
       return list;
     }
