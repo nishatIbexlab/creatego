@@ -211,6 +211,11 @@ class _YSSidebarState extends State<YSSidebar> {
                 _expandedIndex = _expandedIndex == i ? null : i;
               });
             }
+            if(_item.onPressed!=null){
+              _item.onPressed!();
+            }
+            
+
           },
           children: _item.children != null && _item.children!.isNotEmpty
               ? _item.children!
