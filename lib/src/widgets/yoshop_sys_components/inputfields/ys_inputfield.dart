@@ -108,14 +108,18 @@ class YSInputfield extends StatelessWidget {
           decoration: InputDecoration(
             isDense: true,
             suffixIcon: Padding(
-              padding: EdgeInsets.only(right: 20),
+              padding: suffix != null
+                  ? const EdgeInsets.only(right: 15)
+                  : const EdgeInsets.only(right: 0),
               child: suffix,
             ),
             suffixIconConstraints: BoxConstraints.tightFor(height: height),
-            prefixIcon: Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: prefix,
-            ),
+            prefixIcon: prefix != null
+                ? Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: prefix,
+                  )
+                : null,
             prefix: SizedText(
               text: prefixText,
               textStyle:
@@ -147,7 +151,7 @@ class YSInputfield extends StatelessWidget {
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
               borderSide: enableBorder
-                  ? BorderSide(color: ThemeColors.red200, width: 2)
+                  ? const BorderSide(color: ThemeColors.red200, width: 2)
                   : const BorderSide(color: ThemeColors.transparent, width: 0),
             ),
             focusedBorder: OutlineInputBorder(
@@ -161,8 +165,8 @@ class YSInputfield extends StatelessWidget {
                   : const BorderSide(color: ThemeColors.transparent, width: 0),
             ),
             isCollapsed: true,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            contentPadding: EdgeInsets.symmetric(
+                horizontal: prefix != null ? 5 : 16, vertical: 6),
             suffix: SizedText(
               text: suffixText,
               textStyle:
