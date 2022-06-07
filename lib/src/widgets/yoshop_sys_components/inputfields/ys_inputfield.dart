@@ -111,7 +111,7 @@ class YSInputfield extends StatelessWidget {
               padding: EdgeInsets.only(right: 20),
               child: suffix,
             ),
-            suffixIconConstraints: BoxConstraints.tightFor(height: 44),
+            suffixIconConstraints: BoxConstraints.tightFor(height: height),
             prefixIcon: Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: prefix,
