@@ -9,14 +9,17 @@ class YSDropwdown extends StatefulWidget {
   final IconData? rightIcon;
   String? hintText;
   bool isValueNull = false;
+  final bool enableBorder;
   final double? dpValWidth;
   final bool hasUnderline;
   final Color buttonBackgroundColor;
   final Color selectedItemBackgroundColor;
   final Color itemBackgroundColor;
+
   YSDropwdown(
       {required this.items,
       this.onChanged,
+      this.enableBorder = false,
       this.buttonBackgroundColor = ThemeColors.white,
       this.itemBackgroundColor = ThemeColors.white,
       this.selectedItemBackgroundColor = ThemeColors.blue400,
@@ -24,8 +27,8 @@ class YSDropwdown extends StatefulWidget {
       this.hasUnderline = true,
       this.value,
       this.leftIcon,
-      this.rightIcon,
-      this.hintText}) {
+      this.hintText,
+      this.rightIcon}) {
     if (value == null) isValueNull = true;
     hintText ??= "Select element";
   }
@@ -57,7 +60,6 @@ class _YSDropwdownState extends State<YSDropwdown> {
       },
       style: ThemeTextRegular.base.copyWith(color: ThemeColors.black),
       dropdownDecoration: BoxDecoration(
-        // color: _getBgColor(),
         borderRadius: BorderRadius.circular(4),
         boxShadow: [
           BoxShadow(
@@ -73,6 +75,11 @@ class _YSDropwdownState extends State<YSDropwdown> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: widget.buttonBackgroundColor,
+          border: Border.all(
+              width: widget.enableBorder ? 1 : 0,
+              color: widget.enableBorder
+                  ? ThemeColors.coolgray300
+                  : Colors.transparent),
         ),
         child: SpacedRow(
           crossAxisAlignment: CrossAxisAlignment.center,

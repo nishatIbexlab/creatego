@@ -18,62 +18,68 @@ class YSButton extends StatelessWidget {
   Color borderColor = ThemeColors.transparent;
   int el = 1;
 
+  final double radius;
+
   YSButton(
       {Key? key,
-        // thisidth = 94,
-        // thiseight = 30,
-        this.onPressed,
-        this.icon,
-        this.bgColor = ThemeColors.orange500,
-        this.textColor = ThemeColors.white,
-        this.iconsize,
-        required this.text,
-        this.isIconRight = false,
-        this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
+      // thisidth = 94,
+      // thiseight = 30,
+      this.onPressed,
+      this.icon,
+      this.bgColor = ThemeColors.orange500,
+      this.textColor = ThemeColors.white,
+      this.iconsize,
+      required this.text,
+      this.isIconRight = false,
+      this.radius = 6,
+      this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key);
 
   YSButton.secondary(
       {Key? key,
-        // thisidth = 94,
-        // thiseight = 30,
-        this.onPressed,
-        this.icon,
-        this.iconsize,
-        required this.text,
-        this.isIconRight = false,
-        this.bgColor = ThemeColors.orange100,
-        this.textColor = ThemeColors.orange500,
-        this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
+      // thisidth = 94,
+      // thiseight = 30,
+      this.onPressed,
+      this.icon,
+      this.iconsize,
+      required this.text,
+      this.isIconRight = false,
+      this.bgColor = ThemeColors.orange100,
+      this.textColor = ThemeColors.orange500,
+      this.radius = 6,
+      this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key);
 
   YSButton.ghost(
       {Key? key,
-        // thisidth = 94,
-        // thiseight = 30,
-        this.onPressed,
-        this.icon,
-        this.iconsize,
-        required this.text,
-        this.bgColor = ThemeColors.white,
-        this.textColor = ThemeColors.coolgray600,
-        this.isIconRight = false,
-        this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
-      : super(key: key) {
-    borderColor = ThemeColors.coolgray300;
-  }
+      // thisidth = 94,
+      // thiseight = 30,
+      this.onPressed,
+      this.icon,
+      this.iconsize,
+      this.el = 1,
+      required this.text,
+      this.bgColor = ThemeColors.white,
+      this.textColor = ThemeColors.coolgray600,
+      this.isIconRight = false,
+      this.borderColor = ThemeColors.coolgray300,
+      this.radius = 6,
+      this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
+      : super(key: key);
 
   YSButton.link(
       {Key? key,
-        // thisidth = 94,
-        // thiseight = 30,
-        this.onPressed,
-        this.icon,
-        this.iconsize,
-        required this.text,
-        this.bgColor = ThemeColors.transparent,
-        this.textColor = ThemeColors.orange500,
-        this.isIconRight = false,
-        this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
+      // thisidth = 94,
+      // thiseight = 30,
+      this.onPressed,
+      this.icon,
+      this.iconsize,
+      required this.text,
+      this.bgColor = ThemeColors.transparent,
+      this.textColor = ThemeColors.orange500,
+      this.isIconRight = false,
+      this.radius = 6,
+      this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key) {
     el = 0;
   }
@@ -81,7 +87,7 @@ class YSButton extends StatelessWidget {
   Mix get pressableMix => Mix(
       animated(),
       elevation(el),
-      rounded(6),
+      rounded(radius),
       scale(1),
       hover(
         elevation(el == 0 ? 0 : 2),
@@ -91,7 +97,7 @@ class YSButton extends StatelessWidget {
       ));
 
   Mix get boxMix => Mix(
-      rounded(6),
+      rounded(radius),
       paddingHorizontal(padding.horizontal),
       paddingVertical(padding.vertical),
       border(width: 1, color: borderColor),
@@ -100,13 +106,13 @@ class YSButton extends StatelessWidget {
       ));
 
   Mix get textMix => Mix(textStyle(
-    ThemeTextSemiBold.sm.apply(color: textColor),
-  ));
+        ThemeTextSemiBold.sm.apply(color: textColor),
+      ));
 
   Mix get iconMix => Mix(
-    iconSize(iconsize != null ? iconsize! : 16),
-    iconColor(textColor),
-  );
+        iconSize(iconsize != null ? iconsize! : 16),
+        iconColor(textColor),
+      );
 
   @override
   Widget build(BuildContext context) {

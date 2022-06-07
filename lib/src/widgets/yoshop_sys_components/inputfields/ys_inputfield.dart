@@ -25,12 +25,14 @@ class YSInputfield extends StatelessWidget {
   final TextStyle? controllerStyle;
   final int? maxLength;
   final FocusNode? focusNode;
+  final Widget? prefix;
   final Widget? suffix;
   final Color? bgColor;
 
   YSInputfield({
     Key? key,
     this.onEditingComplete,
+    this.prefix,
     this.suffix,
     this.focusNode,
     this.maxLength,
@@ -68,10 +70,10 @@ class YSInputfield extends StatelessWidget {
         height: inputSize == InputSize.S2 ? size.height : null,
         decoration: enableShadow
             ? BoxDecoration(
-                border: Border.all(width: 1, color: ThemeColors.coolgray100),
-                boxShadow: ThemeShadows.shadowSm,
-                borderRadius: BorderRadius.circular(24),
-              )
+          border: Border.all(width: 1, color: ThemeColors.coolgray100),
+          boxShadow: ThemeShadows.shadowSm,
+          borderRadius: BorderRadius.circular(24),
+        )
             : null,
         width: size.width,
         child: TextFormField(
@@ -83,16 +85,16 @@ class YSInputfield extends StatelessWidget {
           onChanged: onChanged,
           onFieldSubmitted: onSubmitted,
           textAlign:
-              inputType == InputType.Number ? TextAlign.right : TextAlign.start,
+          inputType == InputType.Number ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: controllerStyle != null
               ? controllerStyle
               : inputType == InputType.Number
-                  ? ThemeTextMedium.xl5
-                  : ThemeTextRegular.xl3.copyWith(
-                      color: inputType == InputType.Disabled
-                          ? ThemeColors.coolgray500
-                          : ThemeColors.coolgray900),
+              ? ThemeTextMedium.xl5
+              : ThemeTextRegular.xl3.copyWith(
+              color: inputType == InputType.Disabled
+                  ? ThemeColors.coolgray500
+                  : ThemeColors.coolgray900),
           validator: validator,
           controller: controller,
           onTap: onTap,
@@ -110,16 +112,20 @@ class YSInputfield extends StatelessWidget {
               child: suffix,
             ),
             suffixIconConstraints: BoxConstraints.tightFor(height: 44),
+            prefixIcon: Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: prefix,
+            ),
             prefix: SizedText(
               text: prefixText,
               textStyle:
-                  ThemeTextBold.xl3.apply(color: ThemeColors.coolgray900),
+              ThemeTextBold.xl3.apply(color: ThemeColors.coolgray900),
             ),
             filled: true,
             fillColor: bgColor,
             hintText: placeholder,
             hintStyle:
-                ThemeTextRegular.xl2.copyWith(color: ThemeColors.coolgray500),
+            ThemeTextRegular.xl2.copyWith(color: ThemeColors.coolgray500),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
               borderSide: enableBorder
@@ -132,10 +138,10 @@ class YSInputfield extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide: enableBorder
                   ? BorderSide(
-                      color: isOrange
-                          ? ThemeColors.orange500
-                          : ThemeColors.coolgray200,
-                      width: 1)
+                  color: isOrange
+                      ? ThemeColors.orange500
+                      : ThemeColors.coolgray200,
+                  width: 1)
                   : const BorderSide(color: ThemeColors.transparent, width: 0),
             ),
             errorBorder: OutlineInputBorder(
@@ -148,10 +154,10 @@ class YSInputfield extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide: enableBorder
                   ? BorderSide(
-                      color: isOrange
-                          ? ThemeColors.orange500
-                          : ThemeColors.coolgray200,
-                      width: 1)
+                  color: isOrange
+                      ? ThemeColors.orange500
+                      : ThemeColors.coolgray200,
+                  width: 1)
                   : const BorderSide(color: ThemeColors.transparent, width: 0),
             ),
             contentPadding: EdgeInsets.symmetric(
@@ -164,7 +170,7 @@ class YSInputfield extends StatelessWidget {
             suffix: SizedText(
               text: suffixText,
               textStyle:
-                  ThemeTextMedium.xl3.apply(color: ThemeColors.coolgray900),
+              ThemeTextMedium.xl3.apply(color: ThemeColors.coolgray900),
             ),
           ),
         ),
