@@ -21,7 +21,7 @@ class CWButtonGhostXS extends StatelessWidget {
           elevation: 0,
           shadowColor: ThemeColors.transparent,
           minimumSize: const Size(94, 30),
-          side: const BorderSide(color: ThemeColors.coolgray600)),
+          side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
       child: SpacedRow(
         horizontalSpace: 4,
@@ -63,7 +63,7 @@ class CWButtonGhostS extends StatelessWidget {
           elevation: 0,
           shadowColor: ThemeColors.transparent,
           minimumSize: const Size(110, 36),
-          side: const BorderSide(color: ThemeColors.coolgray600)),
+          side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
       child: SpacedRow(
         horizontalSpace: 4,
@@ -105,7 +105,7 @@ class CWButtonGhostM extends StatelessWidget {
           elevation: 0,
           shadowColor: ThemeColors.transparent,
           minimumSize: const Size(110, 40),
-          side: const BorderSide(color: ThemeColors.coolgray600)),
+          side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
       child: SpacedRow(
         horizontalSpace: 4,
@@ -147,7 +147,7 @@ class CWButtonGhostL extends StatelessWidget {
           elevation: 0,
           shadowColor: ThemeColors.transparent,
           minimumSize: const Size(110, 44),
-          side: const BorderSide(color: ThemeColors.coolgray600)),
+          side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
       child: SpacedRow(
         horizontalSpace: 4,
@@ -189,7 +189,7 @@ class CWButtonGhostXL extends StatelessWidget {
           elevation: 0,
           shadowColor: ThemeColors.transparent,
           minimumSize: const Size(126, 52),
-          side: const BorderSide(color: ThemeColors.coolgray600)),
+          side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
       child: SpacedRow(
         horizontalSpace: 4,
