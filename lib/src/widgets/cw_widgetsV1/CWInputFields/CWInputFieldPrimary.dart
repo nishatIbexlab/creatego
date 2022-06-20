@@ -14,6 +14,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
   final Widget? suffix;
   final Widget? prefix;
   final double? inputFieldWidth;
+  final bool? obscureText;
 
   const CWInputFieldWithLabel(
       {required this.labelText,
@@ -27,6 +28,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
       this.suffix,
       this.prefix,
       this.inputFieldWidth = 273,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -54,6 +56,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
               cursorColor: ThemeColors.coolgray900,
               style: ThemeTextRegular.base
                   .copyWith(color: ThemeColors.coolgray900),
+              obscureText: obscureText!,
               decoration: InputDecoration(
                 errorStyle:
                     ThemeTextRegular.base.copyWith(color: ThemeColors.red500),
@@ -120,6 +123,7 @@ class CWInputField extends StatelessWidget {
   final Widget? suffix;
   final Widget? prefix;
   final double? inputFieldWidth;
+  final bool? obscureText;
 
   const CWInputField(
       {this.controller,
@@ -132,6 +136,7 @@ class CWInputField extends StatelessWidget {
       this.suffix,
       this.prefix,
       this.inputFieldWidth = 273,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -147,6 +152,7 @@ class CWInputField extends StatelessWidget {
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
+        obscureText: obscureText!,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle:

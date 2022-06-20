@@ -76,6 +76,7 @@ class CWYolletInputFieldWithLabelL extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithLabelL(
       {required this.labelText,
@@ -86,6 +87,7 @@ class CWYolletInputFieldWithLabelL extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -113,6 +115,7 @@ class CWYolletInputFieldWithLabelL extends StatelessWidget {
               cursorColor: ThemeColors.coolgray900,
               style:
                   ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+              obscureText: obscureText!,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: ThemeTextRegular.xl3
@@ -159,6 +162,7 @@ class CWYolletInputFieldWithSuffixL extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithSuffixL(
       {this.controller,
@@ -169,6 +173,7 @@ class CWYolletInputFieldWithSuffixL extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -185,6 +190,7 @@ class CWYolletInputFieldWithSuffixL extends StatelessWidget {
           textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -233,6 +239,7 @@ class CWYolletInputFieldWithPrefixL extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithPrefixL(
       {this.controller,
@@ -243,6 +250,7 @@ class CWYolletInputFieldWithPrefixL extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -259,6 +267,7 @@ class CWYolletInputFieldWithPrefixL extends StatelessWidget {
           textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -308,6 +317,7 @@ class CWYolletInputFieldM extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool? isDisabled;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldM(
       {this.controller,
@@ -316,6 +326,7 @@ class CWYolletInputFieldM extends StatelessWidget {
       this.validator,
       this.isDisabled = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -331,6 +342,7 @@ class CWYolletInputFieldM extends StatelessWidget {
         child: TextFormField(
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -374,6 +386,7 @@ class CWYolletInputFieldWithLabelM extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithLabelM(
       {required this.labelText,
@@ -384,6 +397,7 @@ class CWYolletInputFieldWithLabelM extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -411,6 +425,7 @@ class CWYolletInputFieldWithLabelM extends StatelessWidget {
               cursorColor: ThemeColors.coolgray900,
               style:
                   ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+              obscureText: obscureText!,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: ThemeTextRegular.xl3
@@ -457,6 +472,7 @@ class CWYolletInputFieldWithSuffixM extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithSuffixM(
       {this.controller,
@@ -467,6 +483,7 @@ class CWYolletInputFieldWithSuffixM extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -483,6 +500,7 @@ class CWYolletInputFieldWithSuffixM extends StatelessWidget {
           textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -531,6 +549,7 @@ class CWYolletInputFieldWithPrefixM extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithPrefixM(
       {this.controller,
@@ -541,6 +560,7 @@ class CWYolletInputFieldWithPrefixM extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -557,6 +577,7 @@ class CWYolletInputFieldWithPrefixM extends StatelessWidget {
           textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -606,6 +627,7 @@ class CWYolletInputFieldS extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool? isDisabled;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldS(
       {this.controller,
@@ -614,6 +636,7 @@ class CWYolletInputFieldS extends StatelessWidget {
       this.validator,
       this.isDisabled = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -629,6 +652,7 @@ class CWYolletInputFieldS extends StatelessWidget {
         child: TextFormField(
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -672,6 +696,7 @@ class CWYolletInputFieldWithLabelS extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithLabelS(
       {required this.labelText,
@@ -682,6 +707,7 @@ class CWYolletInputFieldWithLabelS extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -709,6 +735,7 @@ class CWYolletInputFieldWithLabelS extends StatelessWidget {
               cursorColor: ThemeColors.coolgray900,
               style:
                   ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+              obscureText: obscureText!,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: ThemeTextRegular.xl3
@@ -755,6 +782,7 @@ class CWYolletInputFieldWithSuffixS extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithSuffixS(
       {this.controller,
@@ -765,6 +793,7 @@ class CWYolletInputFieldWithSuffixS extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -781,6 +810,7 @@ class CWYolletInputFieldWithSuffixS extends StatelessWidget {
           textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
@@ -829,6 +859,7 @@ class CWYolletInputFieldWithPrefixS extends StatelessWidget {
   final bool? isDisabled;
   final bool? textStartFromRight;
   final String? hintText;
+  final bool? obscureText;
 
   const CWYolletInputFieldWithPrefixS(
       {this.controller,
@@ -839,6 +870,7 @@ class CWYolletInputFieldWithPrefixS extends StatelessWidget {
       this.isDisabled = false,
       this.textStartFromRight = false,
       this.hintText,
+      this.obscureText = false,
       Key? key})
       : super(key: key);
 
@@ -855,6 +887,7 @@ class CWYolletInputFieldWithPrefixS extends StatelessWidget {
           textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
           cursorColor: ThemeColors.coolgray900,
           style: ThemeTextRegular.xl3.copyWith(color: ThemeColors.coolgray900),
+          obscureText: obscureText!,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle:
