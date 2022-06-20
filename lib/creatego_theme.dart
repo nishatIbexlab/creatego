@@ -33,3 +33,13 @@ export 'src/widgets/fx_components/fx_box_content.dart';
 export 'src/widgets/fx_components/topbar/fx_top_bar.dart';
 export 'src/widgets/fx_components/fx_toast.dart';
 export 'src/widgets/fx_components/navbar/fx_nav_bar.dart';
+
+//Custom Widgets
+export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonPrimary.dart';
+export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonSecondary.dart';
+export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonGhost.dart';
+export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonLink.dart';
+export 'src/widgets/cw_widgetsV1/CWDropdowns/CWDropdownPrimary.dart';
+export 'src/widgets/cw_widgetsV1/CWInputFields/CWInputFieldPrimary.dart';
+export 'src/widgets/cw_widgetsV1/CWInputFields/CWYolletInputField.dart';
+export 'src/widgets/cw_widgetsV1/CWToggles/CWTogglePrimary.dart';
