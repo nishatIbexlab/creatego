@@ -18,25 +18,30 @@ class CWButtonGhostXS extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           primary: ThemeColors.white,
+          padding: const EdgeInsets.all(0),
           elevation: 1,
           shadowColor: ThemeColors.coolgray300,
-          minimumSize: const Size(94, 30),
+          // minimumSize: const Size(94, 30),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
-      child: SpacedRow(
-        horizontalSpace: 4,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (leftIcon != null)
-            Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
-          SizedText(
-              text: text,
-              textStyle: ThemeTextSemiBold.sm
-                  .copyWith(color: ThemeColors.coolgray600)),
-          if (rightIcon != null)
-            Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+        child: SpacedRow(
+          horizontalSpace: 4,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (leftIcon != null)
+              Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
+            SizedText(
+                text: text,
+                textStyle: ThemeTextSemiBold.sm
+                    .copyWith(color: ThemeColors.coolgray600)),
+            if (rightIcon != null)
+              Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
+          ],
+        ),
       ),
     );
   }
@@ -61,24 +66,29 @@ class CWButtonGhostS extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           primary: ThemeColors.white,
           elevation: 1,
+          padding: const EdgeInsets.all(0),
           shadowColor: ThemeColors.coolgray300,
-          minimumSize: const Size(110, 36),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+          // minimumSize: const Size(110, 36),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
-      child: SpacedRow(
-        horizontalSpace: 4,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (leftIcon != null)
-            Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
-          SizedText(
-              text: text,
-              textStyle: ThemeTextSemiBold.sm
-                  .copyWith(color: ThemeColors.coolgray600)),
-          if (rightIcon != null)
-            Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: SpacedRow(
+          horizontalSpace: 4,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (leftIcon != null)
+              Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
+            SizedText(
+                text: text,
+                textStyle: ThemeTextSemiBold.sm
+                    .copyWith(color: ThemeColors.coolgray600)),
+            if (rightIcon != null)
+              Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
+          ],
+        ),
       ),
     );
   }
@@ -103,24 +113,29 @@ class CWButtonGhostM extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           primary: ThemeColors.white,
           elevation: 1,
+          padding: const EdgeInsets.all(0),
           shadowColor: ThemeColors.coolgray300,
-          minimumSize: const Size(110, 40),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+          // minimumSize: const Size(110, 40),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
-      child: SpacedRow(
-        horizontalSpace: 4,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (leftIcon != null)
-            Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
-          SizedText(
-              text: text,
-              textStyle: ThemeTextSemiBold.sm
-                  .copyWith(color: ThemeColors.coolgray600)),
-          if (rightIcon != null)
-            Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
-        ],
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: SpacedRow(
+          horizontalSpace: 4,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (leftIcon != null)
+              Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
+            SizedText(
+                text: text,
+                textStyle: ThemeTextSemiBold.sm
+                    .copyWith(color: ThemeColors.coolgray600)),
+            if (rightIcon != null)
+              Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
+          ],
+        ),
       ),
     );
   }
@@ -145,26 +160,30 @@ class CWButtonGhostL extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           primary: ThemeColors.white,
           elevation: 1,
+          padding: const EdgeInsets.all(0),
           shadowColor: ThemeColors.coolgray300,
-          minimumSize: const Size(110, 44),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
-      child: SpacedRow(
-        horizontalSpace: 4,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (leftIcon != null)
-            Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
-          if (leftIcon != null) const SizedBox(width: 4),
-          SizedText(
-              text: text,
-              textStyle: ThemeTextSemiBold.sm
-                  .copyWith(color: ThemeColors.coolgray600)),
-          if (rightIcon != null) const SizedBox(width: 4),
-          if (rightIcon != null)
-            Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: SpacedRow(
+          horizontalSpace: 4,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (leftIcon != null)
+              Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
+            if (leftIcon != null) const SizedBox(width: 4),
+            SizedText(
+                text: text,
+                textStyle: ThemeTextSemiBold.sm
+                    .copyWith(color: ThemeColors.coolgray600)),
+            if (rightIcon != null) const SizedBox(width: 4),
+            if (rightIcon != null)
+              Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
+          ],
+        ),
       ),
     );
   }
@@ -189,26 +208,31 @@ class CWButtonGhostXL extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           primary: ThemeColors.white,
           elevation: 1,
+          padding: const EdgeInsets.all(0),
           shadowColor: ThemeColors.coolgray300,
-          minimumSize: const Size(126, 52),
+          // minimumSize: const Size(126, 52),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
-      child: SpacedRow(
-        horizontalSpace: 4,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          if (leftIcon != null)
-            Icon(leftIcon, size: 20, color: ThemeColors.coolgray600),
-          if (leftIcon != null) const SizedBox(width: 6),
-          SizedText(
-              text: text,
-              textStyle: ThemeTextSemiBold.sm
-                  .copyWith(color: ThemeColors.coolgray600)),
-          if (rightIcon != null) const SizedBox(width: 6),
-          if (rightIcon != null)
-            Icon(rightIcon, size: 20, color: ThemeColors.coolgray600),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        child: SpacedRow(
+          horizontalSpace: 4,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            if (leftIcon != null)
+              Icon(leftIcon, size: 20, color: ThemeColors.coolgray600),
+            if (leftIcon != null) const SizedBox(width: 6),
+            SizedText(
+                text: text,
+                textStyle: ThemeTextSemiBold.sm
+                    .copyWith(color: ThemeColors.coolgray600)),
+            if (rightIcon != null) const SizedBox(width: 6),
+            if (rightIcon != null)
+              Icon(rightIcon, size: 20, color: ThemeColors.coolgray600),
+          ],
+        ),
       ),
     );
   }
