@@ -1,5 +1,4 @@
 import 'package:creatego/creatego_theme.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import '../CWDropdowns/CWDropdownPrimary.dart';
 
 class CWInputFieldWithLabel extends StatelessWidget {
@@ -46,10 +45,11 @@ class CWInputFieldWithLabel extends StatelessWidget {
               textStyle: ThemeTextSemiBold.base
                   .copyWith(color: ThemeColors.coolgray600)),
           Container(
+            height: 40,
             decoration: BoxDecoration(
-              // boxShadow: ThemeShadows.shadowSm,
-              borderRadius: BorderRadius.circular(6),
-            ),
+                // boxShadow: ThemeShadows.shadowSm,
+                borderRadius: BorderRadius.circular(6),
+                boxShadow: ThemeShadows.shadowSm),
             child: TextFormField(
               textAlign:
                   textStartFromRight! ? TextAlign.right : TextAlign.start,
@@ -144,8 +144,9 @@ class CWInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: inputFieldWidth,
+      height: 40,
       decoration: BoxDecoration(
-        // boxShadow: ThemeShadows.shadowSm,
+        boxShadow: ThemeShadows.shadowSm,
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
@@ -246,10 +247,12 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
 
     return Container(
       width: inputFieldWidth!,
+      height: 40,
       decoration: BoxDecoration(
         border: Border.all(width: 1, color: ThemeColors.coolgray200),
         borderRadius: BorderRadius.circular(6),
         color: ThemeColors.white,
+        boxShadow: ThemeShadows.shadowSm,
       ),
       child: Row(
         children: [
@@ -365,10 +368,12 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
 
     return Container(
       width: inputFieldWidth!,
+      height: 40,
       decoration: BoxDecoration(
         border: Border.all(width: 1, color: ThemeColors.coolgray200),
         borderRadius: BorderRadius.circular(6),
         color: ThemeColors.white,
+        boxShadow: ThemeShadows.shadowSm,
       ),
       child: Row(
         children: [
