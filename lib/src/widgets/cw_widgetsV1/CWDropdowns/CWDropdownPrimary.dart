@@ -38,6 +38,7 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -59,7 +60,7 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
         value: widget.value,
         dropdownWidth: widget.dropdownOptionsWidth,
         customButton: Container(
-          height: 45,
+          // height: 40,
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
@@ -209,6 +210,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -381,6 +383,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -402,7 +405,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
         value: widget.value,
         dropdownWidth: widget.dropdownBtnWidth,
         customButton: Container(
-          height: 45,
+          height: 40,
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
@@ -579,6 +582,7 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
 
     return SizedBox(
       width: _dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -749,6 +753,7 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
 
     return SizedBox(
       width: _dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         buttonWidth: _dropdownBtnWidth,
         itemPadding: EdgeInsets.zero,

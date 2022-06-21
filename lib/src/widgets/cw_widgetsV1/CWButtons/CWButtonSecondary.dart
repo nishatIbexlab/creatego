@@ -144,10 +144,12 @@ class CWButtonSecondaryL extends StatelessWidget {
         children: [
           if (leftIcon != null)
             Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+          if (leftIcon != null) const SizedBox(width: 4),
           SizedText(
               text: text,
               textStyle:
                   ThemeTextSemiBold.sm.copyWith(color: ThemeColors.orange500)),
+          if (rightIcon != null) const SizedBox(width: 4),
           if (rightIcon != null)
             Icon(rightIcon, size: 16, color: ThemeColors.orange500),
         ],
@@ -183,10 +185,12 @@ class CWButtonSecondaryXL extends StatelessWidget {
         children: [
           if (leftIcon != null)
             Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+          if (leftIcon != null) const SizedBox(width: 6),
           SizedText(
               text: text,
               textStyle:
                   ThemeTextSemiBold.sm.copyWith(color: ThemeColors.orange500)),
+          if (rightIcon != null) const SizedBox(width: 6),
           if (rightIcon != null)
             Icon(rightIcon, size: 16, color: ThemeColors.orange500),
         ],

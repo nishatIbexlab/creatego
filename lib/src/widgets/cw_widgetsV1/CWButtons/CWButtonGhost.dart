@@ -17,9 +17,9 @@ class CWButtonGhostXS extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: ThemeColors.transparent,
-          elevation: 0,
-          shadowColor: ThemeColors.transparent,
+          primary: ThemeColors.white,
+          elevation: 1,
+          shadowColor: ThemeColors.coolgray300,
           minimumSize: const Size(94, 30),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
@@ -59,9 +59,9 @@ class CWButtonGhostS extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: ThemeColors.transparent,
-          elevation: 0,
-          shadowColor: ThemeColors.transparent,
+          primary: ThemeColors.white,
+          elevation: 1,
+          shadowColor: ThemeColors.coolgray300,
           minimumSize: const Size(110, 36),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
@@ -101,9 +101,9 @@ class CWButtonGhostM extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: ThemeColors.transparent,
-          elevation: 0,
-          shadowColor: ThemeColors.transparent,
+          primary: ThemeColors.white,
+          elevation: 1,
+          shadowColor: ThemeColors.coolgray300,
           minimumSize: const Size(110, 40),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
@@ -143,9 +143,9 @@ class CWButtonGhostL extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: ThemeColors.transparent,
-          elevation: 0,
-          shadowColor: ThemeColors.transparent,
+          primary: ThemeColors.white,
+          elevation: 1,
+          shadowColor: ThemeColors.coolgray300,
           minimumSize: const Size(110, 44),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
@@ -156,10 +156,12 @@ class CWButtonGhostL extends StatelessWidget {
         children: [
           if (leftIcon != null)
             Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
+          if (leftIcon != null) const SizedBox(width: 4),
           SizedText(
               text: text,
               textStyle: ThemeTextSemiBold.sm
                   .copyWith(color: ThemeColors.coolgray600)),
+          if (rightIcon != null) const SizedBox(width: 4),
           if (rightIcon != null)
             Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
         ],
@@ -185,25 +187,27 @@ class CWButtonGhostXL extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: ThemeColors.transparent,
-          elevation: 0,
-          shadowColor: ThemeColors.transparent,
+          primary: ThemeColors.white,
+          elevation: 1,
+          shadowColor: ThemeColors.coolgray300,
           minimumSize: const Size(126, 52),
           side: const BorderSide(color: ThemeColors.coolgray300)),
       onPressed: onPressed,
       child: SpacedRow(
         horizontalSpace: 4,
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           if (leftIcon != null)
-            Icon(leftIcon, size: 16, color: ThemeColors.coolgray600),
+            Icon(leftIcon, size: 20, color: ThemeColors.coolgray600),
+          if (leftIcon != null) const SizedBox(width: 6),
           SizedText(
               text: text,
               textStyle: ThemeTextSemiBold.sm
                   .copyWith(color: ThemeColors.coolgray600)),
+          if (rightIcon != null) const SizedBox(width: 6),
           if (rightIcon != null)
-            Icon(rightIcon, size: 16, color: ThemeColors.coolgray600),
+            Icon(rightIcon, size: 20, color: ThemeColors.coolgray600),
         ],
       ),
     );

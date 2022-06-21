@@ -128,7 +128,9 @@ class CWButtonPrimaryL extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (leftIcon != null) Icon(leftIcon, size: 16),
+          if (leftIcon != null) const SizedBox(width: 4),
           SizedText(text: text, textStyle: ThemeTextSemiBold.sm),
+          if (rightIcon != null) const SizedBox(width: 4),
           if (rightIcon != null) Icon(rightIcon, size: 16),
         ],
       ),
@@ -162,7 +164,9 @@ class CWButtonPrimaryXL extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (leftIcon != null) Icon(leftIcon, size: 16),
+          if (leftIcon != null) const SizedBox(width: 6),
           SizedText(text: text, textStyle: ThemeTextSemiBold.sm),
+          if (rightIcon != null) const SizedBox(width: 6),
           if (rightIcon != null) Icon(rightIcon, size: 16),
         ],
       ),
