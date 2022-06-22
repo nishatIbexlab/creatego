@@ -38,6 +38,7 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -59,7 +60,7 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
         value: widget.value,
         dropdownWidth: widget.dropdownOptionsWidth,
         customButton: Container(
-          height: 45,
+          // height: 40,
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
@@ -209,6 +210,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -381,6 +383,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -402,7 +405,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
         value: widget.value,
         dropdownWidth: widget.dropdownBtnWidth,
         customButton: Container(
-          height: 45,
+          height: 40,
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
@@ -523,6 +526,188 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
   }
 }
 
+class CWDropdownWithIcon extends StatefulWidget {
+  final ValueChanged? onChanged;
+  final dynamic value;
+  final dynamic items;
+  final IconData? leftIcon;
+  String? hintText;
+  bool isValueNull = false;
+  final double? dropdownBtnWidth;
+  final double? dropdownOptionsWidth;
+  final bool? isDropdownOptionsIconRight;
+
+  /// Input-dropdown-width, Input-dropdown-Width
+  ///  are changeable.
+
+  /// * DO NOT PASS the SAME TEXT in items.
+  CWDropdownWithIcon(
+      {Key? key,
+      required this.items,
+      this.onChanged,
+      this.value,
+      this.leftIcon,
+      this.dropdownBtnWidth = 215,
+      this.dropdownOptionsWidth = 224,
+      this.isDropdownOptionsIconRight = false,
+      this.hintText})
+      : super(key: key) {
+    if (value == null) isValueNull = true;
+    hintText ??= "Options";
+  }
+
+  @override
+  State<CWDropdownWithIcon> createState() => _CWDropdownWithIconState();
+}
+
+class _CWDropdownWithIconState extends State<CWDropdownWithIcon> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: widget.dropdownBtnWidth,
+      height: 40,
+      child: DropdownButton2(
+        itemPadding: EdgeInsets.zero,
+        alignment: Alignment.centerLeft,
+        underline: const SizedBox(),
+        onChanged: widget.onChanged,
+        isExpanded: true,
+        focusColor: ThemeColors.transparent,
+        onMenuStateChange: (bool changed) {},
+        style: ThemeTextRegular.base.copyWith(color: ThemeColors.black),
+        dropdownDecoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          boxShadow: [
+            BoxShadow(
+                color: ThemeColors.black.withOpacity(0.2),
+                offset: const Offset(0, 1),
+                blurRadius: 4)
+          ],
+        ),
+        value: widget.value,
+        dropdownWidth: widget.dropdownBtnWidth,
+        customButton: Container(
+          height: 40,
+          padding: const EdgeInsets.only(left: 15),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: ThemeColors.coolgray300,
+              width: 1,
+            ),
+            boxShadow: ThemeShadows.shadowSm,
+            borderRadius: BorderRadius.circular(6),
+            color: ThemeColors.white,
+          ),
+          child: SpacedRow(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            horizontalSpace: 15,
+            children: [
+              if (widget.isValueNull)
+                ..._buildHint()
+              else
+                ..._buildSelectedItem(context)
+            ],
+          ),
+        ),
+        // itemHeight: 56.h,
+        items: _getItems(),
+      ),
+    );
+  }
+
+  List<Widget> _buildHint() {
+    return [
+      if (widget.leftIcon != null)
+        Icon(widget.leftIcon!,
+            color:
+                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+      if (widget.isValueNull)
+        SizedText(
+            width: widget.leftIcon != null
+                ? widget.dropdownBtnWidth! - 99
+                : widget.dropdownBtnWidth! - 60,
+            text: widget.hintText,
+            overflow: TextOverflow.ellipsis,
+            textStyle: ThemeTextSemiBold.base
+                .copyWith(color: ThemeColors.coolgray600)),
+      Container(
+        width: 28,
+        height: 50,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
+          color: ThemeColors.coolgray100,
+        ),
+        child: const Icon(Icons.keyboard_arrow_down_rounded,
+            color: ThemeColors.coolgray600),
+      ),
+    ];
+  }
+
+  List<Widget> _buildSelectedItem(BuildContext ctx) {
+    return [
+      if (widget.leftIcon != null)
+        Icon(widget.leftIcon!,
+            color:
+                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+      if (!widget.isValueNull)
+        SizedText(
+            width: widget.leftIcon != null
+                ? widget.dropdownBtnWidth! - 99
+                : widget.dropdownBtnWidth! - 60,
+            text: widget.value.toString(),
+            overflow: TextOverflow.ellipsis,
+            textStyle: ThemeTextSemiBold.base
+                .copyWith(color: ThemeColors.coolgray600)),
+      Container(
+        width: 28,
+        height: 50,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(4), bottomRight: Radius.circular(4)),
+          color: ThemeColors.coolgray100,
+        ),
+        child: const Icon(Icons.keyboard_arrow_down_rounded,
+            color: ThemeColors.coolgray600),
+      ),
+    ];
+  }
+
+  List<DropdownMenuItem<String>> _getItems() {
+    List listValues = widget.items;
+    List<DropdownMenuItem<String>> _menuItems = [];
+    for (int i = 0; i < listValues.length; i++) {
+      _menuItems.add(
+        DropdownMenuItem<String>(
+          value: listValues[i].toString(),
+          child: Container(
+            decoration: BoxDecoration(
+                color: widget.value == listValues[i]
+                    ? ThemeColors.coolgray100
+                    : ThemeColors.white,
+                border: Border(
+                    bottom: BorderSide(
+                        width: 1,
+                        color: listValues.length - 1 == i
+                            ? ThemeColors.transparent
+                            : ThemeColors.gray300.withOpacity(0.5)))),
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            width: double.infinity,
+            height: double.infinity,
+            child: SizedText(
+                text: listValues[i].toString(),
+                textStyle: ThemeTextSemiBold.base
+                    .apply(color: ThemeColors.coolgray600)),
+          ),
+        ),
+      );
+    }
+
+    return _menuItems;
+  }
+}
+
 ///////////////////////////////////////////////////
 //////////// These Dropdowns are //////////////////
 ////////////   FOR Input Files   //////////////////
@@ -579,6 +764,7 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
 
     return SizedBox(
       width: _dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
@@ -749,6 +935,7 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
 
     return SizedBox(
       width: _dropdownBtnWidth,
+      height: 40,
       child: DropdownButton2(
         buttonWidth: _dropdownBtnWidth,
         itemPadding: EdgeInsets.zero,
