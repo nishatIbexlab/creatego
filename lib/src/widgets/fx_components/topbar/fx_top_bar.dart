@@ -10,7 +10,8 @@ class FXTopBar extends StatelessWidget {
   final bool isTest;
   final VoidCallback? menuOnPressed;
   final VoidCallback? bellIconOnPressed;
-  final VoidCallback? popUpMenuOnPressed;
+  final VoidCallback? popUpMenuOnPressed; //deprecated
+  final Widget? popUpMenuWidget;
   final VoidCallback? onSearchPressed;
   final TextEditingController? searchController;
   final Color barBgColor;
@@ -28,7 +29,8 @@ class FXTopBar extends StatelessWidget {
     this.searchController,
     this.bellIconOnPressed,
     this.navigationList = const [],
-    this.popUpMenuOnPressed,
+    this.popUpMenuOnPressed, //deprecated
+    this.popUpMenuWidget,
     this.isTest = false,
     this.barBgColor = ThemeColors.finex700,
     this.barTextColor = ThemeColors.white,
@@ -172,10 +174,12 @@ class FXTopBar extends StatelessWidget {
                       child: avatar!,
                     ),
                   ),
-                if (popUpMenuOnPressed != null)
+                if (popUpMenuWidget != null)
+                  popUpMenuWidget!
+                else
                   PressableMix(
                     mix: topBarRightSide,
-                    onPressed: popUpMenuOnPressed,
+                    onPressed: (){},
                     child: const IconMix(
                       Icons.keyboard_arrow_down,
                     ),
