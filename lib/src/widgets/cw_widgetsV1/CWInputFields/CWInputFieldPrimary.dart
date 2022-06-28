@@ -216,6 +216,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
   final double? inputFieldWidth;
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;
+  final double? dropdownMaxHeight;
 
   const CWInputFieldWithDropdownS(
       {this.controller,
@@ -231,6 +232,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
       this.inputFieldWidth = 173,
       this.isDropdownRight = true,
       this.isDropdownOptionsIconRight = false,
+      this.dropdownMaxHeight,
       Key? key})
       : super(key: key);
 
@@ -263,6 +265,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
               value: dropdownValue,
               isDropdownRight: isDropdownRight!,
               isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+              dropdownMaxHeight: dropdownMaxHeight,
             ),
           SizedBox(
             width: inputFieldWidth! - 72,
@@ -311,12 +314,12 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
           ),
           if (isDropdownRight!)
             CWInputFieldDropdown(
-              items: dropdownItems,
-              onChanged: onDropdownChanged,
-              value: dropdownValue,
-              isDropdownRight: isDropdownRight!,
-              isDropdownOptionsIconRight: isDropdownOptionsIconRight,
-            ),
+                items: dropdownItems,
+                onChanged: onDropdownChanged,
+                value: dropdownValue,
+                isDropdownRight: isDropdownRight!,
+                isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+                dropdownMaxHeight: dropdownMaxHeight),
         ],
       ),
     );
@@ -337,6 +340,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final double? inputFieldWidth;
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;
+  final double? dropdownMaxHeight;
 
   const CWInputFieldWithDropdownM(
       {this.controller,
@@ -352,6 +356,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       this.isDropdownRight = false,
       this.inputFieldWidth = 303,
       this.isDropdownOptionsIconRight = true,
+      this.dropdownMaxHeight,
       Key? key})
       : super(key: key);
 
@@ -385,6 +390,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               dropdownOptionsWidth: inputFieldWidth,
               isDropdownRight: isDropdownRight!,
               isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+              dropdownMaxHeight: dropdownMaxHeight,
             ),
           SizedBox(
             width: inputFieldWidth! - 42,
@@ -439,6 +445,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               dropdownOptionsWidth: inputFieldWidth,
               isDropdownRight: isDropdownRight!,
               isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+              dropdownMaxHeight: dropdownMaxHeight,
             ),
         ],
       ),
