@@ -10,6 +10,7 @@ class CWDropdownPrimary extends StatefulWidget {
   bool isValueNull = false;
   final double? dropdownBtnWidth;
   final double? dropdownOptionsWidth;
+  final bool? showDropdownIcon;
 
   /// Dropdown-button-width, Dropdown-Options-Width
   ///  are changeable.
@@ -23,7 +24,8 @@ class CWDropdownPrimary extends StatefulWidget {
       this.leftIcon,
       this.dropdownBtnWidth = 115,
       this.dropdownOptionsWidth = 224,
-      this.hintText})
+      this.hintText,
+      this.showDropdownIcon = true})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
@@ -60,7 +62,7 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
         value: widget.value,
         dropdownWidth: widget.dropdownOptionsWidth,
         customButton: Container(
-          // height: 40,
+          height: 40,
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
@@ -98,17 +100,32 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
         SizedBox(
           width: widget.leftIcon != null
               ? widget.dropdownBtnWidth! - (55 + 55)
-              : widget.dropdownBtnWidth! - 60,
-          child: SizedText(
-              text: widget.hintText,
-              overflow: TextOverflow.ellipsis,
-              textStyle: ThemeTextSemiBold.base
-                  .copyWith(color: ThemeColors.coolgray600)),
+              : widget.showDropdownIcon!
+                  ? widget.dropdownBtnWidth! - 60
+                  : widget.dropdownBtnWidth! - 30,
+          child: widget.showDropdownIcon!
+              ? Center(
+                  child: SizedText(
+                      textAlign: TextAlign.center,
+                      alignment: Alignment.center,
+                      text: widget.hintText,
+                      overflow: TextOverflow.ellipsis,
+                      textStyle: ThemeTextRegular.base
+                          .copyWith(color: ThemeColors.coolgray600)),
+                )
+              : SizedText(
+                  textAlign: TextAlign.center,
+                  alignment: Alignment.center,
+                  text: widget.hintText,
+                  overflow: TextOverflow.ellipsis,
+                  textStyle: ThemeTextRegular.base
+                      .copyWith(color: ThemeColors.coolgray600)),
         ),
-      const Align(
-          alignment: Alignment.centerRight,
-          child: Icon(Icons.keyboard_arrow_down_rounded,
-              color: ThemeColors.coolgray600)),
+      if (widget.showDropdownIcon!)
+        const Align(
+            alignment: Alignment.centerRight,
+            child: Icon(Icons.keyboard_arrow_down_rounded,
+                color: ThemeColors.coolgray600)),
     ];
   }
 
@@ -120,18 +137,25 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
         SizedBox(
           width: widget.leftIcon != null
               ? widget.dropdownBtnWidth! - (55 + 55)
-              : widget.dropdownBtnWidth! - 60,
-          child: SizedText(
+              : widget.showDropdownIcon!
+                  ? widget.dropdownBtnWidth! - 60
+                  : widget.dropdownBtnWidth! - 30,
+          child: Center(
+            child: SizedText(
               text: widget.value.toString(),
               textStyle: ThemeTextSemiBold.base
                   .copyWith(color: ThemeColors.coolgray600),
-              overflow: TextOverflow.ellipsis),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+          ),
         ),
-      const Align(
-        alignment: Alignment.centerRight,
-        child: Icon(Icons.keyboard_arrow_down_rounded,
-            color: ThemeColors.coolgray600),
-      ),
+      if (widget.showDropdownIcon!)
+        const Align(
+          alignment: Alignment.centerRight,
+          child: Icon(Icons.keyboard_arrow_down_rounded,
+              color: ThemeColors.coolgray600),
+        ),
     ];
   }
 
@@ -275,7 +299,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
           child: SizedText(
               text: widget.hintText,
               overflow: TextOverflow.ellipsis,
-              textStyle: ThemeTextSemiBold.base
+              textStyle: ThemeTextRegular.base
                   .copyWith(color: ThemeColors.coolgray600)),
         ),
       const Align(
@@ -446,8 +470,8 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
                 : widget.dropdownBtnWidth! - 60,
             text: widget.hintText,
             overflow: TextOverflow.ellipsis,
-            textStyle: ThemeTextSemiBold.base
-                .copyWith(color: ThemeColors.coolgray600)),
+            textStyle:
+                ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray600)),
       Container(
         width: 28,
         height: 50,
@@ -475,6 +499,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
                 : widget.dropdownBtnWidth! - 60,
             text: widget.value?.text.toString(),
             overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             textStyle: ThemeTextSemiBold.base
                 .copyWith(color: ThemeColors.coolgray600)),
       Container(
@@ -628,8 +653,8 @@ class _CWDropdownWithIconState extends State<CWDropdownWithIcon> {
                 : widget.dropdownBtnWidth! - 60,
             text: widget.hintText,
             overflow: TextOverflow.ellipsis,
-            textStyle: ThemeTextSemiBold.base
-                .copyWith(color: ThemeColors.coolgray600)),
+            textStyle:
+                ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray600)),
       Container(
         width: 28,
         height: 50,
