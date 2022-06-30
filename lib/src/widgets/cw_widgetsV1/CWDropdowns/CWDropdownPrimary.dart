@@ -71,7 +71,7 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
-              color: ThemeColors.coolgray300,
+              color: widget.dropdownBtnColor ?? ThemeColors.coolgray300,
               width: widget.dropdownBtnColor == null ? 1 : 0,
             ),
             boxShadow: ThemeShadows.shadowSm,
@@ -284,7 +284,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
           padding: const EdgeInsets.only(left: 15),
           decoration: BoxDecoration(
             border: Border.all(
-              color: ThemeColors.coolgray300,
+              color: widget.dropdownBtnColor ?? ThemeColors.coolgray300,
               width: widget.dropdownBtnColor == null ? 1 : 0,
             ),
             boxShadow: ThemeShadows.shadowSm,
@@ -404,7 +404,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
 
 class CWDropdownWithIconMenu2 extends StatefulWidget {
   final ValueChanged? onChanged;
-  final MenuItem? value;
+  final dynamic value;
   final List<MenuItem> items;
   final IconData? leftIcon;
   String? hintText;
@@ -417,6 +417,7 @@ class CWDropdownWithIconMenu2 extends StatefulWidget {
   /// Input-dropdown-width, Input-dropdown-Width
   ///  are changeable.
 
+  /// * Convert the value into MenuItem.
   /// * DO NOT PASS the SAME TEXT in items.
   CWDropdownWithIconMenu2(
       {Key? key,
@@ -525,6 +526,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
   }
 
   List<Widget> _buildSelectedItem(BuildContext ctx) {
+    MenuItem item = widget.value;
     return [
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
@@ -535,7 +537,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
             width: widget.leftIcon != null
                 ? widget.dropdownBtnWidth! - 99
                 : widget.dropdownBtnWidth! - 60,
-            text: widget.value?.text.toString(),
+            text: item.text.toString(),
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             textStyle: ThemeTextSemiBold.base
