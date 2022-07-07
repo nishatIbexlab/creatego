@@ -18,6 +18,8 @@ class YSButton extends StatelessWidget {
   Color borderColor = ThemeColors.transparent;
   int el = 1;
 
+  final double radius;
+
   YSButton(
       {Key? key,
       // thisidth = 94,
@@ -29,6 +31,7 @@ class YSButton extends StatelessWidget {
       this.iconsize,
       required this.text,
       this.isIconRight = false,
+      this.radius = 6,
       this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key);
 
@@ -43,6 +46,7 @@ class YSButton extends StatelessWidget {
       this.isIconRight = false,
       this.bgColor = ThemeColors.orange100,
       this.textColor = ThemeColors.orange500,
+      this.radius = 6,
       this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key);
 
@@ -59,6 +63,7 @@ class YSButton extends StatelessWidget {
       this.textColor = ThemeColors.coolgray600,
       this.isIconRight = false,
       this.borderColor = ThemeColors.coolgray300,
+      this.radius = 6,
       this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key);
 
@@ -73,6 +78,7 @@ class YSButton extends StatelessWidget {
       this.bgColor = ThemeColors.transparent,
       this.textColor = ThemeColors.orange500,
       this.isIconRight = false,
+      this.radius = 6,
       this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 5)})
       : super(key: key) {
     el = 0;
@@ -81,7 +87,7 @@ class YSButton extends StatelessWidget {
   Mix get pressableMix => Mix(
       animated(),
       elevation(el),
-      rounded(6),
+      rounded(radius),
       scale(1),
       hover(
         elevation(el == 0 ? 0 : 2),
@@ -91,7 +97,7 @@ class YSButton extends StatelessWidget {
       ));
 
   Mix get boxMix => Mix(
-      rounded(6),
+      rounded(radius),
       paddingHorizontal(padding.horizontal),
       paddingVertical(padding.vertical),
       border(width: 1, color: borderColor),
