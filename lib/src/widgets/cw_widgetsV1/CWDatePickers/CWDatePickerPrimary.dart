@@ -47,10 +47,10 @@ class CWDatePickerPrimary extends StatelessWidget {
               SizedText(
                   text: dateString,
                   textStyle: ThemeTextSemiBold.sm
-                      .copyWith(color: ThemeColors.coolgray900)),
+                      .copyWith(color: ThemeColors.coolgray600)),
             if (dateString != null)
               const Icon(Icons.calendar_today_outlined,
-                  size: 16, color: ThemeColors.coolgray900),
+                  size: 16, color: ThemeColors.coolgray600),
           ],
         ),
       ),
