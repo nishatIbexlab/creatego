@@ -5,11 +5,13 @@ class CWButtonPrimaryXS extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final Color? bgColor;
   const CWButtonPrimaryXS(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
+      this.bgColor,
       Key? key})
       : super(key: key);
 
@@ -45,11 +47,13 @@ class CWButtonPrimaryS extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final Color? bgColor;
   const CWButtonPrimaryS(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
+      this.bgColor,
       Key? key})
       : super(key: key);
 
@@ -85,11 +89,13 @@ class CWButtonPrimaryM extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final Color? bgColor;
   const CWButtonPrimaryM(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
+      this.bgColor,
       Key? key})
       : super(key: key);
 
@@ -125,11 +131,13 @@ class CWButtonPrimaryL extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final Color? bgColor;
   const CWButtonPrimaryL(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
+      this.bgColor,
       Key? key})
       : super(key: key);
 
@@ -141,7 +149,8 @@ class CWButtonPrimaryL extends StatelessWidget {
           // : MaterialStateProperty.all(const Size(110, 44)),
           shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-          backgroundColor: MaterialStateProperty.all(ThemeColors.orange500)),
+          backgroundColor:
+              MaterialStateProperty.all(bgColor ?? ThemeColors.orange500)),
       onPressed: onPressed,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
@@ -167,11 +176,13 @@ class CWButtonPrimaryXL extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final Color? bgColor;
   const CWButtonPrimaryXL(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
+      this.bgColor,
       Key? key})
       : super(key: key);
 
