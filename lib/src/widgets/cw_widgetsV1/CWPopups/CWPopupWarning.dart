@@ -154,10 +154,90 @@ class CWPopupSuccess extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(99)),
             alignment: Alignment.center,
-            child: Icon(
-              icon ?? Icons.check_rounded,
-              color: ThemeColors.green500,
-              size: showIconBorder! ? 70 : 80,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(99),
+              radius: 99,
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(
+                icon ?? Icons.check_rounded,
+                color: ThemeColors.green500,
+                size: showIconBorder! ? 70 : 80,
+              ),
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+class CWPopupError extends StatelessWidget {
+  final IconData? icon;
+  final bool? showIconBorder;
+  final String? successText;
+
+  const CWPopupError({
+    this.icon,
+    this.showIconBorder = true,
+    this.successText,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 500,
+      height: 250,
+      color: Colors.transparent,
+      child: Stack(children: [
+        Positioned(
+          top: 50,
+          child: Container(
+            width: 500,
+            padding:
+                const EdgeInsets.only(left: 24, right: 24, bottom: 24, top: 40),
+            decoration: BoxDecoration(
+                color: ThemeColors.white,
+                borderRadius: BorderRadius.circular(24)),
+            child: SizedText(
+              width: 420,
+              maxLines: 3,
+              textAlign: TextAlign.center,
+              text: successText ?? "Success",
+              overflow: TextOverflow.ellipsis,
+              textStyle: ThemeTextSemiBold.xl3
+                  .copyWith(color: ThemeColors.coolgray700),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 10,
+          right: (500 / 2) - 35,
+          child: Container(
+            width: 80,
+            decoration: BoxDecoration(
+                color: ThemeColors.white,
+                border: Border.all(
+                  color: showIconBorder!
+                      ? ThemeColors.red500
+                      : ThemeColors.transparent,
+                  width: showIconBorder! ? 5 : 0,
+                ),
+                borderRadius: BorderRadius.circular(99)),
+            alignment: Alignment.center,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(99),
+              radius: 99,
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(
+                icon ?? Icons.clear_rounded,
+                color: ThemeColors.red500,
+                size: showIconBorder! ? 70 : 80,
+              ),
             ),
           ),
         ),
