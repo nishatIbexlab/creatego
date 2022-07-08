@@ -43,3 +43,4 @@ export 'src/widgets/cw_widgetsV1/CWDropdowns/CWDropdownPrimary.dart';
 export 'src/widgets/cw_widgetsV1/CWInputFields/CWInputFieldPrimary.dart';
 export 'src/widgets/cw_widgetsV1/CWInputFields/CWYolletInputField.dart';
 export 'src/widgets/cw_widgetsV1/CWToggles/CWTogglePrimary.dart';
+export 'src/widgets/cw_widgetsV1/CWDatePickers/CWDatePickerPrimary.dart';
