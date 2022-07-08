@@ -176,12 +176,12 @@ class CWPopupSuccess extends StatelessWidget {
 class CWPopupError extends StatelessWidget {
   final IconData? icon;
   final bool? showIconBorder;
-  final String? successText;
+  final String? errorText;
 
   const CWPopupError({
     this.icon,
     this.showIconBorder = true,
-    this.successText,
+    this.errorText,
     Key? key,
   }) : super(key: key);
 
@@ -205,7 +205,7 @@ class CWPopupError extends StatelessWidget {
               width: 420,
               maxLines: 3,
               textAlign: TextAlign.center,
-              text: successText ?? "Success",
+              text: errorText ?? "Error",
               overflow: TextOverflow.ellipsis,
               textStyle: ThemeTextSemiBold.xl3
                   .copyWith(color: ThemeColors.coolgray700),
