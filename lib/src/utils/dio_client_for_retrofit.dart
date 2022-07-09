@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import "package:dio/dio.dart";
+import 'package:flutter_easylogger/flutter_logger.dart';
 
 class DioClientForRetrofit {
   final String? bearerToken;
@@ -50,24 +51,27 @@ final loggerInterceptor =
   options.headers.forEach((key, value) {
     headers += "| $key: $value";
   });
-  log("┌------------------------------------------------------------------------------");
-  log("| [DIO] Request: ${options.method} ${options.uri}");
-  log("| ${options.data != null ? options.data.toString() : ''}");
-  log("| Headers: $headers");
-  log("├------------------------------------------------------------------------------");
+
+  Logger.d(
+      "| [DIO] Request: ${(options.method)} - ${(options.baseUrl)} -  ${(options.path)}");
+  // if (options.data != null) Logger.d("| ${(options.data.toString())}");
+  if (options.queryParameters.isNotEmpty) {
+    Logger.d("| Request_Options: ${options.queryParameters}");
+  }
+  if (options.data != null) Logger.d("| Request_Data: ${options.data}");
+  Logger.d("| Headers: $headers");
+
   handler.next(options); //continue
 }, onResponse: (Response response, handler) async {
-  if (response.requestOptions.path != "v1/user/me/terms-and-conditions") {
-    log("| [DIO] Response [code ${response.statusCode}]:${response.data.toString()}");
-  } else {
-    log("| [DIO] Response [code ${response.statusCode}]");
-  }
-  log("└------------------------------------------------------------------------------");
+  Logger.i(
+      "| [DIO] Response [path -> ${(response.requestOptions.path)}] ||| [method -> ${(response.requestOptions.method)}] ||| [code -> ${(response.statusCode)}]:${(response.data.toString())}");
+
   handler.next(response);
   // return response; // continue
 }, onError: (DioError error, handler) async {
-  log("| [DIO] Error: ${error.error}: ${error.response?.toString()}");
-  log("└------------------------------------------------------------------------------");
+  Logger.e(
+      "| [DIO] Error [path -> ${(error.requestOptions.path)}] ||| [method -> ${(error.requestOptions.method)}] ||| [code -> ${(error.response?.statusCode)}]:${(error.response?.data.toString())}");
+
   handler.next(error); //continue
 });
 
