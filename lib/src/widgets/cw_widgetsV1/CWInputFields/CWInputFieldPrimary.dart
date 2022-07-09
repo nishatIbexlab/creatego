@@ -353,6 +353,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
   final bool? isTextCenter;
+  final VoidCallback? openDropdown;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -361,6 +362,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       {this.controller,
       this.keyboardType,
       this.isTextCenter,
+      this.openDropdown,
       this.onTap,
       this.validator,
       this.isDisabled = false,
@@ -400,6 +402,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
         children: [
           if (!isDropdownRight!)
             CWInputFieldDropdown2(
+              openDropdown: openDropdown,
               items: dropdownItems,
               onChanged: onDropdownChanged,
               value: dropdownValue,
@@ -455,6 +458,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
           ),
           if (isDropdownRight!)
             CWInputFieldDropdown2(
+              openDropdown: openDropdown,
               items: dropdownItems,
               onChanged: onDropdownChanged,
               value: dropdownValue,

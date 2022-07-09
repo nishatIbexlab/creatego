@@ -963,6 +963,7 @@ class CWInputFieldDropdown2 extends StatefulWidget {
   final bool isDropdownRight;
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
+  final VoidCallback? openDropdown;
 
   /// Dropdown-button-width, Dropdown-Options-Width
   ///  are changeable.
@@ -973,6 +974,7 @@ class CWInputFieldDropdown2 extends StatefulWidget {
       {Key? key,
       required this.items,
       this.onChanged,
+      this.openDropdown,
       this.value,
       this.dropdownOptionsWidth = 120,
       required this.isDropdownRight,
@@ -989,6 +991,30 @@ class CWInputFieldDropdown2 extends StatefulWidget {
 }
 
 class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
+  /// This is the global key, which will be used to traverse [DropdownButton]s widget tree
+  final GlobalKey _dropdownButtonKey = GlobalKey();
+
+  void openDropdown() {
+    var detector;
+    void searchForGestureDetector(BuildContext? element) {
+      element?.visitChildElements((element) {
+        if (element.widget is InkWell) {
+          detector = element.widget;
+          return;
+        } else {
+          searchForGestureDetector(element);
+        }
+
+        return;
+      });
+    }
+
+    searchForGestureDetector(_dropdownButtonKey.currentContext);
+    assert(detector != null);
+
+    detector!.onTap!();
+  }
+
   final _borderRadiusLeft = const BorderRadius.only(
       topLeft: Radius.circular(5), bottomLeft: Radius.circular(5));
 
@@ -999,51 +1025,55 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.openDropdown != null) {
+      openDropdown();
+    }
     final _offSet = widget.isDropdownRight
         ? Offset(-widget.dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
         : const Offset(0, -5);
-
     final _borderRadius =
         widget.isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
-
     return SizedBox(
       width: _dropdownBtnWidth,
       height: 40,
-      child: DropdownButton2(
-        buttonWidth: _dropdownBtnWidth,
-        itemPadding: EdgeInsets.zero,
-        alignment: Alignment.centerLeft,
-        underline: const SizedBox(),
-        onChanged: widget.onChanged,
-        isExpanded: true,
-        focusColor: ThemeColors.transparent,
-        onMenuStateChange: (bool changed) {},
-        style: ThemeTextRegular.base.copyWith(color: ThemeColors.black),
-        dropdownDecoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(4)),
-          boxShadow: [
-            BoxShadow(
-                color: ThemeColors.black.withOpacity(0.2),
-                offset: const Offset(0, 1),
-                blurRadius: 4)
-          ],
-        ),
-        value: widget.value,
-        offset: _offSet,
-        dropdownWidth: widget.dropdownOptionsWidth,
-        dropdownMaxHeight: widget.dropdownMaxHeight,
-        customButton: Container(
-          height: 48,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: _borderRadius,
-            color: ThemeColors.coolgray100,
+      child: Offstage(
+        child: DropdownButton2(
+          key: _dropdownButtonKey,
+          buttonWidth: _dropdownBtnWidth,
+          itemPadding: EdgeInsets.zero,
+          alignment: Alignment.centerLeft,
+          underline: const SizedBox(),
+          onChanged: widget.onChanged,
+          isExpanded: true,
+          focusColor: ThemeColors.transparent,
+          onMenuStateChange: (bool changed) {},
+          style: ThemeTextRegular.base.copyWith(color: ThemeColors.black),
+          dropdownDecoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(4)),
+            boxShadow: [
+              BoxShadow(
+                  color: ThemeColors.black.withOpacity(0.2),
+                  offset: const Offset(0, 1),
+                  blurRadius: 4)
+            ],
           ),
-          child: const Icon(Icons.keyboard_arrow_down_rounded,
-              color: ThemeColors.coolgray600),
+          value: widget.value,
+          offset: _offSet,
+          dropdownWidth: widget.dropdownOptionsWidth,
+          dropdownMaxHeight: widget.dropdownMaxHeight,
+          customButton: Container(
+            height: 48,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: _borderRadius,
+              color: ThemeColors.coolgray100,
+            ),
+            child: const Icon(Icons.keyboard_arrow_down_rounded,
+                color: ThemeColors.coolgray600),
+          ),
+          // itemHeight: 56.h,
+          items: _getItems(),
         ),
-        // itemHeight: 56.h,
-        items: _getItems(),
       ),
     );
   }
