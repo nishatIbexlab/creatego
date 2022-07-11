@@ -450,19 +450,19 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               controller: controller,
               onTap: onTap,
               keyboardType: keyboardType,
-              readOnly: isDisabled! ? true : false,
+              readOnly: isDisabled!,
             ),
           ),
-          if (isDropdownRight!)
-            CWInputFieldDropdown2(
-              items: dropdownItems,
-              onChanged: onDropdownChanged,
-              value: dropdownValue,
-              dropdownOptionsWidth: inputFieldWidth,
-              isDropdownRight: isDropdownRight!,
-              isDropdownOptionsIconRight: isDropdownOptionsIconRight,
-              dropdownMaxHeight: dropdownMaxHeight,
-            ),
+          // if (isDropdownRight!)
+          CWInputFieldDropdown2(
+            items: dropdownItems,
+            onChanged: onDropdownChanged,
+            value: dropdownValue,
+            dropdownOptionsWidth: inputFieldWidth,
+            isDropdownRight: isDropdownRight!,
+            isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+            dropdownMaxHeight: dropdownMaxHeight,
+          ),
         ],
       ),
     );
