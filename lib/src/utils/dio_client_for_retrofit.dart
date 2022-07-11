@@ -30,6 +30,8 @@ class DioClientForRetrofit {
 
   Dio init({List<Interceptor>? customInterceptors, bool prettyLog = true}) {
     Dio _dio = Dio();
+    Logger.init(prettyLog,
+        isShowTime: false, isShowNavigation: false, isShowFile: false);
     if (prettyLog) {
       _dio.interceptors.add(loggerInterceptor);
     }
