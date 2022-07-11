@@ -963,7 +963,6 @@ class CWInputFieldDropdown2 extends StatefulWidget {
   final bool isDropdownRight;
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
-  final VoidCallback? openDropdown;
 
   /// Dropdown-button-width, Dropdown-Options-Width
   ///  are changeable.
@@ -974,7 +973,6 @@ class CWInputFieldDropdown2 extends StatefulWidget {
       {Key? key,
       required this.items,
       this.onChanged,
-      this.openDropdown,
       this.value,
       this.dropdownOptionsWidth = 120,
       required this.isDropdownRight,
@@ -991,30 +989,6 @@ class CWInputFieldDropdown2 extends StatefulWidget {
 }
 
 class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
-  /// This is the global key, which will be used to traverse [DropdownButton]s widget tree
-  final GlobalKey _dropdownButtonKey = GlobalKey();
-
-  void openDropdown() {
-    var detector;
-    void searchForGestureDetector(BuildContext? element) {
-      element?.visitChildElements((element) {
-        if (element.widget is InkWell) {
-          detector = element.widget;
-          return;
-        } else {
-          searchForGestureDetector(element);
-        }
-
-        return;
-      });
-    }
-
-    searchForGestureDetector(_dropdownButtonKey.currentContext);
-    assert(detector != null);
-
-    detector!.onTap!();
-  }
-
   final _borderRadiusLeft = const BorderRadius.only(
       topLeft: Radius.circular(5), bottomLeft: Radius.circular(5));
 
@@ -1025,9 +999,6 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.openDropdown != null) {
-      openDropdown();
-    }
     final _offSet = widget.isDropdownRight
         ? Offset(-widget.dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
         : const Offset(0, -5);
@@ -1038,7 +1009,6 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
       height: 40,
       child: Offstage(
         child: DropdownButton2(
-          key: _dropdownButtonKey,
           buttonWidth: _dropdownBtnWidth,
           itemPadding: EdgeInsets.zero,
           alignment: Alignment.centerLeft,
