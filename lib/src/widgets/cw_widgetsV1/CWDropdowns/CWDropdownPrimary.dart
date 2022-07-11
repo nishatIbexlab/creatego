@@ -1002,48 +1002,48 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
     final _offSet = widget.isDropdownRight
         ? Offset(-widget.dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
         : const Offset(0, -5);
+
     final _borderRadius =
         widget.isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
+
     return SizedBox(
       width: _dropdownBtnWidth,
       height: 40,
-      child: Offstage(
-        child: DropdownButton2(
-          buttonWidth: _dropdownBtnWidth,
-          itemPadding: EdgeInsets.zero,
-          alignment: Alignment.centerLeft,
-          underline: const SizedBox(),
-          onChanged: widget.onChanged,
-          isExpanded: true,
-          focusColor: ThemeColors.transparent,
-          onMenuStateChange: (bool changed) {},
-          style: ThemeTextRegular.base.copyWith(color: ThemeColors.black),
-          dropdownDecoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(4)),
-            boxShadow: [
-              BoxShadow(
-                  color: ThemeColors.black.withOpacity(0.2),
-                  offset: const Offset(0, 1),
-                  blurRadius: 4)
-            ],
-          ),
-          value: widget.value,
-          offset: _offSet,
-          dropdownWidth: widget.dropdownOptionsWidth,
-          dropdownMaxHeight: widget.dropdownMaxHeight,
-          customButton: Container(
-            height: 48,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: _borderRadius,
-              color: ThemeColors.coolgray100,
-            ),
-            child: const Icon(Icons.keyboard_arrow_down_rounded,
-                color: ThemeColors.coolgray600),
-          ),
-          // itemHeight: 56.h,
-          items: _getItems(),
+      child: DropdownButton2(
+        buttonWidth: _dropdownBtnWidth,
+        itemPadding: EdgeInsets.zero,
+        alignment: Alignment.centerLeft,
+        underline: const SizedBox(),
+        onChanged: widget.onChanged,
+        isExpanded: true,
+        focusColor: ThemeColors.transparent,
+        onMenuStateChange: (bool changed) {},
+        style: ThemeTextRegular.base.copyWith(color: ThemeColors.black),
+        dropdownDecoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          boxShadow: [
+            BoxShadow(
+                color: ThemeColors.black.withOpacity(0.2),
+                offset: const Offset(0, 1),
+                blurRadius: 4)
+          ],
         ),
+        value: widget.value,
+        offset: _offSet,
+        dropdownWidth: widget.dropdownOptionsWidth,
+        dropdownMaxHeight: widget.dropdownMaxHeight,
+        customButton: Container(
+          height: 48,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: _borderRadius,
+            color: ThemeColors.coolgray100,
+          ),
+          child: const Icon(Icons.keyboard_arrow_down_rounded,
+              color: ThemeColors.coolgray600),
+        ),
+        // itemHeight: 56.h,
+        items: _getItems(),
       ),
     );
   }
