@@ -352,6 +352,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
+  final bool? isTextCenter;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -359,6 +360,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   const CWInputFieldWithDropdownM(
       {this.controller,
       this.keyboardType,
+      this.isTextCenter,
       this.onTap,
       this.validator,
       this.isDisabled = false,
@@ -409,8 +411,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
           SizedBox(
             width: inputFieldWidth! - 42,
             child: TextFormField(
-              textAlign:
-                  textStartFromRight! ? TextAlign.right : TextAlign.start,
+              textAlign: _textAlign(),
               cursorColor: ThemeColors.coolgray900,
               style: ThemeTextRegular.base
                   .copyWith(color: ThemeColors.coolgray900),
@@ -449,7 +450,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               controller: controller,
               onTap: onTap,
               keyboardType: keyboardType,
-              readOnly: isDisabled! ? true : false,
+              readOnly: isDisabled!,
             ),
           ),
           if (isDropdownRight!)
@@ -465,6 +466,13 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _textAlign() {
+    if (isTextCenter != null) {
+      return isTextCenter! ? TextAlign.center : TextAlign.start;
+    }
+    return textStartFromRight! ? TextAlign.right : TextAlign.start;
   }
 }
 
