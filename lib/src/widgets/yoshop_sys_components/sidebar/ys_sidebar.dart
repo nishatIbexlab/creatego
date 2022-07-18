@@ -299,7 +299,10 @@ class YSSidebarParentItem extends StatelessWidget {
                   horizontalSpace: 8,
                   children: [
                     // if (icon != null) IconMix(icon!, mix: iconMix),
-                    if (icon != null) HeroIcon(icon!, color: heroIconColor),
+                    if (icon != null)
+                      HeroIcon(icon!,
+                          color:
+                              isExpanded ? ThemeColors.white : heroIconColor),
                     TextMix(title, mix: titleMix),
                   ],
                 ),
