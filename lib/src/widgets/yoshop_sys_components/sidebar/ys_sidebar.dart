@@ -249,16 +249,19 @@ class YSSidebarParentItem extends StatelessWidget {
   ///No need to pass from root YSSidebar. This is changed internally
   bool isExpanded;
   final VoidCallback? onPressed;
+  Color? heroIconColor;
 
   bool isActive;
-  YSSidebarParentItem(
-      {Key? key,
-      this.children,
-      required this.title,
-      this.icon,
-      this.onPressed,
-      this.isActive = false,
-      this.isExpanded = false}) {
+  YSSidebarParentItem({
+    Key? key,
+    this.children,
+    required this.title,
+    this.icon,
+    this.onPressed,
+    this.isActive = false,
+    this.isExpanded = false,
+    this.heroIconColor = ThemeColors.coolgray500,
+  }) {
     if (children == null) {
       isExpanded = isActive;
     }
@@ -296,7 +299,7 @@ class YSSidebarParentItem extends StatelessWidget {
                   horizontalSpace: 8,
                   children: [
                     // if (icon != null) IconMix(icon!, mix: iconMix),
-                    if (icon != null) HeroIcon(icon!),
+                    if (icon != null) HeroIcon(icon!, color: heroIconColor),
                     TextMix(title, mix: titleMix),
                   ],
                 ),
