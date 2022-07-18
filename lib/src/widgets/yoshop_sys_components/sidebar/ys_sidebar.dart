@@ -202,7 +202,7 @@ class _YSSidebarState extends State<YSSidebar> {
           title: _item.title,
           isExpanded: _expandedIndex == i,
           isActive: i == widget.currentIndex,
-          icon: _item.icon,
+          heroIcon: _item.heroIcon,
           onPressed: () {
             if (_item.children == null || _item.children!.isEmpty) {
               widget.onTabChange?.call(i);
@@ -239,7 +239,8 @@ class _YSSidebarState extends State<YSSidebar> {
 }
 
 class YSSidebarParentItem extends StatelessWidget {
-  final HeroIcons? icon;
+  final HeroIcons? heroIcon;
+  final Widget? customIconWidget;
   final String title;
 
   /// Widget as YSSidebarChildItem
@@ -256,11 +257,12 @@ class YSSidebarParentItem extends StatelessWidget {
     Key? key,
     this.children,
     required this.title,
-    this.icon,
+    this.heroIcon,
     this.onPressed,
     this.isActive = false,
     this.isExpanded = false,
     this.heroIconColor = ThemeColors.coolgray500,
+    this.customIconWidget,
   }) {
     if (children == null) {
       isExpanded = isActive;
@@ -299,8 +301,9 @@ class YSSidebarParentItem extends StatelessWidget {
                   horizontalSpace: 8,
                   children: [
                     // if (icon != null) IconMix(icon!, mix: iconMix),
-                    if (icon != null)
-                      HeroIcon(icon!,
+                    if (customIconWidget != null) customIconWidget!,
+                    if (heroIcon != null)
+                      HeroIcon(heroIcon!,
                           color:
                               isExpanded ? ThemeColors.white : heroIconColor),
                     TextMix(title, mix: titleMix),
