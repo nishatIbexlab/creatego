@@ -3,8 +3,8 @@ import 'package:creatego/creatego_theme.dart';
 class CWButtonSecondaryXS extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
+  final HeroIcons? leftIcon;
+  final HeroIcons? rightIcon;
   const CWButtonSecondaryXS(
       {required this.text,
       required this.onPressed,
@@ -30,13 +30,13 @@ class CWButtonSecondaryXS extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null)
-              Icon(rightIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -47,8 +47,8 @@ class CWButtonSecondaryXS extends StatelessWidget {
 class CWButtonSecondaryS extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
+  final HeroIcons? leftIcon;
+  final HeroIcons? rightIcon;
   const CWButtonSecondaryS(
       {required this.text,
       required this.onPressed,
@@ -75,13 +75,13 @@ class CWButtonSecondaryS extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null)
-              Icon(rightIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -92,8 +92,8 @@ class CWButtonSecondaryS extends StatelessWidget {
 class CWButtonSecondaryM extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
+  final HeroIcons? leftIcon;
+  final HeroIcons? rightIcon;
   const CWButtonSecondaryM(
       {required this.text,
       required this.onPressed,
@@ -120,13 +120,13 @@ class CWButtonSecondaryM extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null)
-              Icon(rightIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -137,8 +137,8 @@ class CWButtonSecondaryM extends StatelessWidget {
 class CWButtonSecondaryL extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
+  final HeroIcons? leftIcon;
+  final HeroIcons? rightIcon;
   const CWButtonSecondaryL(
       {required this.text,
       required this.onPressed,
@@ -165,7 +165,7 @@ class CWButtonSecondaryL extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
             if (leftIcon != null) const SizedBox(width: 4),
             SizedText(
                 text: text,
@@ -173,7 +173,7 @@ class CWButtonSecondaryL extends StatelessWidget {
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null) const SizedBox(width: 4),
             if (rightIcon != null)
-              Icon(rightIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -184,8 +184,8 @@ class CWButtonSecondaryL extends StatelessWidget {
 class CWButtonSecondaryXL extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
+  final HeroIcons? leftIcon;
+  final HeroIcons? rightIcon;
   const CWButtonSecondaryXL(
       {required this.text,
       required this.onPressed,
@@ -212,7 +212,7 @@ class CWButtonSecondaryXL extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              Icon(leftIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
             if (leftIcon != null) const SizedBox(width: 6),
             SizedText(
                 text: text,
@@ -220,7 +220,7 @@ class CWButtonSecondaryXL extends StatelessWidget {
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null) const SizedBox(width: 6),
             if (rightIcon != null)
-              Icon(rightIcon, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
           ],
         ),
       ),
