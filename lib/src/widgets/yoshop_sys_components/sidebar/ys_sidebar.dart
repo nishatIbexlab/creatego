@@ -203,6 +203,7 @@ class _YSSidebarState extends State<YSSidebar> {
           isExpanded: _expandedIndex == i,
           isActive: i == widget.currentIndex,
           heroIcon: _item.heroIcon,
+          customIconWidget: _item.customIconWidget,
           onPressed: () {
             if (_item.children == null || _item.children!.isEmpty) {
               widget.onTabChange?.call(i);
