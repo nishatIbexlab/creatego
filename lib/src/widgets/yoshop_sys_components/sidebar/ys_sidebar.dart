@@ -1,3 +1,4 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:mix/mix.dart';
 import 'package:creatego/creatego_theme.dart';
 
@@ -203,7 +204,7 @@ class _YSSidebarState extends State<YSSidebar> {
           isExpanded: _expandedIndex == i,
           isActive: i == widget.currentIndex,
           heroIcon: _item.heroIcon,
-          customIconWidget: _item.customIconWidget,
+          svgPicIcon: _item.svgPicIcon,
           onPressed: () {
             if (_item.children == null || _item.children!.isEmpty) {
               widget.onTabChange?.call(i);
@@ -241,7 +242,7 @@ class _YSSidebarState extends State<YSSidebar> {
 
 class YSSidebarParentItem extends StatelessWidget {
   final HeroIcons? heroIcon;
-  final Widget? customIconWidget;
+  final String? svgPicIcon;
   final String title;
 
   /// Widget as YSSidebarChildItem
@@ -263,7 +264,7 @@ class YSSidebarParentItem extends StatelessWidget {
     this.isActive = false,
     this.isExpanded = false,
     this.heroIconColor = ThemeColors.coolgray500,
-    this.customIconWidget,
+    this.svgPicIcon,
   }) {
     if (children == null) {
       isExpanded = isActive;
@@ -302,7 +303,11 @@ class YSSidebarParentItem extends StatelessWidget {
                   horizontalSpace: 8,
                   children: [
                     // if (icon != null) IconMix(icon!, mix: iconMix),
-                    if (customIconWidget != null) customIconWidget!,
+                    if (svgPicIcon != null)
+                      SvgPicture.asset(
+                        svgPicIcon!,
+                        color: isExpanded ? ThemeColors.white : heroIconColor,
+                      ),
                     if (heroIcon != null)
                       HeroIcon(heroIcon!,
                           color:
