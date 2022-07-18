@@ -32,6 +32,7 @@ dependencies:
   image_picker: ^0.8.4+11
   mix: ^0.0.6
   flutter_easylogger: ^2.3.3
+  flutter_svg: ^0.22.0
 
   # Database Related Dependencies
   hive: ^2.1.0
