@@ -31,13 +31,13 @@ class CWButtonLinkXS extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
-                    .copyWith(color: ThemeColors.coolgray600)),
+                    .copyWith(color: ThemeColors.coolgray500)),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -76,13 +76,13 @@ class CWButtonLinkS extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
-                    .copyWith(color: ThemeColors.coolgray600)),
+                    .copyWith(color: ThemeColors.coolgray500)),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -121,13 +121,13 @@ class CWButtonLinkM extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
-                    .copyWith(color: ThemeColors.coolgray600)),
+                    .copyWith(color: ThemeColors.coolgray500)),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -166,15 +166,15 @@ class CWButtonLinkL extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray500),
             if (leftIcon != null) const SizedBox(width: 4),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
-                    .copyWith(color: ThemeColors.coolgray600)),
+                    .copyWith(color: ThemeColors.coolgray500)),
             if (rightIcon != null) const SizedBox(width: 4),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -213,15 +213,15 @@ class CWButtonLinkXL extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.coolgray500),
             if (leftIcon != null) const SizedBox(width: 6),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
-                    .copyWith(color: ThemeColors.coolgray600)),
+                    .copyWith(color: ThemeColors.coolgray500)),
             if (rightIcon != null) const SizedBox(width: 6),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray600),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.coolgray500),
           ],
         ),
       ),
