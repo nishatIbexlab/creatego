@@ -30,13 +30,13 @@ class CWButtonSecondaryXS extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.orange500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -75,13 +75,13 @@ class CWButtonSecondaryS extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.orange500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -120,13 +120,13 @@ class CWButtonSecondaryM extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.orange500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -165,7 +165,7 @@ class CWButtonSecondaryL extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.orange500),
             if (leftIcon != null) const SizedBox(width: 4),
             SizedText(
                 text: text,
@@ -173,7 +173,7 @@ class CWButtonSecondaryL extends StatelessWidget {
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null) const SizedBox(width: 4),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.orange500),
           ],
         ),
       ),
@@ -212,7 +212,7 @@ class CWButtonSecondaryXL extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (leftIcon != null)
-              HeroIcon(leftIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(leftIcon!, size: 20, color: ThemeColors.orange500),
             if (leftIcon != null) const SizedBox(width: 6),
             SizedText(
                 text: text,
@@ -220,7 +220,7 @@ class CWButtonSecondaryXL extends StatelessWidget {
                     .copyWith(color: ThemeColors.orange500)),
             if (rightIcon != null) const SizedBox(width: 6),
             if (rightIcon != null)
-              HeroIcon(rightIcon!, size: 16, color: ThemeColors.orange500),
+              HeroIcon(rightIcon!, size: 20, color: ThemeColors.orange500),
           ],
         ),
       ),

@@ -36,14 +36,14 @@ class CWButtonGhostXS extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: btnColor ?? ThemeColors.coolgray600)),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
           ],
         ),
       ),
@@ -87,14 +87,14 @@ class CWButtonGhostS extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: btnColor ?? ThemeColors.coolgray600)),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
           ],
         ),
       ),
@@ -138,14 +138,14 @@ class CWButtonGhostM extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: btnColor ?? ThemeColors.coolgray600)),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
           ],
         ),
       ),
@@ -188,7 +188,7 @@ class CWButtonGhostL extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
             if (leftIcon != null) const SizedBox(width: 4),
             SizedText(
                 text: text,
@@ -197,7 +197,7 @@ class CWButtonGhostL extends StatelessWidget {
             if (rightIcon != null) const SizedBox(width: 4),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 16, color: btnColor ?? ThemeColors.coolgray600),
+                  size: 20, color: btnColor ?? ThemeColors.coolgray600),
           ],
         ),
       ),
