@@ -6,12 +6,15 @@ class CWButtonGhostXS extends StatelessWidget {
   final HeroIcons? leftIcon;
   final HeroIcons? rightIcon;
   final Color? btnColor;
+  final bool? isSolidIcon;
+
   const CWButtonGhostXS(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
       this.btnColor,
+      this.isSolidIcon = false,
       Key? key})
       : super(key: key);
 
@@ -36,14 +39,18 @@ class CWButtonGhostXS extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: btnColor ?? ThemeColors.coolgray500)),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -57,12 +64,15 @@ class CWButtonGhostS extends StatelessWidget {
   final HeroIcons? leftIcon;
   final HeroIcons? rightIcon;
   final Color? btnColor;
+  final bool? isSolidIcon;
+
   const CWButtonGhostS(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
       this.btnColor,
+      this.isSolidIcon = false,
       Key? key})
       : super(key: key);
 
@@ -87,14 +97,18 @@ class CWButtonGhostS extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: btnColor ?? ThemeColors.coolgray500)),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -108,12 +122,15 @@ class CWButtonGhostM extends StatelessWidget {
   final HeroIcons? leftIcon;
   final HeroIcons? rightIcon;
   final Color? btnColor;
+  final bool? isSolidIcon;
+
   const CWButtonGhostM(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
       this.btnColor,
+      this.isSolidIcon = false,
       Key? key})
       : super(key: key);
 
@@ -138,14 +155,18 @@ class CWButtonGhostM extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
             SizedText(
                 text: text,
                 textStyle: ThemeTextSemiBold.sm
                     .copyWith(color: btnColor ?? ThemeColors.coolgray500)),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -159,12 +180,15 @@ class CWButtonGhostL extends StatelessWidget {
   final HeroIcons? leftIcon;
   final HeroIcons? rightIcon;
   final Color? btnColor;
+  final bool? isSolidIcon;
+
   const CWButtonGhostL(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
       this.btnColor,
+      this.isSolidIcon = false,
       Key? key})
       : super(key: key);
 
@@ -188,7 +212,9 @@ class CWButtonGhostL extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
             if (leftIcon != null) const SizedBox(width: 4),
             SizedText(
                 text: text,
@@ -197,7 +223,9 @@ class CWButtonGhostL extends StatelessWidget {
             if (rightIcon != null) const SizedBox(width: 4),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
           ],
         ),
       ),
@@ -211,12 +239,15 @@ class CWButtonGhostXL extends StatelessWidget {
   final HeroIcons? leftIcon;
   final HeroIcons? rightIcon;
   final Color? btnColor;
+  final bool? isSolidIcon;
+
   const CWButtonGhostXL(
       {required this.text,
       required this.onPressed,
       this.rightIcon,
       this.leftIcon,
       this.btnColor,
+      this.isSolidIcon = false,
       Key? key})
       : super(key: key);
 
@@ -241,7 +272,9 @@ class CWButtonGhostXL extends StatelessWidget {
           children: [
             if (leftIcon != null)
               HeroIcon(leftIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
             if (leftIcon != null) const SizedBox(width: 6),
             SizedText(
                 text: text,
@@ -250,7 +283,9 @@ class CWButtonGhostXL extends StatelessWidget {
             if (rightIcon != null) const SizedBox(width: 6),
             if (rightIcon != null)
               HeroIcon(rightIcon!,
-                  size: 20, color: btnColor ?? ThemeColors.coolgray500),
+                  size: 20,
+                  solid: isSolidIcon!,
+                  color: btnColor ?? ThemeColors.coolgray500),
           ],
         ),
       ),
