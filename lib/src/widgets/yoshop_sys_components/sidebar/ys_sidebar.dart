@@ -211,11 +211,9 @@ class _YSSidebarState extends State<YSSidebar> {
                 _expandedIndex = _expandedIndex == i ? null : i;
               });
             }
-            if(_item.onPressed!=null){
+            if (_item.onPressed != null) {
               _item.onPressed!();
             }
-            
-
           },
           children: _item.children != null && _item.children!.isNotEmpty
               ? _item.children!
@@ -241,7 +239,7 @@ class _YSSidebarState extends State<YSSidebar> {
 }
 
 class YSSidebarParentItem extends StatelessWidget {
-  final IconData? icon;
+  final HeroIcons? icon;
   final String title;
 
   /// Widget as YSSidebarChildItem
@@ -297,7 +295,8 @@ class YSSidebarParentItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   horizontalSpace: 8,
                   children: [
-                    if (icon != null) IconMix(icon!, mix: iconMix),
+                    // if (icon != null) IconMix(icon!, mix: iconMix),
+                    if (icon != null) HeroIcon(icon!),
                     TextMix(title, mix: titleMix),
                   ],
                 ),
