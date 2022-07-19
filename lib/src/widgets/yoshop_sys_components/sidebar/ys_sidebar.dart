@@ -243,7 +243,8 @@ class _YSSidebarState extends State<YSSidebar> {
 class YSSidebarParentItem extends StatelessWidget {
   final HeroIcons? heroIcon;
   final String? svgPicIcon;
-  final String title;
+  final String? title;
+  final bool? showUnderLine;
 
   /// Widget as YSSidebarChildItem
   /// If children is not null and is not empty, the arrow key appears and open the children on pressed.
@@ -258,13 +259,14 @@ class YSSidebarParentItem extends StatelessWidget {
   YSSidebarParentItem({
     Key? key,
     this.children,
-    required this.title,
+    this.title,
     this.heroIcon,
     this.onPressed,
     this.isActive = false,
     this.isExpanded = false,
     this.heroIconColor = ThemeColors.coolgray500,
     this.svgPicIcon,
+    this.showUnderLine = false,
   }) {
     if (children == null) {
       isExpanded = isActive;
@@ -291,40 +293,46 @@ class YSSidebarParentItem extends StatelessWidget {
       verticalSpace: isExpanded ? 12 : 0,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PressableMix(
-          onPressed: onPressed,
-          child: Box(
-            mix: boxMix,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SpacedRow(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  horizontalSpace: 8,
-                  children: [
-                    // if (icon != null) IconMix(icon!, mix: iconMix),
-                    if (svgPicIcon != null)
-                      SvgPicture.asset(
-                        svgPicIcon!,
-                        color: isExpanded ? ThemeColors.white : heroIconColor,
-                      ),
-                    if (heroIcon != null)
-                      HeroIcon(heroIcon!,
-                          color:
-                              isExpanded ? ThemeColors.white : heroIconColor),
-                    TextMix(title, mix: titleMix),
-                  ],
-                ),
-                if (children != null && children!.isNotEmpty)
-                  AnimatedRotation(
-                      duration: const Duration(milliseconds: 100),
-                      turns: !isExpanded ? 0 : 1 / 4,
-                      child:
-                          IconMix(Icons.chevron_right_rounded, mix: iconMix)),
-              ],
+        if (showUnderLine!)
+          Container(
+            height: 1,
+            color: ThemeColors.coolgray500,
+          ),
+        if (!showUnderLine!)
+          PressableMix(
+            onPressed: onPressed,
+            child: Box(
+              mix: boxMix,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SpacedRow(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    horizontalSpace: 8,
+                    children: [
+                      // if (icon != null) IconMix(icon!, mix: iconMix),
+                      if (svgPicIcon != null)
+                        SvgPicture.asset(
+                          svgPicIcon!,
+                          color: isExpanded ? ThemeColors.white : heroIconColor,
+                        ),
+                      if (heroIcon != null)
+                        HeroIcon(heroIcon!,
+                            color:
+                                isExpanded ? ThemeColors.white : heroIconColor),
+                      TextMix(title ?? "", mix: titleMix),
+                    ],
+                  ),
+                  if (children != null && children!.isNotEmpty)
+                    AnimatedRotation(
+                        duration: const Duration(milliseconds: 100),
+                        turns: !isExpanded ? 0 : 1 / 4,
+                        child:
+                            IconMix(Icons.chevron_right_rounded, mix: iconMix)),
+                ],
+              ),
             ),
           ),
-        ),
         if (children != null && children!.isNotEmpty)
           AnimatedContainer(
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
