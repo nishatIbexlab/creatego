@@ -235,10 +235,10 @@ class _YSSidebarState extends State<YSSidebar> {
               : null,
         ),
       );
-      children.add(Container(height: 2, color: ThemeColors.red700));
+      children.add(Container(height: 1, width: 234, color: ThemeColors.red700));
     }
     children
-        .add(Container(height: 2, width: 100, color: ThemeColors.coolgray500));
+        .add(Container(height: 1, width: 234, color: ThemeColors.coolgray500));
     return children;
   }
 }
