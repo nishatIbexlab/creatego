@@ -253,7 +253,6 @@ class YSSidebarParentItem extends StatelessWidget {
   bool isExpanded;
   final VoidCallback? onPressed;
   Color? heroIconColor;
-  bool? isHaveUnderLine;
 
   bool isActive;
   YSSidebarParentItem({
@@ -266,7 +265,6 @@ class YSSidebarParentItem extends StatelessWidget {
     this.isExpanded = false,
     this.heroIconColor = ThemeColors.coolgray500,
     this.svgPicIcon,
-    this.isHaveUnderLine = false,
   }) {
     if (children == null) {
       isExpanded = isActive;
@@ -335,12 +333,6 @@ class YSSidebarParentItem extends StatelessWidget {
               child: SpacedColumn(
                 children: children!.map<Widget>((e) => e).toList(),
               )),
-        if (isHaveUnderLine!)
-          Container(
-            height: 3,
-            width: 50,
-            color: ThemeColors.coolgray500,
-          )
       ],
     );
   }
