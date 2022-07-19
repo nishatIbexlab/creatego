@@ -338,8 +338,8 @@ class YSSidebarParentItem extends StatelessWidget {
         if (isHaveUnderLine!)
           Container(
             height: 3,
-            width: 234,
-            color: ThemeColors.coolgray300,
+            width: 50,
+            color: ThemeColors.coolgray500,
           )
       ],
     );
