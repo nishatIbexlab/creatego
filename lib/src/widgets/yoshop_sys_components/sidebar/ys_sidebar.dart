@@ -238,8 +238,7 @@ class _YSSidebarState extends State<YSSidebar> {
           ),
         );
       } else {
-        children.add(
-            Container(height: 1, width: 224, color: ThemeColors.coolgray500));
+        children.add(_item);
       }
     }
     return children;
