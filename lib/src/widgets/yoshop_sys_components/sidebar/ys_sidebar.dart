@@ -198,47 +198,50 @@ class _YSSidebarState extends State<YSSidebar> {
     final List<Widget> children = [];
     for (int i = 0; i < widget.children.length; i++) {
       final _item = widget.children[i];
-      children.add(
-        YSSidebarParentItem(
-          title: _item.title,
-          isExpanded: _expandedIndex == i,
-          isActive: i == widget.currentIndex,
-          heroIcon: _item.heroIcon,
-          svgPicIcon: _item.svgPicIcon,
-          onPressed: () {
-            if (_item.children == null || _item.children!.isEmpty) {
-              widget.onTabChange?.call(i);
-            } else {
-              setState(() {
-                _expandedIndex = _expandedIndex == i ? null : i;
-              });
-            }
-            if (_item.onPressed != null) {
-              _item.onPressed!();
-            }
-          },
-          children: _item.children != null && _item.children!.isNotEmpty
-              ? _item.children!
-                  .map<YSSidebarChildItem>(
-                    (e) => YSSidebarChildItem(
-                        title: e.title,
-                        icon: e.icon,
-                        isSelected: widget.currentIndex ==
-                            (_item.children!.length +
-                                _item.children!.indexOf(e)),
-                        onPressed: () {
-                          widget.onTabChange!.call((_item.children!.length +
-                              _item.children!.indexOf(e)));
-                        }),
-                  )
-                  .toList()
-              : null,
-        ),
-      );
-      children.add(Container(height: 1, width: 234, color: ThemeColors.red700));
+
+      if (_item.runtimeType == YSSidebarParentItem) {
+        children.add(
+          YSSidebarParentItem(
+            title: _item.title,
+            isExpanded: _expandedIndex == i,
+            isActive: i == widget.currentIndex,
+            heroIcon: _item.heroIcon,
+            svgPicIcon: _item.svgPicIcon,
+            onPressed: () {
+              if (_item.children == null || _item.children!.isEmpty) {
+                widget.onTabChange?.call(i);
+              } else {
+                setState(() {
+                  _expandedIndex = _expandedIndex == i ? null : i;
+                });
+              }
+              if (_item.onPressed != null) {
+                _item.onPressed!();
+              }
+            },
+            children: _item.children != null && _item.children!.isNotEmpty
+                ? _item.children!
+                    .map<YSSidebarChildItem>(
+                      (e) => YSSidebarChildItem(
+                          title: e.title,
+                          icon: e.icon,
+                          isSelected: widget.currentIndex ==
+                              (_item.children!.length +
+                                  _item.children!.indexOf(e)),
+                          onPressed: () {
+                            widget.onTabChange!.call((_item.children!.length +
+                                _item.children!.indexOf(e)));
+                          }),
+                    )
+                    .toList()
+                : null,
+          ),
+        );
+      } else {
+        children.add(
+            Container(height: 1, width: 224, color: ThemeColors.coolgray500));
+      }
     }
-    children
-        .add(Container(height: 1, width: 234, color: ThemeColors.coolgray500));
     return children;
   }
 }
