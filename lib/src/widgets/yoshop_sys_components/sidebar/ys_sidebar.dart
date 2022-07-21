@@ -157,7 +157,7 @@ class _YSSidebarState extends State<YSSidebar> {
     crossAxis(CrossAxisAlignment.start),
   );
 
-  Mix boxMix = Mix(const BoxAttributes(color: ThemeColors.white), elevation(4),
+  Mix boxMix = Mix(const BoxAttributes(color: ThemeColors.white),
       paddingHorizontal(16), marginTop(16));
 
   @override
@@ -175,19 +175,22 @@ class _YSSidebarState extends State<YSSidebar> {
               infoBarLowerText: widget.infoBarLowerText!,
               infoBarUpperText: widget.infoBarUpperText!),
         Flexible(
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                child: SpacedColumn(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    verticalSpace: 8,
-                    children: _buildSidebarChildren()),
-              ),
-              if (widget.bottomWidget != null)
-                Positioned(width: 234, bottom: 0, child: widget.bottomWidget!)
-            ],
+          child: Container(
+            decoration: BoxDecoration(boxShadow: ThemeShadows.shadowSm),
+            child: Stack(
+              children: [
+                SingleChildScrollView(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  child: SpacedColumn(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      verticalSpace: 8,
+                      children: _buildSidebarChildren()),
+                ),
+                if (widget.bottomWidget != null)
+                  Positioned(width: 234, bottom: 0, child: widget.bottomWidget!)
+              ],
+            ),
           ),
         ),
       ]),
