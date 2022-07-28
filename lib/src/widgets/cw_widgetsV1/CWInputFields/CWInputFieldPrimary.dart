@@ -20,18 +20,18 @@ class CWInputFieldWithLabel extends StatelessWidget {
 
   const CWInputFieldWithLabel(
       {required this.labelText,
-      this.controller,
-      this.keyboardType,
-      this.onTap,
-      this.validator,
-      this.isDisabled = false,
-      this.textStartFromRight = false,
-      this.hintText,
-      this.suffix,
-      this.prefix,
-      this.inputFieldWidth = 273,
-      this.obscureText = false,
-      Key? key})
+        this.controller,
+        this.keyboardType,
+        this.onTap,
+        this.validator,
+        this.isDisabled = false,
+        this.textStartFromRight = false,
+        this.hintText,
+        this.suffix,
+        this.prefix,
+        this.inputFieldWidth = 273,
+        this.obscureText = false,
+        Key? key})
       : super(key: key);
 
   @override
@@ -50,12 +50,12 @@ class CWInputFieldWithLabel extends StatelessWidget {
           Container(
             height: 40,
             decoration: BoxDecoration(
-                // boxShadow: ThemeShadows.shadowSm,
+              // boxShadow: ThemeShadows.shadowSm,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: ThemeShadows.shadowSm),
             child: TextFormField(
               textAlign:
-                  textStartFromRight! ? TextAlign.right : TextAlign.start,
+              textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
               style: ThemeTextRegular.base
                   .copyWith(color: ThemeColors.coolgray900),
@@ -71,15 +71,15 @@ class CWInputFieldWithLabel extends StatelessWidget {
                   child: suffix,
                 ),
                 suffixIconConstraints:
-                    const BoxConstraints.tightFor(height: 20),
+                const BoxConstraints.tightFor(height: 20),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: prefix,
                 ),
                 prefixIconConstraints:
-                    const BoxConstraints.tightFor(height: 10),
+                const BoxConstraints.tightFor(height: 10),
                 contentPadding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 labelStyle: ThemeTextRegular.xl,
                 filled: true,
                 fillColor: ThemeColors.white,
@@ -91,16 +91,16 @@ class CWInputFieldWithLabel extends StatelessWidget {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                   borderSide:
-                      const BorderSide(color: ThemeColors.indigo600, width: 1),
+                  const BorderSide(color: ThemeColors.indigo600, width: 1),
                 ),
                 focusedErrorBorder: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                     borderSide:
-                        BorderSide(color: ThemeColors.red500, width: 2)),
+                    BorderSide(color: ThemeColors.red500, width: 2)),
                 errorBorder: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                     borderSide:
-                        BorderSide(color: ThemeColors.red500, width: 2)),
+                    BorderSide(color: ThemeColors.red500, width: 2)),
               ),
               validator: validator,
               controller: controller,
@@ -133,17 +133,17 @@ class CWInputField extends StatelessWidget {
   ///
   const CWInputField(
       {this.controller,
-      this.keyboardType,
-      this.onTap,
-      this.validator,
-      this.isDisabled = false,
-      this.textStartFromRight = false,
-      this.hintText,
-      this.suffix,
-      this.prefix,
-      this.inputFieldWidth = 273,
-      this.obscureText = false,
-      Key? key})
+        this.keyboardType,
+        this.onTap,
+        this.validator,
+        this.isDisabled = false,
+        this.textStartFromRight = false,
+        this.hintText,
+        this.suffix,
+        this.prefix,
+        this.inputFieldWidth = 273,
+        this.obscureText = false,
+        Key? key})
       : super(key: key);
 
   @override
@@ -163,7 +163,7 @@ class CWInputField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle:
-              ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
+          ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
           suffixIcon: Padding(
             padding: const EdgeInsets.only(right: 10),
             child: suffix,
@@ -178,19 +178,19 @@ class CWInputField extends StatelessWidget {
           ),
           prefixIconConstraints: const BoxConstraints.tightFor(height: 20),
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+          const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
           labelStyle: ThemeTextRegular.xl,
           filled: true,
           fillColor: ThemeColors.white,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide:
-                const BorderSide(color: ThemeColors.coolgray200, width: 1),
+            const BorderSide(color: ThemeColors.coolgray200, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide:
-                const BorderSide(color: ThemeColors.indigo600, width: 1),
+            const BorderSide(color: ThemeColors.indigo600, width: 1),
           ),
           focusedErrorBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(6)),
@@ -230,20 +230,20 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
 
   const CWInputFieldWithDropdownS(
       {this.controller,
-      this.keyboardType,
-      this.onTap,
-      this.validator,
-      this.isDisabled = false,
-      this.textStartFromRight = false,
-      this.hintText,
-      this.onDropdownChanged,
-      required this.dropdownItems,
-      this.dropdownValue,
-      this.inputFieldWidth = 173,
-      this.isDropdownRight = true,
-      this.isDropdownOptionsIconRight = false,
-      this.dropdownMaxHeight,
-      Key? key})
+        this.keyboardType,
+        this.onTap,
+        this.validator,
+        this.isDisabled = false,
+        this.textStartFromRight = false,
+        this.hintText,
+        this.onDropdownChanged,
+        required this.dropdownItems,
+        this.dropdownValue,
+        this.inputFieldWidth = 173,
+        this.isDropdownRight = true,
+        this.isDropdownOptionsIconRight = false,
+        this.dropdownMaxHeight,
+        Key? key})
       : super(key: key);
 
   final _borderRadiusLeft = const BorderRadius.only(
@@ -255,7 +255,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _borderRadius =
-        isDropdownRight! ? _borderRadiusLeft : _borderRadiusRight;
+    isDropdownRight! ? _borderRadiusLeft : _borderRadiusRight;
 
     return Container(
       width: inputFieldWidth!,
@@ -281,7 +281,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
             width: inputFieldWidth! - 72,
             child: TextFormField(
               textAlign:
-                  textStartFromRight! ? TextAlign.right : TextAlign.start,
+              textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
               style: ThemeTextRegular.base
                   .copyWith(color: ThemeColors.coolgray900),
@@ -293,7 +293,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
                     height: .01, fontSize: 0.1, color: ThemeColors.transparent),
                 errorMaxLines: 2,
                 contentPadding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 labelStyle: ThemeTextRegular.xl,
                 filled: true,
                 fillColor: ThemeColors.white,
@@ -310,11 +310,11 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
                 focusedErrorBorder: OutlineInputBorder(
                     borderRadius: _borderRadius,
                     borderSide:
-                        const BorderSide(color: ThemeColors.red500, width: 2)),
+                    const BorderSide(color: ThemeColors.red500, width: 2)),
                 errorBorder: OutlineInputBorder(
                     borderRadius: _borderRadius,
                     borderSide:
-                        const BorderSide(color: ThemeColors.red500, width: 2)),
+                    const BorderSide(color: ThemeColors.red500, width: 2)),
               ),
               validator: validator,
               controller: controller,
@@ -357,23 +357,23 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
 
-  const CWInputFieldWithDropdownM(
+  CWInputFieldWithDropdownM(
       {this.controller,
-      this.keyboardType,
-      this.isTextCenter,
-      this.onTap,
-      this.validator,
-      this.isDisabled = false,
-      this.textStartFromRight = false,
-      this.hintText,
-      this.onDropdownChanged,
-      required this.dropdownItems,
-      this.dropdownValue,
-      this.isDropdownRight = false,
-      this.inputFieldWidth = 303,
-      this.isDropdownOptionsIconRight = true,
-      this.dropdownMaxHeight,
-      Key? key})
+        this.keyboardType,
+        this.isTextCenter,
+        this.onTap,
+        this.validator,
+        this.isDisabled = false,
+        this.textStartFromRight = false,
+        this.hintText,
+        this.onDropdownChanged,
+        required this.dropdownItems,
+        this.dropdownValue,
+        this.isDropdownRight = false,
+        this.inputFieldWidth = 303,
+        this.isDropdownOptionsIconRight = true,
+        this.dropdownMaxHeight,
+        Key? key})
       : super(key: key);
 
   final _borderRadiusLeft = const BorderRadius.only(
@@ -382,10 +382,25 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final _borderRadiusRight = const BorderRadius.only(
       topRight: Radius.circular(6), bottomRight: Radius.circular(6));
 
+  late CWInputFieldDropdown2 _CWInputFieldDropdown2;
+
+  void openDropdown() {
+    _CWInputFieldDropdown2.openDropdown();
+  }
+
   @override
   Widget build(BuildContext context) {
+    _CWInputFieldDropdown2= CWInputFieldDropdown2(
+      items: dropdownItems,
+      onChanged: onDropdownChanged,
+      value: dropdownValue,
+      dropdownOptionsWidth: inputFieldWidth,
+      isDropdownRight: isDropdownRight!,
+      isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+      dropdownMaxHeight: dropdownMaxHeight,
+    );
     final _borderRadius =
-        isDropdownRight! ? _borderRadiusLeft : _borderRadiusRight;
+    isDropdownRight! ? _borderRadiusLeft : _borderRadiusRight;
 
     return Container(
       width: inputFieldWidth!,
@@ -399,15 +414,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       child: Row(
         children: [
           if (!isDropdownRight!)
-            CWInputFieldDropdown2(
-              items: dropdownItems,
-              onChanged: onDropdownChanged,
-              value: dropdownValue,
-              dropdownOptionsWidth: inputFieldWidth,
-              isDropdownRight: isDropdownRight!,
-              isDropdownOptionsIconRight: isDropdownOptionsIconRight,
-              dropdownMaxHeight: dropdownMaxHeight,
-            ),
+            _CWInputFieldDropdown2,
           SizedBox(
             width: inputFieldWidth! - 42,
             child: TextFormField(
@@ -423,7 +430,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
                     height: .01, fontSize: 0.1, color: ThemeColors.transparent),
                 errorMaxLines: 2,
                 contentPadding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 labelStyle: ThemeTextRegular.xl,
                 filled: true,
                 fillColor: ThemeColors.white,
@@ -440,11 +447,11 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
                 focusedErrorBorder: OutlineInputBorder(
                     borderRadius: _borderRadius,
                     borderSide:
-                        const BorderSide(color: ThemeColors.red500, width: 2)),
+                    const BorderSide(color: ThemeColors.red500, width: 2)),
                 errorBorder: OutlineInputBorder(
                     borderRadius: _borderRadius,
                     borderSide:
-                        const BorderSide(color: ThemeColors.red500, width: 2)),
+                    const BorderSide(color: ThemeColors.red500, width: 2)),
               ),
               validator: validator,
               controller: controller,
@@ -454,15 +461,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
             ),
           ),
           if (isDropdownRight!)
-            CWInputFieldDropdown2(
-              items: dropdownItems,
-              onChanged: onDropdownChanged,
-              value: dropdownValue,
-              dropdownOptionsWidth: inputFieldWidth,
-              isDropdownRight: isDropdownRight!,
-              isDropdownOptionsIconRight: isDropdownOptionsIconRight,
-              dropdownMaxHeight: dropdownMaxHeight,
-            ),
+            _CWInputFieldDropdown2,
         ],
       ),
     );
@@ -499,17 +498,17 @@ class CWInputFieldWithValidText extends StatelessWidget {
 
   const CWInputFieldWithValidText(
       {this.controller,
-      this.keyboardType,
-      this.onTap,
-      this.validator,
-      this.isDisabled = false,
-      this.textStartFromRight = false,
-      this.hintText,
-      this.suffix,
-      this.prefix,
-      this.inputFieldWidth = 273,
-      this.obscureText = false,
-      Key? key})
+        this.keyboardType,
+        this.onTap,
+        this.validator,
+        this.isDisabled = false,
+        this.textStartFromRight = false,
+        this.hintText,
+        this.suffix,
+        this.prefix,
+        this.inputFieldWidth = 273,
+        this.obscureText = false,
+        Key? key})
       : super(key: key);
 
   @override
@@ -528,7 +527,7 @@ class CWInputFieldWithValidText extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle:
-              ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
+          ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
           suffixIcon: Padding(
             padding: const EdgeInsets.only(right: 10),
             child: suffix,
@@ -546,19 +545,19 @@ class CWInputFieldWithValidText extends StatelessWidget {
           ),
           prefixIconConstraints: const BoxConstraints.tightFor(height: 20),
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+          const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
           labelStyle: ThemeTextRegular.xl,
           filled: true,
           fillColor: ThemeColors.white,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide:
-                const BorderSide(color: ThemeColors.coolgray200, width: 1),
+            const BorderSide(color: ThemeColors.coolgray200, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide:
-                const BorderSide(color: ThemeColors.indigo600, width: 1),
+            const BorderSide(color: ThemeColors.indigo600, width: 1),
           ),
           focusedErrorBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(6)),
@@ -598,17 +597,17 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
 
   const CWInputFieldWithValidBorder(
       {this.controller,
-      this.keyboardType,
-      this.onTap,
-      this.validator,
-      this.isDisabled = false,
-      this.textStartFromRight = false,
-      this.hintText,
-      this.suffix,
-      this.prefix,
-      this.inputFieldWidth = 273,
-      this.obscureText = false,
-      Key? key})
+        this.keyboardType,
+        this.onTap,
+        this.validator,
+        this.isDisabled = false,
+        this.textStartFromRight = false,
+        this.hintText,
+        this.suffix,
+        this.prefix,
+        this.inputFieldWidth = 273,
+        this.obscureText = false,
+        Key? key})
       : super(key: key);
 
   @override
@@ -627,7 +626,7 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle:
-              ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
+          ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray500),
           suffixIcon: Padding(
             padding: const EdgeInsets.only(right: 10),
             child: suffix,
@@ -645,19 +644,19 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
           ),
           prefixIconConstraints: const BoxConstraints.tightFor(height: 20),
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+          const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
           labelStyle: ThemeTextRegular.xl,
           filled: true,
           fillColor: ThemeColors.white,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide:
-                const BorderSide(color: ThemeColors.coolgray200, width: 1),
+            const BorderSide(color: ThemeColors.coolgray200, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide:
-                const BorderSide(color: ThemeColors.indigo600, width: 1),
+            const BorderSide(color: ThemeColors.indigo600, width: 1),
           ),
           focusedErrorBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(6)),
