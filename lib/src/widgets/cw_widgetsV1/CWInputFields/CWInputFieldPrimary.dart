@@ -14,7 +14,6 @@ class CWInputFieldWithLabel extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
-  final ValueChanged<String>? onChange;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -32,7 +31,6 @@ class CWInputFieldWithLabel extends StatelessWidget {
       this.prefix,
       this.inputFieldWidth = 273,
       this.obscureText = false,
-      this.onChange,
       Key? key})
       : super(key: key);
 
@@ -56,7 +54,6 @@ class CWInputFieldWithLabel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: ThemeShadows.shadowSm),
             child: TextFormField(
-              onChanged: onChange,
               textAlign:
                   textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
@@ -130,7 +127,7 @@ class CWInputField extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
-  final ValueChanged<String>? onChange;
+  final ValueChanged<String>? onChanged;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -147,7 +144,7 @@ class CWInputField extends StatelessWidget {
       this.prefix,
       this.inputFieldWidth = 273,
       this.obscureText = false,
-      this.onChange,
+      this.onChanged,
       Key? key})
       : super(key: key);
 
@@ -161,7 +158,7 @@ class CWInputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
-        onChanged: onChange,
+        onChanged: onChanged,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
@@ -362,7 +359,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
 
-  const CWInputFieldWithDropdownM(
+  CWInputFieldWithDropdownM(
       {this.controller,
       this.keyboardType,
       this.onTap,
@@ -385,9 +382,24 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
 
   final _borderRadiusRight = const BorderRadius.only(
       topRight: Radius.circular(6), bottomRight: Radius.circular(6));
+  late CWInputFieldDropdown2 _CWInputFieldDropdown2;
+
+  void openDropdown() {
+    _CWInputFieldDropdown2.openDropdown();
+  }
 
   @override
   Widget build(BuildContext context) {
+    _CWInputFieldDropdown2 = CWInputFieldDropdown2(
+      items: dropdownItems,
+      onChanged: onDropdownChanged,
+      value: dropdownValue,
+      dropdownOptionsWidth: inputFieldWidth,
+      isDropdownRight: isDropdownRight!,
+      isDropdownOptionsIconRight: isDropdownOptionsIconRight,
+      dropdownMaxHeight: dropdownMaxHeight,
+    );
+
     final _borderRadius =
         isDropdownRight! ? _borderRadiusLeft : _borderRadiusRight;
 
@@ -402,16 +414,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       ),
       child: Row(
         children: [
-          if (!isDropdownRight!)
-            CWInputFieldDropdown2(
-              items: dropdownItems,
-              onChanged: onDropdownChanged,
-              value: dropdownValue,
-              dropdownOptionsWidth: inputFieldWidth,
-              isDropdownRight: isDropdownRight!,
-              isDropdownOptionsIconRight: isDropdownOptionsIconRight,
-              dropdownMaxHeight: dropdownMaxHeight,
-            ),
+          if (!isDropdownRight!) _CWInputFieldDropdown2,
           SizedBox(
             width: inputFieldWidth! - 42,
             child: TextFormField(
@@ -458,16 +461,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               readOnly: isDisabled! ? true : false,
             ),
           ),
-          if (isDropdownRight!)
-            CWInputFieldDropdown2(
-              items: dropdownItems,
-              onChanged: onDropdownChanged,
-              value: dropdownValue,
-              dropdownOptionsWidth: inputFieldWidth,
-              isDropdownRight: isDropdownRight!,
-              isDropdownOptionsIconRight: isDropdownOptionsIconRight,
-              dropdownMaxHeight: dropdownMaxHeight,
-            ),
+          if (isDropdownRight!) _CWInputFieldDropdown2,
         ],
       ),
     );
@@ -486,7 +480,6 @@ class CWInputFieldWithValidText extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
-  final ValueChanged<String>? onChange;
 
   /// * For the Validation Error Text,
   /// We need extra space to show the error text.
@@ -508,7 +501,6 @@ class CWInputFieldWithValidText extends StatelessWidget {
       this.prefix,
       this.inputFieldWidth = 273,
       this.obscureText = false,
-      this.onChange,
       Key? key})
       : super(key: key);
 
@@ -521,7 +513,6 @@ class CWInputFieldWithValidText extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
-        onChanged: onChange,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
@@ -590,7 +581,6 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
-  final ValueChanged<String>? onChange;
 
   /// * For the Validation Error Border only,
   /// The Text size is .01 and transparent.
@@ -610,7 +600,6 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
       this.prefix,
       this.inputFieldWidth = 273,
       this.obscureText = false,
-      this.onChange,
       Key? key})
       : super(key: key);
 
@@ -623,7 +612,6 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
-        onChanged: onChange,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
