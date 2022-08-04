@@ -39,6 +39,7 @@ export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonPrimary.dart';
 export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonSecondary.dart';
 export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonGhost.dart';
 export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonLink.dart';
+export 'src/widgets/cw_widgetsV1/CWButtons/CWButtonDisabled.dart';
 export 'src/widgets/cw_widgetsV1/CWDropdowns/CWDropdownPrimary.dart';
 export 'src/widgets/cw_widgetsV1/CWInputFields/CWInputFieldPrimary.dart';
 export 'src/widgets/cw_widgetsV1/CWInputFields/CWYolletInputField.dart';
