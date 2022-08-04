@@ -20,16 +20,16 @@ class CWDropdownPrimary extends StatefulWidget {
   /// * DO NOT PASS the SAME TEXT in items.
   CWDropdownPrimary(
       {Key? key,
-      required this.items,
-      this.onChanged,
-      this.value,
-      this.leftIcon,
-      this.dropdownBtnWidth = 115,
-      this.dropdownOptionsWidth = 224,
-      this.hintText,
-      this.dropdownMaxHeight,
-      this.dropdownBtnColor,
-      this.showDropdownIcon = true})
+        required this.items,
+        this.onChanged,
+        this.value,
+        this.leftIcon,
+        this.dropdownBtnWidth = 115,
+        this.dropdownOptionsWidth = 224,
+        this.hintText,
+        this.dropdownMaxHeight,
+        this.dropdownBtnColor,
+        this.showDropdownIcon = true})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
@@ -100,35 +100,35 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
             color:
-                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+            widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
       if (widget.isValueNull)
         SizedBox(
           width: widget.leftIcon != null
               ? widget.dropdownBtnWidth! - (55 + 55)
               : widget.showDropdownIcon!
-                  ? widget.dropdownBtnWidth! - 60
-                  : widget.dropdownBtnWidth! - 30,
+              ? widget.dropdownBtnWidth! - 60
+              : widget.dropdownBtnWidth! - 30,
           child: widget.showDropdownIcon!
               ? Center(
-                  child: SizedText(
-                      textAlign: TextAlign.center,
-                      alignment: Alignment.center,
-                      text: widget.hintText,
-                      overflow: TextOverflow.ellipsis,
-                      textStyle: ThemeTextRegular.base.copyWith(
-                          color: widget.dropdownBtnColor == null
-                              ? ThemeColors.coolgray600
-                              : ThemeColors.white)),
-                )
+            child: SizedText(
+                textAlign: TextAlign.center,
+                alignment: Alignment.center,
+                text: widget.hintText,
+                overflow: TextOverflow.ellipsis,
+                textStyle: ThemeTextRegular.base.copyWith(
+                    color: widget.dropdownBtnColor == null
+                        ? ThemeColors.coolgray600
+                        : ThemeColors.white)),
+          )
               : SizedText(
-                  textAlign: TextAlign.center,
-                  alignment: Alignment.center,
-                  text: widget.hintText,
-                  overflow: TextOverflow.ellipsis,
-                  textStyle: ThemeTextRegular.base.copyWith(
-                      color: widget.dropdownBtnColor == null
-                          ? ThemeColors.coolgray600
-                          : ThemeColors.white)),
+              textAlign: TextAlign.center,
+              alignment: Alignment.center,
+              text: widget.hintText,
+              overflow: TextOverflow.ellipsis,
+              textStyle: ThemeTextRegular.base.copyWith(
+                  color: widget.dropdownBtnColor == null
+                      ? ThemeColors.coolgray600
+                      : ThemeColors.white)),
         ),
       if (widget.showDropdownIcon!)
         Align(
@@ -152,8 +152,8 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
           width: widget.leftIcon != null
               ? widget.dropdownBtnWidth! - (55 + 55)
               : widget.showDropdownIcon!
-                  ? widget.dropdownBtnWidth! - 60
-                  : widget.dropdownBtnWidth! - 30,
+              ? widget.dropdownBtnWidth! - 60
+              : widget.dropdownBtnWidth! - 30,
           child: Center(
             child: SizedText(
               text: widget.value.toString(),
@@ -232,16 +232,16 @@ class CWDropdownWithIconMenu extends StatefulWidget {
   /// * DO NOT PASS the SAME TEXT in the items' MenuItem.
   CWDropdownWithIconMenu(
       {Key? key,
-      required this.items,
-      this.onChanged,
-      this.value,
-      this.leftIcon,
-      this.dropdownBtnWidth = 115,
-      this.dropdownOptionsWidth = 224,
-      this.isDropdownOptionsIconRight = false,
-      this.dropdownMaxHeight,
-      this.dropdownBtnColor,
-      this.hintText})
+        required this.items,
+        this.onChanged,
+        this.value,
+        this.leftIcon,
+        this.dropdownBtnWidth = 115,
+        this.dropdownOptionsWidth = 224,
+        this.isDropdownOptionsIconRight = false,
+        this.dropdownMaxHeight,
+        this.dropdownBtnColor,
+        this.hintText})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
@@ -313,7 +313,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
             color:
-                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+            widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
       if (widget.isValueNull)
         SizedBox(
           width: widget.leftIcon != null
@@ -421,15 +421,15 @@ class CWDropdownWithIconMenu2 extends StatefulWidget {
   /// * DO NOT PASS the SAME TEXT in items.
   CWDropdownWithIconMenu2(
       {Key? key,
-      required this.items,
-      this.onChanged,
-      this.value,
-      this.leftIcon,
-      this.dropdownBtnWidth = 215,
-      this.dropdownOptionsWidth = 224,
-      this.isDropdownOptionsIconRight = false,
-      this.dropdownMaxHeight,
-      this.hintText})
+        required this.items,
+        this.onChanged,
+        this.value,
+        this.leftIcon,
+        this.dropdownBtnWidth = 215,
+        this.dropdownOptionsWidth = 224,
+        this.isDropdownOptionsIconRight = false,
+        this.dropdownMaxHeight,
+        this.hintText})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
@@ -501,7 +501,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
             color:
-                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+            widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
       if (widget.isValueNull)
         SizedText(
             width: widget.leftIcon != null
@@ -510,7 +510,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
             text: widget.hintText,
             overflow: TextOverflow.ellipsis,
             textStyle:
-                ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray600)),
+            ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray600)),
       Container(
         width: 28,
         height: 50,
@@ -531,7 +531,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
             color:
-                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+            widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
       if (!widget.isValueNull)
         SizedText(
             width: widget.leftIcon != null
@@ -609,15 +609,15 @@ class CWDropdownWithIcon extends StatefulWidget {
   /// * DO NOT PASS the SAME TEXT in items.
   CWDropdownWithIcon(
       {Key? key,
-      required this.items,
-      this.onChanged,
-      this.value,
-      this.leftIcon,
-      this.dropdownBtnWidth = 215,
-      this.dropdownOptionsWidth = 224,
-      this.isDropdownOptionsIconRight = false,
-      this.dropdownMaxHeight,
-      this.hintText})
+        required this.items,
+        this.onChanged,
+        this.value,
+        this.leftIcon,
+        this.dropdownBtnWidth = 215,
+        this.dropdownOptionsWidth = 224,
+        this.isDropdownOptionsIconRight = false,
+        this.dropdownMaxHeight,
+        this.hintText})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
@@ -688,7 +688,7 @@ class _CWDropdownWithIconState extends State<CWDropdownWithIcon> {
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
             color:
-                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+            widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
       if (widget.isValueNull)
         SizedText(
             width: widget.leftIcon != null
@@ -697,7 +697,7 @@ class _CWDropdownWithIconState extends State<CWDropdownWithIcon> {
             text: widget.hintText,
             overflow: TextOverflow.ellipsis,
             textStyle:
-                ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray600)),
+            ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray600)),
       Container(
         width: 28,
         height: 50,
@@ -717,7 +717,7 @@ class _CWDropdownWithIconState extends State<CWDropdownWithIcon> {
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
             color:
-                widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
+            widget.isValueNull ? ThemeColors.gray400 : ThemeColors.gray700),
       if (!widget.isValueNull)
         SizedText(
             width: widget.leftIcon != null
@@ -797,13 +797,13 @@ class CWInputFieldDropdown extends StatefulWidget {
   /// * DO NOT PASS the SAME TEXT in the items' MenuItem.
   CWInputFieldDropdown(
       {Key? key,
-      required this.items,
-      this.onChanged,
-      this.value,
-      required this.isDropdownRight,
-      this.isDropdownOptionsIconRight = false,
-      this.dropdownMaxHeight,
-      this.hintText})
+        required this.items,
+        this.onChanged,
+        this.value,
+        required this.isDropdownRight,
+        this.isDropdownOptionsIconRight = false,
+        this.dropdownMaxHeight,
+        this.hintText})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
@@ -830,7 +830,7 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
         : const Offset(0, -5);
 
     final _borderRadius =
-        widget.isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
+    widget.isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
 
     return SizedBox(
       width: _dropdownBtnWidth,
@@ -895,7 +895,7 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
           ),
       Align(
           alignment:
-              widget.hintText == "" ? Alignment.centerRight : Alignment.center,
+          widget.hintText == "" ? Alignment.centerRight : Alignment.center,
           child: const Icon(Icons.keyboard_arrow_down_rounded,
               color: ThemeColors.coolgray600)),
     ];
@@ -953,7 +953,7 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
   }
 }
 
-class CWInputFieldDropdown2 extends StatefulWidget {
+class CWInputFieldDropdown2 extends StatelessWidget {
   final ValueChanged? onChanged;
   final MenuItem? value;
   final List<MenuItem> items;
@@ -971,24 +971,19 @@ class CWInputFieldDropdown2 extends StatefulWidget {
   /// * DO NOT PASS the SAME TEXT in the items' MenuItem.
   CWInputFieldDropdown2(
       {Key? key,
-      required this.items,
-      this.onChanged,
-      this.value,
-      this.dropdownOptionsWidth = 120,
-      required this.isDropdownRight,
-      this.isDropdownOptionsIconRight = false,
-      this.dropdownMaxHeight,
-      this.hintText})
+        required this.items,
+        this.onChanged,
+        this.value,
+        this.dropdownOptionsWidth = 120,
+        required this.isDropdownRight,
+        this.isDropdownOptionsIconRight = false,
+        this.dropdownMaxHeight,
+        this.hintText})
       : super(key: key) {
     if (value == null) isValueNull = true;
     hintText ??= "Options";
   }
 
-  @override
-  State<CWInputFieldDropdown2> createState() => _CWInputFieldDropdown2State();
-}
-
-class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
   final _borderRadiusLeft = const BorderRadius.only(
       topLeft: Radius.circular(5), bottomLeft: Radius.circular(5));
 
@@ -997,24 +992,64 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
 
   final double _dropdownBtnWidth = 40;
 
+  /// This is the global key, which will be used to traverse [DropdownButton]s widget tree
+  GlobalKey _dropdownButtonKey  = GlobalKey();
+  // void openDropdown() {
+  //   GestureDetector? detector;
+  //   void searchForGestureDetector(BuildContext element) {
+  //     element.visitChildElements((element) {
+  //       if (element.widget != null && element.widget is GestureDetector) {
+  //         detector = element.widget as GestureDetector?;
+  //         return ;
+  //
+  //       } else {
+  //         searchForGestureDetector(element);
+  //       }
+  //
+  //       return ;
+  //     });
+  //   }
+  //
+  //   searchForGestureDetector(_dropdownButtonKey.currentContext!);
+  //   assert(detector != null);
+  //
+  //   detector!.onTap!();
+  // }
+// The rest of the code is the same
+  void openDropdown() {
+    _dropdownButtonKey.currentContext?.visitChildElements((element) {
+      if (element.widget != null && element.widget is Semantics) {
+        element.visitChildElements((element) {
+          if (element.widget != null && element.widget is Actions) {
+            element.visitChildElements((element) {
+              // Actions.invoke(element, Intent(ActivateAction.key));
+              Actions.invoke(element, const ActivateIntent());
+              return;
+            });
+          }
+        });
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    final _offSet = widget.isDropdownRight
-        ? Offset(-widget.dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
+    final _offSet = isDropdownRight
+        ? Offset(-dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
         : const Offset(0, -5);
 
     final _borderRadius =
-        widget.isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
+    isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
 
     return SizedBox(
       width: _dropdownBtnWidth,
       height: 40,
       child: DropdownButton2(
+        key: _dropdownButtonKey,
         buttonWidth: _dropdownBtnWidth,
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
         underline: const SizedBox(),
-        onChanged: widget.onChanged,
+        onChanged: onChanged,
         isExpanded: true,
         focusColor: ThemeColors.transparent,
         onMenuStateChange: (bool changed) {},
@@ -1028,10 +1063,10 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
                 blurRadius: 4)
           ],
         ),
-        value: widget.value,
+        value: value,
         offset: _offSet,
-        dropdownWidth: widget.dropdownOptionsWidth,
-        dropdownMaxHeight: widget.dropdownMaxHeight,
+        dropdownWidth: dropdownOptionsWidth,
+        dropdownMaxHeight: dropdownMaxHeight,
         customButton: Container(
           height: 48,
           alignment: Alignment.center,
@@ -1049,7 +1084,7 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
   }
 
   List<DropdownMenuItem<MenuItem>> _getItems() {
-    List<MenuItem> listValues = widget.items;
+    List<MenuItem> listValues = items;
     List<DropdownMenuItem<MenuItem>> _menuItems = [];
     for (int i = 0; i < listValues.length; i++) {
       _menuItems.add(
@@ -1057,7 +1092,7 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
           value: listValues[i],
           child: Container(
               decoration: BoxDecoration(
-                  color: listValues[i].text == widget.value?.text
+                  color: listValues[i].text == value?.text
                       ? ThemeColors.coolgray100
                       : ThemeColors.white,
                   border: Border(
@@ -1072,8 +1107,8 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
               height: double.infinity,
               child: _buildMenuItems(
                 item: listValues[i],
-                isDropdownOptionsIconRight: widget.isDropdownOptionsIconRight!,
-                dropdownOptionsWidth: widget.dropdownOptionsWidth!,
+                isDropdownOptionsIconRight: isDropdownOptionsIconRight!,
+                dropdownOptionsWidth: dropdownOptionsWidth!,
               )),
         ),
       );
@@ -1095,8 +1130,8 @@ class MenuItem {
 
 Widget _buildMenuItems(
     {required MenuItem item,
-    required bool isDropdownOptionsIconRight,
-    double? dropdownOptionsWidth}) {
+      required bool isDropdownOptionsIconRight,
+      double? dropdownOptionsWidth}) {
   return Row(
     children: [
       if (item.icon != null)
@@ -1117,7 +1152,7 @@ Widget _buildMenuItems(
         text: item.text,
         overflow: TextOverflow.ellipsis,
         textStyle:
-            ThemeTextSemiBold.base.copyWith(color: ThemeColors.coolgray600),
+        ThemeTextSemiBold.base.copyWith(color: ThemeColors.coolgray600),
       ),
       if (item.icon != null)
         if (isDropdownOptionsIconRight)
