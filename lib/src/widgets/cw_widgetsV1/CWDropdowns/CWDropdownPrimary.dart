@@ -953,7 +953,7 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
   }
 }
 
-class CWInputFieldDropdown2 extends StatefulWidget {
+class CWInputFieldDropdown2 extends StatelessWidget {
   final ValueChanged? onChanged;
   final MenuItem? value;
   final List<MenuItem> items;
@@ -984,11 +984,6 @@ class CWInputFieldDropdown2 extends StatefulWidget {
     hintText ??= "Options";
   }
 
-  @override
-  State<CWInputFieldDropdown2> createState() => _CWInputFieldDropdown2State();
-}
-
-class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
   final _borderRadiusLeft = const BorderRadius.only(
       topLeft: Radius.circular(5), bottomLeft: Radius.circular(5));
 
@@ -997,24 +992,65 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
 
   final double _dropdownBtnWidth = 40;
 
+  /// This is the global key, which will be used to traverse [DropdownButton]s widget tree
+  GlobalKey _dropdownButtonKey = GlobalKey();
+  // void openDropdown() {
+  //   GestureDetector? detector;
+  //   void searchForGestureDetector(BuildContext element) {
+  //     element.visitChildElements((element) {
+  //       if (element.widget != null && element.widget is GestureDetector) {
+  //         detector = element.widget as GestureDetector?;
+  //         return ;
+  //
+  //       } else {
+  //         searchForGestureDetector(element);
+  //       }
+  //
+  //       return ;
+  //     });
+  //   }
+  //
+  //   searchForGestureDetector(_dropdownButtonKey.currentContext!);
+  //   assert(detector != null);
+  //
+  //   detector!.onTap!();
+  // }
+// The rest of the code is the same
+  void openDropdown() {
+    _dropdownButtonKey.currentContext?.visitChildElements((element) {
+      if (element.widget != null && element.widget is Semantics) {
+        element.visitChildElements((element) {
+          if (element.widget != null && element.widget is Actions) {
+            element.visitChildElements((element) {
+              // Actions.invoke(element, Intent(ActivateAction.key));
+              Actions.invoke(element, const ActivateIntent());
+              return;
+            });
+          }
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final _offSet = widget.isDropdownRight
-        ? Offset(-widget.dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
+    final _offSet = isDropdownRight
+        ? Offset(-dropdownOptionsWidth! + _dropdownBtnWidth + 2, -5)
         : const Offset(0, -5);
 
     final _borderRadius =
-        widget.isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
+        isDropdownRight ? _borderRadiusRight : _borderRadiusLeft;
 
     return SizedBox(
       width: _dropdownBtnWidth,
       height: 40,
       child: DropdownButton2(
+        key: _dropdownButtonKey,
         buttonWidth: _dropdownBtnWidth,
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
         underline: const SizedBox(),
-        onChanged: widget.onChanged,
+        onChanged: onChanged,
         isExpanded: true,
         focusColor: ThemeColors.transparent,
         onMenuStateChange: (bool changed) {},
@@ -1028,10 +1064,10 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
                 blurRadius: 4)
           ],
         ),
-        value: widget.value,
+        value: value,
         offset: _offSet,
-        dropdownWidth: widget.dropdownOptionsWidth,
-        dropdownMaxHeight: widget.dropdownMaxHeight,
+        dropdownWidth: dropdownOptionsWidth,
+        dropdownMaxHeight: dropdownMaxHeight,
         customButton: Container(
           height: 48,
           alignment: Alignment.center,
@@ -1049,7 +1085,7 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
   }
 
   List<DropdownMenuItem<MenuItem>> _getItems() {
-    List<MenuItem> listValues = widget.items;
+    List<MenuItem> listValues = items;
     List<DropdownMenuItem<MenuItem>> _menuItems = [];
     for (int i = 0; i < listValues.length; i++) {
       _menuItems.add(
@@ -1057,7 +1093,7 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
           value: listValues[i],
           child: Container(
               decoration: BoxDecoration(
-                  color: listValues[i].text == widget.value?.text
+                  color: listValues[i].text == value?.text
                       ? ThemeColors.coolgray100
                       : ThemeColors.white,
                   border: Border(
@@ -1072,8 +1108,8 @@ class _CWInputFieldDropdown2State extends State<CWInputFieldDropdown2> {
               height: double.infinity,
               child: _buildMenuItems(
                 item: listValues[i],
-                isDropdownOptionsIconRight: widget.isDropdownOptionsIconRight!,
-                dropdownOptionsWidth: widget.dropdownOptionsWidth!,
+                isDropdownOptionsIconRight: isDropdownOptionsIconRight!,
+                dropdownOptionsWidth: dropdownOptionsWidth!,
               )),
         ),
       );
