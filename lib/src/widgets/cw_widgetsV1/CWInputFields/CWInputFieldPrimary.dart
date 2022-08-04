@@ -14,24 +14,26 @@ class CWInputFieldWithLabel extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
+  final ValueChanged<String>? onChange;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
 
   const CWInputFieldWithLabel(
       {required this.labelText,
-        this.controller,
-        this.keyboardType,
-        this.onTap,
-        this.validator,
-        this.isDisabled = false,
-        this.textStartFromRight = false,
-        this.hintText,
-        this.suffix,
-        this.prefix,
-        this.inputFieldWidth = 273,
-        this.obscureText = false,
-        Key? key})
+      this.controller,
+      this.keyboardType,
+      this.onTap,
+      this.validator,
+      this.isDisabled = false,
+      this.textStartFromRight = false,
+      this.hintText,
+      this.suffix,
+      this.prefix,
+      this.inputFieldWidth = 273,
+      this.obscureText = false,
+      this.onChange,
+      Key? key})
       : super(key: key);
 
   @override
@@ -54,6 +56,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: ThemeShadows.shadowSm),
             child: TextFormField(
+              onChanged: onChange,
               textAlign:
               textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
@@ -127,23 +130,25 @@ class CWInputField extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
+  final ValueChanged<String>? onChange;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
   ///
   const CWInputField(
       {this.controller,
-        this.keyboardType,
-        this.onTap,
-        this.validator,
-        this.isDisabled = false,
-        this.textStartFromRight = false,
-        this.hintText,
-        this.suffix,
-        this.prefix,
-        this.inputFieldWidth = 273,
-        this.obscureText = false,
-        Key? key})
+      this.keyboardType,
+      this.onTap,
+      this.validator,
+      this.isDisabled = false,
+      this.textStartFromRight = false,
+      this.hintText,
+      this.suffix,
+      this.prefix,
+      this.inputFieldWidth = 273,
+      this.obscureText = false,
+      this.onChange,
+      Key? key})
       : super(key: key);
 
   @override
@@ -156,6 +161,7 @@ class CWInputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
+        onChanged: onChange,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
@@ -224,26 +230,28 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
+  final ValueChanged<String>? onChange;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
 
   const CWInputFieldWithDropdownS(
       {this.controller,
-        this.keyboardType,
-        this.onTap,
-        this.validator,
-        this.isDisabled = false,
-        this.textStartFromRight = false,
-        this.hintText,
-        this.onDropdownChanged,
-        required this.dropdownItems,
-        this.dropdownValue,
-        this.inputFieldWidth = 173,
-        this.isDropdownRight = true,
-        this.isDropdownOptionsIconRight = false,
-        this.dropdownMaxHeight,
-        Key? key})
+      this.keyboardType,
+      this.onTap,
+      this.validator,
+      this.isDisabled = false,
+      this.textStartFromRight = false,
+      this.hintText,
+      this.onDropdownChanged,
+      required this.dropdownItems,
+      this.dropdownValue,
+      this.inputFieldWidth = 173,
+      this.isDropdownRight = true,
+      this.isDropdownOptionsIconRight = false,
+      this.dropdownMaxHeight,
+      this.onChange,
+      Key? key})
       : super(key: key);
 
   final _borderRadiusLeft = const BorderRadius.only(
@@ -280,6 +288,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
           SizedBox(
             width: inputFieldWidth! - 72,
             child: TextFormField(
+              onChanged: onChange,
               textAlign:
               textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
@@ -352,28 +361,28 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
-  final bool? isTextCenter;
+  final ValueChanged<String>? onChange;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
 
   CWInputFieldWithDropdownM(
       {this.controller,
-        this.keyboardType,
-        this.isTextCenter,
-        this.onTap,
-        this.validator,
-        this.isDisabled = false,
-        this.textStartFromRight = false,
-        this.hintText,
-        this.onDropdownChanged,
-        required this.dropdownItems,
-        this.dropdownValue,
-        this.isDropdownRight = false,
-        this.inputFieldWidth = 303,
-        this.isDropdownOptionsIconRight = true,
-        this.dropdownMaxHeight,
-        Key? key})
+      this.keyboardType,
+      this.onTap,
+      this.validator,
+      this.isDisabled = false,
+      this.textStartFromRight = false,
+      this.hintText,
+      this.onDropdownChanged,
+      required this.dropdownItems,
+      this.dropdownValue,
+      this.isDropdownRight = false,
+      this.inputFieldWidth = 303,
+      this.isDropdownOptionsIconRight = true,
+      this.dropdownMaxHeight,
+      this.onChange,
+      Key? key})
       : super(key: key);
 
   final _borderRadiusLeft = const BorderRadius.only(
@@ -418,7 +427,9 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
           SizedBox(
             width: inputFieldWidth! - 42,
             child: TextFormField(
-              textAlign: _textAlign(),
+              onChanged: onChange,
+              textAlign:
+                  textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
               style: ThemeTextRegular.base
                   .copyWith(color: ThemeColors.coolgray900),
@@ -487,6 +498,7 @@ class CWInputFieldWithValidText extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
+  final ValueChanged<String>? onChange;
 
   /// * For the Validation Error Text,
   /// We need extra space to show the error text.
@@ -498,17 +510,18 @@ class CWInputFieldWithValidText extends StatelessWidget {
 
   const CWInputFieldWithValidText(
       {this.controller,
-        this.keyboardType,
-        this.onTap,
-        this.validator,
-        this.isDisabled = false,
-        this.textStartFromRight = false,
-        this.hintText,
-        this.suffix,
-        this.prefix,
-        this.inputFieldWidth = 273,
-        this.obscureText = false,
-        Key? key})
+      this.keyboardType,
+      this.onTap,
+      this.validator,
+      this.isDisabled = false,
+      this.textStartFromRight = false,
+      this.hintText,
+      this.suffix,
+      this.prefix,
+      this.inputFieldWidth = 273,
+      this.obscureText = false,
+      this.onChange,
+      Key? key})
       : super(key: key);
 
   @override
@@ -520,6 +533,7 @@ class CWInputFieldWithValidText extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
+        onChanged: onChange,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
@@ -588,6 +602,7 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
+  final ValueChanged<String>? onChange;
 
   /// * For the Validation Error Border only,
   /// The Text size is .01 and transparent.
@@ -597,17 +612,18 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
 
   const CWInputFieldWithValidBorder(
       {this.controller,
-        this.keyboardType,
-        this.onTap,
-        this.validator,
-        this.isDisabled = false,
-        this.textStartFromRight = false,
-        this.hintText,
-        this.suffix,
-        this.prefix,
-        this.inputFieldWidth = 273,
-        this.obscureText = false,
-        Key? key})
+      this.keyboardType,
+      this.onTap,
+      this.validator,
+      this.isDisabled = false,
+      this.textStartFromRight = false,
+      this.hintText,
+      this.suffix,
+      this.prefix,
+      this.inputFieldWidth = 273,
+      this.obscureText = false,
+      this.onChange,
+      Key? key})
       : super(key: key);
 
   @override
@@ -619,6 +635,7 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
+        onChanged: onChange,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
         style: ThemeTextRegular.base.copyWith(color: ThemeColors.coolgray900),
