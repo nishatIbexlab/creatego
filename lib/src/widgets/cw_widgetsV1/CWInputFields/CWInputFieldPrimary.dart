@@ -14,6 +14,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
   final Widget? prefix;
   final double? inputFieldWidth;
   final bool? obscureText;
+  final ValueChanged<String>? onSubmitted;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -31,6 +32,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
       this.prefix,
       this.inputFieldWidth = 273,
       this.obscureText = false,
+      this.onSubmitted,
       Key? key})
       : super(key: key);
 
@@ -54,6 +56,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: ThemeShadows.shadowSm),
             child: TextFormField(
+              onFieldSubmitted: onSubmitted,
               textAlign:
                   textStartFromRight! ? TextAlign.right : TextAlign.start,
               cursorColor: ThemeColors.coolgray900,
@@ -128,6 +131,7 @@ class CWInputField extends StatelessWidget {
   final double? inputFieldWidth;
   final bool? obscureText;
   final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onSubmitted;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -145,6 +149,7 @@ class CWInputField extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onChanged,
+      this.onSubmitted,
       Key? key})
       : super(key: key);
 
@@ -158,6 +163,7 @@ class CWInputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: TextFormField(
+        onFieldSubmitted: onSubmitted,
         onChanged: onChanged,
         textAlign: textStartFromRight! ? TextAlign.right : TextAlign.start,
         cursorColor: ThemeColors.coolgray900,
