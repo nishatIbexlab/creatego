@@ -15,6 +15,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
   final double? inputFieldWidth;
   final bool? obscureText;
   final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -33,6 +34,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onSubmitted,
+        this.textInputAction,
       Key? key})
       : super(key: key);
 
@@ -110,6 +112,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
               onTap: onTap,
               keyboardType: keyboardType,
               readOnly: isDisabled! ? true : false,
+              textInputAction: textInputAction,
             ),
           ),
         ],
@@ -132,6 +135,7 @@ class CWInputField extends StatelessWidget {
   final bool? obscureText;
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -150,7 +154,9 @@ class CWInputField extends StatelessWidget {
       this.obscureText = false,
       this.onChanged,
       this.onSubmitted,
-      Key? key})
+        this.textInputAction,
+
+        Key? key})
       : super(key: key);
 
   @override
@@ -213,6 +219,7 @@ class CWInputField extends StatelessWidget {
         onTap: onTap,
         keyboardType: keyboardType,
         readOnly: isDisabled! ? true : false,
+        textInputAction: textInputAction,
       ),
     );
   }
@@ -234,6 +241,8 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
   final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
+
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -254,7 +263,9 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
       this.isDropdownOptionsIconRight = false,
       this.dropdownMaxHeight,
       this.onSubmitted,
-      Key? key})
+        this.textInputAction,
+
+        Key? key})
       : super(key: key);
 
   final _borderRadiusLeft = const BorderRadius.only(
@@ -333,6 +344,7 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
               onTap: onTap,
               keyboardType: keyboardType,
               readOnly: isDisabled! ? true : false,
+              textInputAction: textInputAction,
             ),
           ),
           if (isDropdownRight!)
@@ -365,6 +377,8 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final bool? isDropdownOptionsIconRight;
   final double? dropdownMaxHeight;
   final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
+
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -385,6 +399,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       this.isDropdownOptionsIconRight = true,
       this.dropdownMaxHeight,
       this.onSubmitted,
+      this.textInputAction,// =TextInputAction.search,
       Key? key})
       : super(key: key);
 
@@ -471,6 +486,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               onTap: onTap,
               keyboardType: keyboardType,
               readOnly: isDisabled! ? true : false,
+              textInputAction: textInputAction,
             ),
           ),
           if (isDropdownRight!) _CWInputFieldDropdown2,
@@ -493,6 +509,7 @@ class CWInputFieldWithValidText extends StatelessWidget {
   final double? inputFieldWidth;
   final bool? obscureText;
   final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
 
   /// * For the Validation Error Text,
   /// We need extra space to show the error text.
@@ -515,7 +532,9 @@ class CWInputFieldWithValidText extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onSubmitted,
-      Key? key})
+        this.textInputAction,
+
+        Key? key})
       : super(key: key);
 
   @override
@@ -579,6 +598,7 @@ class CWInputFieldWithValidText extends StatelessWidget {
         onTap: onTap,
         keyboardType: keyboardType,
         readOnly: isDisabled! ? true : false,
+        textInputAction: textInputAction,
       ),
     );
   }
@@ -597,6 +617,7 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
   final double? inputFieldWidth;
   final bool? obscureText;
   final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
 
   /// * For the Validation Error Border only,
   /// The Text size is .01 and transparent.
@@ -617,7 +638,9 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onSubmitted,
-      Key? key})
+        this.textInputAction,
+
+        Key? key})
       : super(key: key);
 
   @override
@@ -681,6 +704,7 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
         onTap: onTap,
         keyboardType: keyboardType,
         readOnly: isDisabled! ? true : false,
+        textInputAction: textInputAction,
       ),
     );
   }
