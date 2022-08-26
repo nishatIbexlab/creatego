@@ -34,7 +34,7 @@ class CWInputFieldWithLabel extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onSubmitted,
-        this.textInputAction,
+      this.textInputAction,
       Key? key})
       : super(key: key);
 
@@ -154,9 +154,8 @@ class CWInputField extends StatelessWidget {
       this.obscureText = false,
       this.onChanged,
       this.onSubmitted,
-        this.textInputAction,
-
-        Key? key})
+      this.textInputAction,
+      Key? key})
       : super(key: key);
 
   @override
@@ -243,7 +242,6 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
   final ValueChanged<String>? onSubmitted;
   final TextInputAction? textInputAction;
 
-
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
 
@@ -263,9 +261,8 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
       this.isDropdownOptionsIconRight = false,
       this.dropdownMaxHeight,
       this.onSubmitted,
-        this.textInputAction,
-
-        Key? key})
+      this.textInputAction,
+      Key? key})
       : super(key: key);
 
   final _borderRadiusLeft = const BorderRadius.only(
@@ -378,7 +375,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final double? dropdownMaxHeight;
   final ValueChanged<String>? onSubmitted;
   final TextInputAction? textInputAction;
-
+  final ValueChanged<String>? onInputChanged;
 
   /// * Better to use [CWInputFieldWithValidBorder]
   /// with custom error handling from the page.
@@ -399,7 +396,8 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       this.isDropdownOptionsIconRight = true,
       this.dropdownMaxHeight,
       this.onSubmitted,
-      this.textInputAction,// =TextInputAction.search,
+      this.textInputAction, // =TextInputAction.search,
+      this.onInputChanged,
       Key? key})
       : super(key: key);
 
@@ -444,6 +442,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
           SizedBox(
             width: inputFieldWidth! - 42,
             child: TextFormField(
+              onChanged: onInputChanged,
               onFieldSubmitted: onSubmitted,
               textAlign:
                   textStartFromRight! ? TextAlign.right : TextAlign.start,
@@ -532,9 +531,8 @@ class CWInputFieldWithValidText extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onSubmitted,
-        this.textInputAction,
-
-        Key? key})
+      this.textInputAction,
+      Key? key})
       : super(key: key);
 
   @override
@@ -638,9 +636,8 @@ class CWInputFieldWithValidBorder extends StatelessWidget {
       this.inputFieldWidth = 273,
       this.obscureText = false,
       this.onSubmitted,
-        this.textInputAction,
-
-        Key? key})
+      this.textInputAction,
+      Key? key})
       : super(key: key);
 
   @override
