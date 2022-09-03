@@ -233,8 +233,8 @@ class CWInputFieldWithDropdownS extends StatelessWidget {
   final bool? textStartFromRight;
   final String? hintText;
   final ValueChanged? onDropdownChanged;
-  final List<MenuItem> dropdownItems;
-  final MenuItem? dropdownValue;
+  final List<DpMenuItem> dropdownItems;
+  final DpMenuItem? dropdownValue;
   final double? inputFieldWidth;
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;
@@ -367,8 +367,8 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
   final bool? textStartFromRight;
   final String? hintText;
   final ValueChanged? onDropdownChanged;
-  final List<MenuItem> dropdownItems;
-  final MenuItem? dropdownValue;
+  final List<DpMenuItem> dropdownItems;
+  final DpMenuItem? dropdownValue;
   final double? inputFieldWidth;
   final bool? isDropdownRight;
   final bool? isDropdownOptionsIconRight;

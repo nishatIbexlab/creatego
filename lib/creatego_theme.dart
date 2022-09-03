@@ -22,7 +22,6 @@ export 'src/widgets/yoshop_sys_components/sidebar/ys_sidebar.dart';
 export 'src/widgets/yoshop_sys_components/buttons/ys_button.dart';
 export 'src/widgets/yoshop_sys_components/toogles/ys_toogle.dart';
 export 'src/widgets/yoshop_sys_components/checkboxes/ys_checkbox.dart';
-export 'src/widgets/yoshop_sys_components/datatables/default_datatable.dart';
 export 'src/widgets/yoshop_sys_components/dropdowns/ys_dropdown.dart';
 export 'src/widgets/yoshop_sys_components/inputfields/ys_inputfield.dart';
 export 'src/widgets/yoshop_sys_components/status/ys_status.dart';

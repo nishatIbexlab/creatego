@@ -214,8 +214,8 @@ class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
 
 class CWDropdownWithIconMenu extends StatefulWidget {
   final ValueChanged? onChanged;
-  final MenuItem? value;
-  final List<MenuItem> items;
+  final DpMenuItem? value;
+  final List<DpMenuItem> items;
   final IconData? leftIcon;
   String? hintText;
   bool isValueNull = false;
@@ -367,12 +367,12 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
     ];
   }
 
-  List<DropdownMenuItem<MenuItem>> _getItems() {
-    List<MenuItem> listValues = widget.items;
-    List<DropdownMenuItem<MenuItem>> _menuItems = [];
+  List<DropdownMenuItem<DpMenuItem>> _getItems() {
+    List<DpMenuItem> listValues = widget.items;
+    List<DropdownMenuItem<DpMenuItem>> _menuItems = [];
     for (int i = 0; i < listValues.length; i++) {
       _menuItems.add(
-        DropdownMenuItem<MenuItem>(
+        DropdownMenuItem<DpMenuItem>(
           value: listValues[i],
           child: Container(
               decoration: BoxDecoration(
@@ -405,7 +405,7 @@ class _CWDropdownWithIconMenuState extends State<CWDropdownWithIconMenu> {
 class CWDropdownWithIconMenu2 extends StatefulWidget {
   final ValueChanged? onChanged;
   final dynamic value;
-  final List<MenuItem> items;
+  final List<DpMenuItem> items;
   final IconData? leftIcon;
   String? hintText;
   bool isValueNull = false;
@@ -526,7 +526,7 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
   }
 
   List<Widget> _buildSelectedItem(BuildContext ctx) {
-    MenuItem item = widget.value;
+    DpMenuItem item = widget.value;
     return [
       if (widget.leftIcon != null)
         Icon(widget.leftIcon!,
@@ -556,12 +556,12 @@ class _CWDropdownWithIconMenu2State extends State<CWDropdownWithIconMenu2> {
     ];
   }
 
-  List<DropdownMenuItem<MenuItem>> _getItems() {
-    List<MenuItem> listValues = widget.items;
-    List<DropdownMenuItem<MenuItem>> _menuItems = [];
+  List<DropdownMenuItem<DpMenuItem>> _getItems() {
+    List<DpMenuItem> listValues = widget.items;
+    List<DropdownMenuItem<DpMenuItem>> _menuItems = [];
     for (int i = 0; i < listValues.length; i++) {
       _menuItems.add(
-        DropdownMenuItem<MenuItem>(
+        DropdownMenuItem<DpMenuItem>(
           value: listValues[i],
           child: Container(
               decoration: BoxDecoration(
@@ -782,8 +782,8 @@ class _CWDropdownWithIconState extends State<CWDropdownWithIcon> {
 ///////////////////////////////////////////////////
 class CWInputFieldDropdown extends StatefulWidget {
   final ValueChanged? onChanged;
-  final MenuItem? value;
-  final List<MenuItem> items;
+  final DpMenuItem? value;
+  final List<DpMenuItem> items;
   bool isValueNull = false;
   String? hintText;
   final bool isDropdownRight;
@@ -918,12 +918,12 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
     ];
   }
 
-  List<DropdownMenuItem<MenuItem>> _getItems() {
-    List<MenuItem> listValues = widget.items;
-    List<DropdownMenuItem<MenuItem>> _menuItems = [];
+  List<DropdownMenuItem<DpMenuItem>> _getItems() {
+    List<DpMenuItem> listValues = widget.items;
+    List<DropdownMenuItem<DpMenuItem>> _menuItems = [];
     for (int i = 0; i < listValues.length; i++) {
       _menuItems.add(
-        DropdownMenuItem<MenuItem>(
+        DropdownMenuItem<DpMenuItem>(
           value: listValues[i],
           child: Container(
               decoration: BoxDecoration(
@@ -955,8 +955,8 @@ class _CWInputFieldDropdownState extends State<CWInputFieldDropdown> {
 
 class CWInputFieldDropdown2 extends StatelessWidget {
   final ValueChanged? onChanged;
-  final MenuItem? value;
-  final List<MenuItem> items;
+  final DpMenuItem? value;
+  final List<DpMenuItem> items;
   bool isValueNull = false;
   String? hintText;
   final double? dropdownOptionsWidth;
@@ -1084,12 +1084,12 @@ class CWInputFieldDropdown2 extends StatelessWidget {
     );
   }
 
-  List<DropdownMenuItem<MenuItem>> _getItems() {
-    List<MenuItem> listValues = items;
-    List<DropdownMenuItem<MenuItem>> _menuItems = [];
+  List<DropdownMenuItem<DpMenuItem>> _getItems() {
+    List<DpMenuItem> listValues = items;
+    List<DropdownMenuItem<DpMenuItem>> _menuItems = [];
     for (int i = 0; i < listValues.length; i++) {
       _menuItems.add(
-        DropdownMenuItem<MenuItem>(
+        DropdownMenuItem<DpMenuItem>(
           value: listValues[i],
           child: Container(
               decoration: BoxDecoration(
@@ -1119,18 +1119,18 @@ class CWInputFieldDropdown2 extends StatelessWidget {
   }
 }
 
-class MenuItem {
+class DpMenuItem {
   final String text;
   final IconData? icon;
 
-  const MenuItem({
+  const DpMenuItem({
     required this.text,
     this.icon,
   });
 }
 
 Widget _buildMenuItems(
-    {required MenuItem item,
+    {required DpMenuItem item,
     required bool isDropdownOptionsIconRight,
     double? dropdownOptionsWidth}) {
   return Row(
