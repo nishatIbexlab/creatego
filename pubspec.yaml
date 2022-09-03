@@ -19,7 +19,7 @@ dependencies:
   flutter_redux: ^0.10.0
 
   # Routing Related Dependencies
-  auto_route: ^5.0.1
+  auto_route: ^4.0.1
 
   # Additional Related Dependencies
   intl: ^0.17.0
