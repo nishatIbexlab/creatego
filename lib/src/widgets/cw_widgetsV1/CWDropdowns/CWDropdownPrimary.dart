@@ -13,6 +13,7 @@ class CWDropdownPrimary extends StatefulWidget {
   final bool? showDropdownIcon;
   final double? dropdownMaxHeight;
   final Color? dropdownBtnColor;
+  final bool withSearchBox;
 
   /// Dropdown-button-width, Dropdown-Options-Width
   ///  are changeable.
@@ -22,6 +23,7 @@ class CWDropdownPrimary extends StatefulWidget {
       {Key? key,
       required this.items,
       this.onChanged,
+      this.withSearchBox = false,
       this.value,
       this.leftIcon,
       this.dropdownBtnWidth = 115,
@@ -40,12 +42,30 @@ class CWDropdownPrimary extends StatefulWidget {
 }
 
 class _CWDropdownPrimaryState extends State<CWDropdownPrimary> {
+  final TextEditingController searchcontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    searchcontroller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.dropdownBtnWidth,
       height: 40,
       child: DropdownButton2(
+        searchInnerWidget: widget.withSearchBox
+            ? Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: CWInputField(
+                  controller: searchcontroller,
+                  hintText: "Search",
+                ),
+              )
+            : null,
+        searchController: searchcontroller,
         itemPadding: EdgeInsets.zero,
         alignment: Alignment.centerLeft,
         underline: const SizedBox(),
