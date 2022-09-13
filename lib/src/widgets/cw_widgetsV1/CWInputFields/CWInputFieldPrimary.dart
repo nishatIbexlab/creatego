@@ -406,14 +406,15 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
 
   final _borderRadiusRight = const BorderRadius.only(
       topRight: Radius.circular(6), bottomRight: Radius.circular(6));
-  late CWInputFieldDropdown2 _CWInputFieldDropdown2;
+  CWInputFieldDropdown2? _CWInputFieldDropdown2;
 
   void openDropdown() {
-    _CWInputFieldDropdown2.openDropdown();
+    if(_CWInputFieldDropdown2!=null) {
+      _CWInputFieldDropdown2?.openDropdown();
+    }
   }
-
-  @override
-  Widget build(BuildContext context) {
+  
+  Widget _setSearchDropdown(BuildContext context) {
     _CWInputFieldDropdown2 = CWInputFieldDropdown2(
       items: dropdownItems,
       onChanged: onDropdownChanged,
@@ -423,6 +424,13 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       isDropdownOptionsIconRight: isDropdownOptionsIconRight,
       dropdownMaxHeight: dropdownMaxHeight,
     );
+    return _CWInputFieldDropdown2??Container();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+
 
     final _borderRadius =
         isDropdownRight! ? _borderRadiusLeft : _borderRadiusRight;
@@ -438,7 +446,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
       ),
       child: Row(
         children: [
-          if (!isDropdownRight!) _CWInputFieldDropdown2,
+          if (!isDropdownRight!) _setSearchDropdown(context),
           SizedBox(
             width: inputFieldWidth! - 42,
             child: TextFormField(
@@ -488,7 +496,7 @@ class CWInputFieldWithDropdownM extends StatelessWidget {
               textInputAction: textInputAction,
             ),
           ),
-          if (isDropdownRight!) _CWInputFieldDropdown2,
+          if (isDropdownRight!) _setSearchDropdown(context),
         ],
       ),
     );
