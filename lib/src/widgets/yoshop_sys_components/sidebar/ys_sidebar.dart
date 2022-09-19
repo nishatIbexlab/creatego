@@ -7,18 +7,23 @@ class YSLogoBanner extends StatelessWidget {
   final String title;
   final VoidCallback? onMenuPressed;
   final VoidCallback? onTitlePressed;
+  final Color? bgColor;
 
   YSLogoBanner(
-      {Key? key, required this.title, this.onMenuPressed, this.onTitlePressed})
+      {Key? key,
+      required this.title,
+      this.onMenuPressed,
+      this.onTitlePressed,
+      this.bgColor = ThemeColors.orange500})
       : super(key: key);
 
   Mix get boxMix => Mix(
         paddingHorizontal(16),
-        const BoxAttributes(
+        BoxAttributes(
             width: 256,
             height: 64,
             alignment: Alignment.center,
-            color: ThemeColors.finex700),
+            color: bgColor),
       );
 
   Mix get logoTextMix => Mix(
@@ -132,6 +137,7 @@ class YSSidebar extends StatefulWidget {
   final int currentIndex;
   void Function(int)? onTabChange;
   final Widget? bottomWidget;
+  final Color sideBarBgColor;
   YSSidebar(
       {Key? key,
       this.infoBarUpperText,
@@ -142,7 +148,8 @@ class YSSidebar extends StatefulWidget {
       this.onMenuPressed,
       this.currentIndex = 0,
       this.onTabChange,
-      this.bottomWidget})
+      this.bottomWidget,
+      this.sideBarBgColor = ThemeColors.orange500})
       : super(key: key);
 
   @override
@@ -167,6 +174,7 @@ class _YSSidebarState extends State<YSSidebar> {
           FlexBox(mix: parentFlexboxMix, direction: Axis.vertical, children: [
         YSLogoBanner(
             title: widget.title,
+            bgColor: widget.sideBarBgColor,
             onMenuPressed: widget.onMenuPressed,
             onTitlePressed: widget.onTitlePressed),
         if (widget.infoBarLowerText != null && widget.infoBarUpperText != null)
@@ -207,6 +215,7 @@ class _YSSidebarState extends State<YSSidebar> {
             isActive: i == widget.currentIndex,
             heroIcon: _item.heroIcon,
             svgPicIcon: _item.svgPicIcon,
+            sideBarBgColor: widget.sideBarBgColor,
             onPressed: () {
               if (_item.children == null || _item.children!.isEmpty) {
                 widget.onTabChange?.call(i);
