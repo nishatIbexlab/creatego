@@ -137,7 +137,7 @@ class YSSidebar extends StatefulWidget {
   final int currentIndex;
   void Function(int)? onTabChange;
   final Widget? bottomWidget;
-  final Color sideBarBgColor;
+  final Color? sideBarBgColor;
   YSSidebar(
       {Key? key,
       this.infoBarUpperText,
@@ -174,7 +174,7 @@ class _YSSidebarState extends State<YSSidebar> {
           FlexBox(mix: parentFlexboxMix, direction: Axis.vertical, children: [
         YSLogoBanner(
             title: widget.title,
-            bgColor: widget.sideBarBgColor,
+            bgColor: widget.sideBarBgColor!,
             onMenuPressed: widget.onMenuPressed,
             onTitlePressed: widget.onTitlePressed),
         if (widget.infoBarLowerText != null && widget.infoBarUpperText != null)
