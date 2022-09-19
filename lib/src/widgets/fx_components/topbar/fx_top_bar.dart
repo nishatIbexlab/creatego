@@ -19,6 +19,7 @@ class FXTopBar extends StatelessWidget {
   final double iconSize;
   final String? searchHintText;
   final List<String> navigationList;
+  final Color topBarBgColor;
 
   const FXTopBar({
     Key? key,
@@ -36,6 +37,7 @@ class FXTopBar extends StatelessWidget {
     this.barTextColor = ThemeColors.white,
     this.iconSize = 24,
     this.searchHintText,
+    this.topBarBgColor = ThemeColors.orange500,
   }) : super(key: key);
 
   Mix get topBarMix => Mix(
@@ -51,7 +53,7 @@ class FXTopBar extends StatelessWidget {
           rounded(6),
           fontSize(15),
           textColor(barTextColor),
-          bgColor(ThemeColors.orange500),
+          bgColor(topBarBgColor),
         ),
       );
 
@@ -179,7 +181,7 @@ class FXTopBar extends StatelessWidget {
                 else
                   PressableMix(
                     mix: topBarRightSide,
-                    onPressed: (){},
+                    onPressed: () {},
                     child: const IconMix(
                       Icons.keyboard_arrow_down,
                     ),
