@@ -11,19 +11,11 @@ class ApiResponse {
   bool success;
   dynamic data;
   RequestOptions? requestOptions;
-
-  toJson() {
-    return {
-      'resMessage': resMessage,
-      'resCode': resCode,
-      'success': success,
-      'data': data,
-      'requestOptions': requestOptions,
-    };
-  }
+  Response<dynamic>? rawError;
 
   ApiResponse(
       {this.resMessage,
+      this.rawError,
       this.resCode,
       this.data,
       required this.success,
@@ -53,16 +45,13 @@ extension FutureExceptionHandler on Future {
         case DioError:
           final _dioError = (errrorRes as DioError);
           final _errorType = _dioError.type;
+          _apiResponse.rawError = _dioError.response;
           _apiResponse.requestOptions = _dioError.requestOptions;
           switch (_errorType) {
             case DioErrorType.response:
-              if (errrorRes.response != null) {
-                _apiResponse.resCode = _dioError.response!.statusCode;
-                _apiResponse.resMessage = _dioError.response!.statusMessage;
-                _apiResponse.data = _dioError.response!.data;
-              } else {
-                _apiResponse.resMessage = _dioError.error.toString();
-              }
+              _apiResponse.resCode = _dioError.response!.statusCode;
+              _apiResponse.resMessage = _dioError.response!.statusMessage;
+              _apiResponse.data = _dioError.response!.data;
               break;
             case DioErrorType.other:
               Type _otherErrorType = _dioError.error.runtimeType;
