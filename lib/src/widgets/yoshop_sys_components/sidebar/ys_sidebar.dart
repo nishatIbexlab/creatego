@@ -18,7 +18,7 @@ class YSLogoBanner extends StatelessWidget {
             width: 256,
             height: 64,
             alignment: Alignment.center,
-            color: ThemeColors.orange500),
+            color: ThemeColors.finex700),
       );
 
   Mix get logoTextMix => Mix(
@@ -249,6 +249,7 @@ class YSSidebarParentItem extends StatelessWidget {
   final HeroIcons? heroIcon;
   final String? svgPicIcon;
   final String title;
+  Color? sideBarBgColor;
 
   /// Widget as YSSidebarChildItem
   /// If children is not null and is not empty, the arrow key appears and open the children on pressed.
@@ -268,6 +269,7 @@ class YSSidebarParentItem extends StatelessWidget {
     this.onPressed,
     this.isActive = false,
     this.isExpanded = false,
+    this.sideBarBgColor = ThemeColors.orange500,
     this.heroIconColor = ThemeColors.coolgray500,
     this.svgPicIcon,
   }) {
@@ -284,7 +286,7 @@ class YSSidebarParentItem extends StatelessWidget {
         height(40),
         rounded(6),
         paddingHorizontal(12),
-        bgColor(isExpanded ? ThemeColors.orange500 : Colors.transparent),
+        bgColor(isExpanded ? sideBarBgColor! : Colors.transparent),
       );
 
   Mix get titleMix => Mix(textStyle(ThemeTextRegular.sm
